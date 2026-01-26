@@ -1,4 +1,15 @@
-import requests
+import json
+from curl_cffi import requests
+
+
+def save_json_file(file_path: str, data: dict) -> None:
+    with open(file_path, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=2)
+
+def save_html_file(file_path: str, html: str) -> None:
+    with open(file_path, "w", encoding="utf-8") as html_file:
+        html_file.write(html)
+
 
 cookies = {
     'bc-device-id': 'fd981878-faf4-43a3-a1ce-6b87948f3b6c',

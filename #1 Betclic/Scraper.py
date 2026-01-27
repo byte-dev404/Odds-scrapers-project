@@ -5,6 +5,19 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Pydantic data models
 
+class Market(BaseModel):
+    market_id: str = Field(alias="id")
+    name: str
+    betslip_name: str = Field(alias="betslipName")
+    has_boosted_odds: bool = Field(alias="hasBoostedOdds", default=False)
+    is_cashoutable: bool = Field(alias="isCashoutable", default=True)
+    main_selections: list[Main_selections] = Field(alias="mainSelections", default_factory=list)
+    position: int = 0
+    match_id: str = Field(alias="matchId")
+    is_outright: bool = Field(alias="isOutright", default=False)
+    is_good_deal: bool = Field(alias="isGoodDeal", default=False)
+    is_early_win: bool = Field(alias="isEarlyWin", default=False)
+
 class Match_info(BaseModel):
     round_name: str = Field(alias="roundName")
     match_leg_type: int = Field(alias="matchLegType", default=0)

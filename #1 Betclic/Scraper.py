@@ -4,6 +4,19 @@ from curl_cffi import requests
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Pydantic data models
+class Competition_info(BaseModel):
+    competition_id: str = Field(alias="id")
+    competition_name: str = Field(alias="name")
+    competition_sport: str = Field(alias="sport")
+    country_code: str = Field(alias="countryCode")
+
+    @field_validator("competition_sport", mode="before")
+    @classmethod
+    def flat_competition_sport(cls, v):
+        if isinstance(v, dict):
+            return v.get("name") or v.get("code").title() or ""
+        return v or ""
+
 class Main_selections(BaseModel):
     selection_id: str = Field(alias="id")
     name: str

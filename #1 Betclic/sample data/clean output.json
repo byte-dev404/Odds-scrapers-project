@@ -1,0 +1,4356 @@
+{
+  "sport_name": "Football",
+  "matches": [
+    {
+      "match_id": "1004172818489344",
+      "team_names": "Werder Br\u00eame - Hoffenheim",
+      "match_date_utc": "2026-01-27T19:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252606952",
+          "full_name": "Werder Br\u00eame",
+          "short_name": "Werder Br\u00eame",
+          "form_results": [
+            3,
+            3,
+            2,
+            3,
+            2
+          ],
+          "ranking": "#15"
+        },
+        {
+          "contestant_id": "543844252607067",
+          "full_name": "Hoffenheim",
+          "short_name": "Hoffenheim",
+          "form_results": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#3"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 226,
+      "competition": {
+        "competition_id": "5",
+        "competition_name": "Allemagne Bundesliga",
+        "competition_sport": "Football",
+        "country_code": "DE"
+      },
+      "market": {
+        "market_id": "1009127670202372",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009127670505481",
+            "name": "Werder Br\u00eame",
+            "betslip_name": "Werder Br\u00eame",
+            "odds": 3.4,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606952",
+              "contestant:543844252607067"
+            ],
+            "betslipMarketId": "1009127670202372",
+            "player_ids": [],
+            "bet_trend": 5
+          },
+          {
+            "selection_id": "1009127670505482",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.6,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606952",
+              "contestant:543844252607067"
+            ],
+            "betslipMarketId": "1009127670202372",
+            "player_ids": [],
+            "bet_trend": 5
+          },
+          {
+            "selection_id": "1009127670505483",
+            "name": "Hoffenheim",
+            "betslip_name": "Hoffenheim",
+            "odds": 2.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606952",
+              "contestant:543844252607067"
+            ],
+            "betslipMarketId": "1009127670202372",
+            "player_ids": [],
+            "bet_trend": 90
+          }
+        ],
+        "position": 1,
+        "match_id": "1004172818489344",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J16",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 2
+    },
+    {
+      "match_id": "1004173237043200",
+      "team_names": "FC St. Pauli - RB Leipzig",
+      "match_date_utc": "2026-01-27T19:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543841480471094",
+          "full_name": "FC St. Pauli",
+          "short_name": "St. Pauli",
+          "form_results": [
+            3,
+            3,
+            2,
+            2,
+            3
+          ],
+          "ranking": "#17"
+        },
+        {
+          "contestant_id": "543841480470989",
+          "full_name": "RB Leipzig",
+          "short_name": "RB Leipzig",
+          "form_results": [
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#5"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 232,
+      "competition": {
+        "competition_id": "5",
+        "competition_name": "Allemagne Bundesliga",
+        "competition_sport": "Football",
+        "country_code": "DE"
+      },
+      "market": {
+        "market_id": "1009127464734724",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009127464984585",
+            "name": "FC St. Pauli",
+            "betslip_name": "FC St. Pauli",
+            "odds": 4.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480471094",
+              "contestant:543841480470989"
+            ],
+            "betslipMarketId": "1009127464734724",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1009127464984586",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480471094",
+              "contestant:543841480470989"
+            ],
+            "betslipMarketId": "1009127464734724",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1009127464984587",
+            "name": "RB Leipzig",
+            "betslip_name": "RB Leipzig",
+            "odds": 1.81,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480471094",
+              "contestant:543841480470989"
+            ],
+            "betslipMarketId": "1009127464734724",
+            "player_ids": [],
+            "bet_trend": 95
+          }
+        ],
+        "position": 1,
+        "match_id": "1004173237043200",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J16",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 2
+    },
+    {
+      "match_id": "907167611031552",
+      "team_names": "Fiorentina - C\u00f4me",
+      "match_date_utc": "2026-01-27T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252606879",
+          "full_name": "Fiorentina",
+          "short_name": "Fiorentina",
+          "form_results": [
+            1,
+            3,
+            3,
+            1,
+            2
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543841509532018",
+          "full_name": "C\u00f4me",
+          "short_name": "C\u00f4me",
+          "form_results": [
+            1,
+            3,
+            2,
+            1,
+            1
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 235,
+      "competition": {
+        "competition_id": "50",
+        "competition_name": "Italie Coupe",
+        "competition_sport": "Football",
+        "country_code": "IT"
+      },
+      "market": {
+        "market_id": "965337295360000",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "965337295536128",
+            "name": "Fiorentina",
+            "betslip_name": "Fiorentina",
+            "odds": 3.53,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606879",
+              "contestant:543841509532018"
+            ],
+            "betslipMarketId": "965337295360000",
+            "player_ids": [],
+            "bet_trend": 14
+          },
+          {
+            "selection_id": "965337295536129",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.4,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606879",
+              "contestant:543841509532018"
+            ],
+            "betslipMarketId": "965337295360000",
+            "player_ids": [],
+            "bet_trend": 5
+          },
+          {
+            "selection_id": "965337295536130",
+            "name": "C\u00f4me",
+            "betslip_name": "C\u00f4me",
+            "odds": 1.98,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606879",
+              "contestant:543841509532018"
+            ],
+            "betslipMarketId": "965337295360000",
+            "player_ids": [],
+            "bet_trend": 81
+          }
+        ],
+        "position": 1,
+        "match_id": "907167611031552",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "1/8e",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 3
+    },
+    {
+      "match_id": "1012751404318720",
+      "team_names": "Velez Sarsfield - Talleres",
+      "match_date_utc": "2026-01-27T20:45:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252607332",
+          "full_name": "Velez Sarsfield",
+          "short_name": "Velez Sarsfield",
+          "form_results": [
+            2,
+            2,
+            3,
+            2,
+            1
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543841509531904",
+          "full_name": "Talleres",
+          "short_name": "Talleres",
+          "form_results": [
+            1,
+            1,
+            3,
+            2,
+            1
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 126,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1013846671208452",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1013846671544329",
+            "name": "Velez Sarsfield",
+            "betslip_name": "Velez Sarsfield",
+            "odds": 2.08,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607332",
+              "contestant:543841509531904"
+            ],
+            "betslipMarketId": "1013846671208452",
+            "player_ids": [],
+            "bet_trend": 66
+          },
+          {
+            "selection_id": "1013846671544330",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.8,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607332",
+              "contestant:543841509531904"
+            ],
+            "betslipMarketId": "1013846671208452",
+            "player_ids": [],
+            "bet_trend": 10
+          },
+          {
+            "selection_id": "1013846671544331",
+            "name": "Talleres",
+            "betslip_name": "Talleres",
+            "odds": 3.53,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607332",
+              "contestant:543841509531904"
+            ],
+            "betslipMarketId": "1013846671208452",
+            "player_ids": [],
+            "bet_trend": 25
+          }
+        ],
+        "position": 1,
+        "match_id": "1012751404318720",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group A, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group A"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1002946685018112",
+      "team_names": "Cucuta Deportivo - Atletico Bucaramanga",
+      "match_date_utc": "2026-01-27T21:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844391019348",
+          "full_name": "Cucuta Deportivo",
+          "short_name": "Cucuta Deportivo",
+          "form_results": [
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#16"
+        },
+        {
+          "contestant_id": "543842934546651",
+          "full_name": "Atletico Bucaramanga",
+          "short_name": "Atletico Bucaramanga",
+          "form_results": [
+            1,
+            3,
+            3,
+            1,
+            3
+          ],
+          "ranking": "#6"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 126,
+      "competition": {
+        "competition_id": "5500",
+        "competition_name": "Colombie Primera A",
+        "competition_sport": "Football",
+        "country_code": "CO"
+      },
+      "market": {
+        "market_id": "1010223400828930",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1010223400726533",
+            "name": "Cucuta Deportivo",
+            "betslip_name": "Cucuta Deportivo",
+            "odds": 3.13,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844391019348",
+              "contestant:543842934546651"
+            ],
+            "betslipMarketId": "1010223400828930",
+            "player_ids": [],
+            "bet_trend": 7
+          },
+          {
+            "selection_id": "1010223400726534",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.78,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844391019348",
+              "contestant:543842934546651"
+            ],
+            "betslipMarketId": "1010223400828930",
+            "player_ids": [],
+            "bet_trend": 10
+          },
+          {
+            "selection_id": "1010223400726535",
+            "name": "Atletico Bucaramanga",
+            "betslip_name": "Atletico Bucaramanga",
+            "odds": 2.17,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844391019348",
+              "contestant:543842934546651"
+            ],
+            "betslipMarketId": "1010223400828930",
+            "player_ids": [],
+            "bet_trend": 83
+          }
+        ],
+        "position": 1,
+        "match_id": "1002946685018112",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, J3",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1005787991379968",
+      "team_names": "Sportivo Luque\u00f1o - Nacional Asuncion",
+      "match_date_utc": "2026-01-27T21:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844352521161",
+          "full_name": "Sportivo Luque\u00f1o",
+          "short_name": "Sportivo Luque\u00f1o",
+          "form_results": [
+            2,
+            1,
+            2,
+            2,
+            1
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543842076812092",
+          "full_name": "Nacional Asuncion",
+          "short_name": "Nacional Asuncion",
+          "form_results": [
+            1,
+            1,
+            1,
+            3,
+            1
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 114,
+      "competition": {
+        "competition_id": "5642",
+        "competition_name": "Paraguay Primera Divisi\u00f3n",
+        "competition_sport": "Football",
+        "country_code": "PY"
+      },
+      "market": {
+        "market_id": "1014268496478209",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1014268496478215",
+            "name": "Sportivo Luque\u00f1o",
+            "betslip_name": "Sportivo Luque\u00f1o",
+            "odds": 2.95,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521161",
+              "contestant:543842076812092"
+            ],
+            "betslipMarketId": "1014268496478209",
+            "player_ids": [],
+            "bet_trend": 7
+          },
+          {
+            "selection_id": "1014268496478216",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.87,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521161",
+              "contestant:543842076812092"
+            ],
+            "betslipMarketId": "1014268496478209",
+            "player_ids": [],
+            "bet_trend": 8
+          },
+          {
+            "selection_id": "1014268496478217",
+            "name": "Nacional Asuncion",
+            "betslip_name": "Nacional Asuncion",
+            "odds": 2.2,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521161",
+              "contestant:543842076812092"
+            ],
+            "betslipMarketId": "1014268496478209",
+            "player_ids": [],
+            "bet_trend": 85
+          }
+        ],
+        "position": 1,
+        "match_id": "1005787991379968",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J2",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1009535513092096",
+      "team_names": "Gimnasia y Esgrima Mendoza - San Lorenzo",
+      "match_date_utc": "2026-01-27T23:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844352520414",
+          "full_name": "Gimnasia y Esgrima Mendoza",
+          "short_name": "Gimnasia Mendoza",
+          "form_results": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844252607191",
+          "full_name": "San Lorenzo",
+          "short_name": "San Lorenzo",
+          "form_results": [
+            3,
+            2,
+            2,
+            3,
+            2
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 125,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009535520489480",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009535520481294",
+            "name": "Gimnasia y Esgrima Mendoza",
+            "betslip_name": "Gimnasia y Esgrima Mendoza",
+            "odds": 2.53,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352520414",
+              "contestant:543844252607191"
+            ],
+            "betslipMarketId": "1009535520489480",
+            "player_ids": [],
+            "bet_trend": 82
+          },
+          {
+            "selection_id": "1009535520481295",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.62,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352520414",
+              "contestant:543844252607191"
+            ],
+            "betslipMarketId": "1009535520489480",
+            "player_ids": [],
+            "bet_trend": 11
+          },
+          {
+            "selection_id": "1009535520481296",
+            "name": "San Lorenzo",
+            "betslip_name": "San Lorenzo",
+            "odds": 2.92,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352520414",
+              "contestant:543844252607191"
+            ],
+            "betslipMarketId": "1009535520489480",
+            "player_ids": [],
+            "bet_trend": 7
+          }
+        ],
+        "position": 1,
+        "match_id": "1009535513092096",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group A, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group A"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1009536999669761",
+      "team_names": "CA Huracan - Independiente Rivadavia",
+      "match_date_utc": "2026-01-27T23:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252607307",
+          "full_name": "CA Huracan",
+          "short_name": "CA Huracan",
+          "form_results": [
+            2,
+            3,
+            1,
+            1,
+            3
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844281217677",
+          "full_name": "Independiente Rivadavia",
+          "short_name": "Independiente Rivadavia",
+          "form_results": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 126,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009537002119170",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009537001766917",
+            "name": "CA Huracan",
+            "betslip_name": "CA Huracan",
+            "odds": 1.93,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607307",
+              "contestant:543844281217677"
+            ],
+            "betslipMarketId": "1009537002119170",
+            "player_ids": [],
+            "bet_trend": 76
+          },
+          {
+            "selection_id": "1009537001766918",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.67,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607307",
+              "contestant:543844281217677"
+            ],
+            "betslipMarketId": "1009537002119170",
+            "player_ids": [],
+            "bet_trend": 9
+          },
+          {
+            "selection_id": "1009537001766919",
+            "name": "Independiente Rivadavia",
+            "betslip_name": "Independiente Rivadavia",
+            "odds": 4.4,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607307",
+              "contestant:543844281217677"
+            ],
+            "betslipMarketId": "1009537002119170",
+            "player_ids": [],
+            "bet_trend": 15
+          }
+        ],
+        "position": 1,
+        "match_id": "1009536999669761",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group B, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group B"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1005788004896768",
+      "team_names": "Sportivo San Lorenzo - Cerro Porteno",
+      "match_date_utc": "2026-01-27T23:15:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543842821599808",
+          "full_name": "Sportivo San Lorenzo",
+          "short_name": "Sp. San Lorenzo",
+          "form_results": [
+            1,
+            3,
+            1,
+            1,
+            2
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543842111713396",
+          "full_name": "Cerro Porteno",
+          "short_name": "Cerro",
+          "form_results": [
+            1,
+            1,
+            2,
+            3,
+            3
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 103,
+      "competition": {
+        "competition_id": "5642",
+        "competition_name": "Paraguay Primera Divisi\u00f3n",
+        "competition_sport": "Football",
+        "country_code": "PY"
+      },
+      "market": {
+        "market_id": "1015618619129860",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1015618619097097",
+            "name": "Sportivo San Lorenzo",
+            "betslip_name": "Sportivo San Lorenzo",
+            "odds": 4.7,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842821599808",
+              "contestant:543842111713396"
+            ],
+            "betslipMarketId": "1015618619129860",
+            "player_ids": [],
+            "bet_trend": 10
+          },
+          {
+            "selection_id": "1015618619097098",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.58,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842821599808",
+              "contestant:543842111713396"
+            ],
+            "betslipMarketId": "1015618619129860",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "1015618619097099",
+            "name": "Cerro Porteno",
+            "betslip_name": "Cerro Porteno",
+            "odds": 1.54,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842821599808",
+              "contestant:543842111713396"
+            ],
+            "betslipMarketId": "1015618619129860",
+            "player_ids": [],
+            "bet_trend": 87
+          }
+        ],
+        "position": 1,
+        "match_id": "1005788004896768",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J2",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1002946694627328",
+      "team_names": "Fortaleza FC - Llaneros FC",
+      "match_date_utc": "2026-01-27T23:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844422775377",
+          "full_name": "Fortaleza FC",
+          "short_name": "Fortaleza FC",
+          "form_results": [
+            2,
+            2,
+            2,
+            1,
+            3
+          ],
+          "ranking": "#7"
+        },
+        {
+          "contestant_id": "543844318667135",
+          "full_name": "Llaneros FC",
+          "short_name": "Llaneros FC",
+          "form_results": [
+            2,
+            2,
+            2,
+            1,
+            3
+          ],
+          "ranking": "#4"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 121,
+      "competition": {
+        "competition_id": "5500",
+        "competition_name": "Colombie Primera A",
+        "competition_sport": "Football",
+        "country_code": "CO"
+      },
+      "market": {
+        "market_id": "1010799741190146",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1010799741423621",
+            "name": "Fortaleza FC",
+            "betslip_name": "Fortaleza FC",
+            "odds": 1.78,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844422775377",
+              "contestant:543844318667135"
+            ],
+            "betslipMarketId": "1010799741190146",
+            "player_ids": [],
+            "bet_trend": 84
+          },
+          {
+            "selection_id": "1010799741423622",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.92,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844422775377",
+              "contestant:543844318667135"
+            ],
+            "betslipMarketId": "1010799741190146",
+            "player_ids": [],
+            "bet_trend": 7
+          },
+          {
+            "selection_id": "1010799741423623",
+            "name": "Llaneros FC",
+            "betslip_name": "Llaneros FC",
+            "odds": 4.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844422775377",
+              "contestant:543844318667135"
+            ],
+            "betslipMarketId": "1010799741190146",
+            "player_ids": [],
+            "bet_trend": 9
+          }
+        ],
+        "position": 1,
+        "match_id": "1002946694627328",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, J3",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1009539455795200",
+      "team_names": "Atletico Tucuman - Central C\u00f3rdoba",
+      "match_date_utc": "2026-01-28T01:15:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252607353",
+          "full_name": "Atletico Tucuman",
+          "short_name": "Atletico Tucuman",
+          "form_results": [
+            1,
+            2,
+            1,
+            1,
+            2
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844281217376",
+          "full_name": "Central C\u00f3rdoba",
+          "short_name": "Central C\u00f3rdoba",
+          "form_results": [
+            3,
+            3,
+            1,
+            2,
+            2
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 123,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009539459932162",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009539460730885",
+            "name": "Atletico Tucuman",
+            "betslip_name": "Atletico Tucuman",
+            "odds": 2.15,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607353",
+              "contestant:543844281217376"
+            ],
+            "betslipMarketId": "1009539459932162",
+            "player_ids": [],
+            "bet_trend": 81
+          },
+          {
+            "selection_id": "1009539460730886",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.78,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607353",
+              "contestant:543844281217376"
+            ],
+            "betslipMarketId": "1009539459932162",
+            "player_ids": [],
+            "bet_trend": 9
+          },
+          {
+            "selection_id": "1009539460730887",
+            "name": "Central C\u00f3rdoba",
+            "betslip_name": "Central C\u00f3rdoba",
+            "odds": 3.4,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607353",
+              "contestant:543844281217376"
+            ],
+            "betslipMarketId": "1009539459932162",
+            "player_ids": [],
+            "bet_trend": 10
+          }
+        ],
+        "position": 1,
+        "match_id": "1009539455795200",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J2",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1009539456835596",
+      "team_names": "Newell's Old Boys - CA Independiente",
+      "match_date_utc": "2026-01-28T01:15:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844252607445",
+          "full_name": "Newell's Old Boys",
+          "short_name": "Newell's Old Boys",
+          "form_results": [
+            2,
+            2,
+            1,
+            2,
+            2
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844281217146",
+          "full_name": "CA Independiente",
+          "short_name": "Independiente",
+          "form_results": [
+            1,
+            1,
+            1,
+            1,
+            3
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 122,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009539460980738",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009539461038093",
+            "name": "Newell's Old Boys",
+            "betslip_name": "Newell's Old Boys",
+            "odds": 3.4,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607445",
+              "contestant:543844281217146"
+            ],
+            "betslipMarketId": "1009539460980738",
+            "player_ids": [],
+            "bet_trend": 8
+          },
+          {
+            "selection_id": "1009539461038094",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.78,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607445",
+              "contestant:543844281217146"
+            ],
+            "betslipMarketId": "1009539460980738",
+            "player_ids": [],
+            "bet_trend": 8
+          },
+          {
+            "selection_id": "1009539461038095",
+            "name": "CA Independiente",
+            "betslip_name": "CA Independiente",
+            "odds": 2.15,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252607445",
+              "contestant:543844281217146"
+            ],
+            "betslipMarketId": "1009539460980738",
+            "player_ids": [],
+            "bet_trend": 84
+          }
+        ],
+        "position": 1,
+        "match_id": "1009539456835596",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group A, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group A"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1002946712453120",
+      "team_names": "Independiente Medellin - Deportes Tolima",
+      "match_date_utc": "2026-01-28T01:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543844352521189",
+          "full_name": "Independiente Medellin",
+          "short_name": "Independiente Medellin",
+          "form_results": [
+            1,
+            3,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#18"
+        },
+        {
+          "contestant_id": "543844318667386",
+          "full_name": "Deportes Tolima",
+          "short_name": "Deportes Tolima",
+          "form_results": [
+            1,
+            2,
+            2,
+            1,
+            1
+          ],
+          "ranking": "#1"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 121,
+      "competition": {
+        "competition_id": "5500",
+        "competition_name": "Colombie Primera A",
+        "competition_sport": "Football",
+        "country_code": "CO"
+      },
+      "market": {
+        "market_id": "1010793017618434",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1010793017954309",
+            "name": "Independiente Medellin",
+            "betslip_name": "Independiente Medellin",
+            "odds": 1.98,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521189",
+              "contestant:543844318667386"
+            ],
+            "betslipMarketId": "1010793017618434",
+            "player_ids": [],
+            "bet_trend": 66
+          },
+          {
+            "selection_id": "1010793017954310",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.88,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521189",
+              "contestant:543844318667386"
+            ],
+            "betslipMarketId": "1010793017618434",
+            "player_ids": [],
+            "bet_trend": 3
+          },
+          {
+            "selection_id": "1010793017954311",
+            "name": "Deportes Tolima",
+            "betslip_name": "Deportes Tolima",
+            "odds": 3.47,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844352521189",
+              "contestant:543844318667386"
+            ],
+            "betslipMarketId": "1010793017618434",
+            "player_ids": [],
+            "bet_trend": 31
+          }
+        ],
+        "position": 1,
+        "match_id": "1002946712453120",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, J3",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "909298913976320",
+      "team_names": "Al Najma - Al Riyadh",
+      "match_date_utc": "2026-01-28T15:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841871290773",
+          "full_name": "Al Najma",
+          "short_name": "Al Najma",
+          "form_results": [
+            2,
+            2,
+            3,
+            3,
+            2
+          ],
+          "ranking": "#18"
+        },
+        {
+          "contestant_id": "543841537093663",
+          "full_name": "Al Riyadh",
+          "short_name": "Al Riyadh",
+          "form_results": [
+            3,
+            2,
+            2,
+            3,
+            3
+          ],
+          "ranking": "#16"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 105,
+      "competition": {
+        "competition_id": "4684",
+        "competition_name": "Arabie Saoudite PL",
+        "competition_sport": "Football",
+        "country_code": "SA"
+      },
+      "market": {
+        "market_id": "1013758977036290",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1013758976901125",
+            "name": "Al Najma",
+            "betslip_name": "Al Najma",
+            "odds": 2.85,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841871290773",
+              "contestant:543841537093663"
+            ],
+            "betslipMarketId": "1013758977036290",
+            "player_ids": [],
+            "bet_trend": 13
+          },
+          {
+            "selection_id": "1013758976901126",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.35,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841871290773",
+              "contestant:543841537093663"
+            ],
+            "betslipMarketId": "1013758977036290",
+            "player_ids": [],
+            "bet_trend": 11
+          },
+          {
+            "selection_id": "1013758976901127",
+            "name": "Al Riyadh",
+            "betslip_name": "Al Riyadh",
+            "odds": 2.18,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841871290773",
+              "contestant:543841537093663"
+            ],
+            "betslipMarketId": "1013758977036290",
+            "player_ids": [],
+            "bet_trend": 76
+          }
+        ],
+        "position": 1,
+        "match_id": "909298913976320",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J19",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "909298906763264",
+      "team_names": "Al Faiha - Al Khaleej",
+      "match_date_utc": "2026-01-28T17:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841537093887",
+          "full_name": "Al Faiha",
+          "short_name": "Al Faiha",
+          "form_results": [
+            3,
+            2,
+            3,
+            2,
+            1
+          ],
+          "ranking": "#12"
+        },
+        {
+          "contestant_id": "543841537093732",
+          "full_name": "Al Khaleej",
+          "short_name": "Al Khaleej",
+          "form_results": [
+            1,
+            1,
+            1,
+            2,
+            3
+          ],
+          "ranking": "#8"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 108,
+      "competition": {
+        "competition_id": "4684",
+        "competition_name": "Arabie Saoudite PL",
+        "competition_sport": "Football",
+        "country_code": "SA"
+      },
+      "market": {
+        "market_id": "1013758841634818",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1013758841769989",
+            "name": "Al Faiha",
+            "betslip_name": "Al Faiha",
+            "odds": 2.8,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841537093887",
+              "contestant:543841537093732"
+            ],
+            "betslipMarketId": "1013758841634818",
+            "player_ids": [],
+            "bet_trend": 11
+          },
+          {
+            "selection_id": "1013758841769990",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.37,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841537093887",
+              "contestant:543841537093732"
+            ],
+            "betslipMarketId": "1013758841634818",
+            "player_ids": [],
+            "bet_trend": 7
+          },
+          {
+            "selection_id": "1013758841769991",
+            "name": "Al Khaleej",
+            "betslip_name": "Al Khaleej",
+            "odds": 2.2,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841537093887",
+              "contestant:543841537093732"
+            ],
+            "betslipMarketId": "1013758841634818",
+            "player_ids": [],
+            "bet_trend": 82
+          }
+        ],
+        "position": 1,
+        "match_id": "909298906763264",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J19",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "909298952568832",
+      "team_names": "Al Ahli Jeddah - Al Ettifaq",
+      "match_date_utc": "2026-01-28T17:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841509531782",
+          "full_name": "Al Ahli Jeddah",
+          "short_name": "Al Ahli Jeddah",
+          "form_results": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#3"
+        },
+        {
+          "contestant_id": "543844252607352",
+          "full_name": "Al Ettifaq",
+          "short_name": "Al Ettifaq",
+          "form_results": [
+            1,
+            2,
+            1,
+            3,
+            1
+          ],
+          "ranking": "#7"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 106,
+      "competition": {
+        "competition_id": "4684",
+        "competition_name": "Arabie Saoudite PL",
+        "competition_sport": "Football",
+        "country_code": "SA"
+      },
+      "market": {
+        "market_id": "1013758957113346",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1013758956699653",
+            "name": "Al Ahli Jeddah",
+            "betslip_name": "Al Ahli Jeddah",
+            "odds": 1.3,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509531782",
+              "contestant:543844252607352"
+            ],
+            "betslipMarketId": "1013758957113346",
+            "player_ids": [],
+            "bet_trend": 99
+          },
+          {
+            "selection_id": "1013758956699654",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 4.95,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509531782",
+              "contestant:543844252607352"
+            ],
+            "betslipMarketId": "1013758957113346",
+            "player_ids": [],
+            "bet_trend": 0
+          },
+          {
+            "selection_id": "1013758956699655",
+            "name": "Al Ettifaq",
+            "betslip_name": "Al Ettifaq",
+            "odds": 7.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509531782",
+              "contestant:543844252607352"
+            ],
+            "betslipMarketId": "1013758957113346",
+            "player_ids": [],
+            "bet_trend": 1
+          }
+        ],
+        "position": 1,
+        "match_id": "909298952568832",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J19",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "879185731182592",
+      "team_names": "Ligue des Champions 2025-26 - Phase de Ligue",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 5,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": null,
+      "match_info": null,
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171274469376",
+      "team_names": "Ajax Amsterdam - Olympiakos",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470982",
+          "full_name": "Ajax Amsterdam",
+          "short_name": "Ajax",
+          "form_results": [
+            1,
+            2,
+            3,
+            1,
+            1
+          ],
+          "ranking": "#32"
+        },
+        {
+          "contestant_id": "543841480470995",
+          "full_name": "Olympiakos",
+          "short_name": "Olympiakos",
+          "form_results": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "ranking": "#24"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 226,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171275182083",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171275350021",
+            "name": "Ajax Amsterdam",
+            "betslip_name": "Ajax Amsterdam",
+            "odds": 2.9,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470982",
+              "contestant:543841480470995"
+            ],
+            "betslipMarketId": "1006171275182083",
+            "player_ids": [],
+            "bet_trend": 50
+          },
+          {
+            "selection_id": "1006171275350022",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.68,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470982",
+              "contestant:543841480470995"
+            ],
+            "betslipMarketId": "1006171275182083",
+            "player_ids": [],
+            "bet_trend": 14
+          },
+          {
+            "selection_id": "1006171275350023",
+            "name": "Olympiakos",
+            "betslip_name": "Olympiakos",
+            "odds": 2.3,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470982",
+              "contestant:543841480470995"
+            ],
+            "betslipMarketId": "1006171275182083",
+            "player_ids": [],
+            "bet_trend": 36
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171274469376",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171275182080",
+      "team_names": "Benfica - Real Madrid",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470981",
+          "full_name": "Benfica",
+          "short_name": "Benfica",
+          "form_results": [
+            2,
+            2,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#29"
+        },
+        {
+          "contestant_id": "543844252606821",
+          "full_name": "Real Madrid",
+          "short_name": "Real Madrid",
+          "form_results": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#3"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 226,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171285835778",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171285667845",
+            "name": "Benfica",
+            "betslip_name": "Benfica",
+            "odds": 4.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470981",
+              "contestant:543844252606821"
+            ],
+            "betslipMarketId": "1006171285835778",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1006171285667846",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 4.35,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470981",
+              "contestant:543844252606821"
+            ],
+            "betslipMarketId": "1006171285835778",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1006171285667847",
+            "name": "Real Madrid",
+            "betslip_name": "Real Madrid",
+            "odds": 1.67,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470981",
+              "contestant:543844252606821"
+            ],
+            "betslipMarketId": "1006171285835778",
+            "player_ids": [],
+            "bet_trend": 96
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171275182080",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171300515840",
+      "team_names": "Arsenal - Kairat Almaty",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470973",
+          "full_name": "Arsenal",
+          "short_name": "Arsenal",
+          "form_results": [
+            1,
+            1,
+            3,
+            1,
+            2
+          ],
+          "ranking": "#1"
+        },
+        {
+          "contestant_id": "543841566154815",
+          "full_name": "Kairat Almaty",
+          "short_name": "Kairat Almaty",
+          "form_results": [
+            3,
+            2,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#36"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 224,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171303661570",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171304542213",
+            "name": "Arsenal",
+            "betslip_name": "Arsenal",
+            "odds": 1.03,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470973",
+              "contestant:543841566154815"
+            ],
+            "betslipMarketId": "1006171303661570",
+            "player_ids": [],
+            "bet_trend": 99
+          },
+          {
+            "selection_id": "1006171304542214",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 19.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470973",
+              "contestant:543841566154815"
+            ],
+            "betslipMarketId": "1006171303661570",
+            "player_ids": [],
+            "bet_trend": 0
+          },
+          {
+            "selection_id": "1006171304542215",
+            "name": "Kairat Almaty",
+            "betslip_name": "Kairat Almaty",
+            "odds": 38.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470973",
+              "contestant:543841566154815"
+            ],
+            "betslipMarketId": "1006171303661570",
+            "player_ids": [],
+            "bet_trend": 1
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171300515840",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171336167424",
+      "team_names": "Barcelone - Copenhague",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "574114741481472",
+          "full_name": "Barcelone",
+          "short_name": "Barcelone",
+          "form_results": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "ranking": "#9"
+        },
+        {
+          "contestant_id": "543844252606841",
+          "full_name": "Copenhague",
+          "short_name": "Copenhague",
+          "form_results": [
+            1,
+            1,
+            2,
+            3,
+            1
+          ],
+          "ranking": "#26"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 225,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171342290946",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171343675397",
+            "name": "Barcelone",
+            "betslip_name": "Barcelone",
+            "odds": 1.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:574114741481472",
+              "contestant:543844252606841"
+            ],
+            "betslipMarketId": "1006171342290946",
+            "player_ids": [],
+            "bet_trend": 98
+          },
+          {
+            "selection_id": "1006171343675398",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 11.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:574114741481472",
+              "contestant:543844252606841"
+            ],
+            "betslipMarketId": "1006171342290946",
+            "player_ids": [],
+            "bet_trend": 1
+          },
+          {
+            "selection_id": "1006171343675399",
+            "name": "Copenhague",
+            "betslip_name": "Copenhague",
+            "odds": 20.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:574114741481472",
+              "contestant:543844252606841"
+            ],
+            "betslipMarketId": "1006171342290946",
+            "player_ids": [],
+            "bet_trend": 1
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171336167424",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171546058752",
+      "team_names": "Atl\u00e9tico Madrid - Bod\u00f8/Glimt",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606825",
+          "full_name": "Atl\u00e9tico Madrid",
+          "short_name": "Atl\u00e9tico Madrid",
+          "form_results": [
+            2,
+            1,
+            1,
+            3,
+            1
+          ],
+          "ranking": "#12"
+        },
+        {
+          "contestant_id": "543841480471025",
+          "full_name": "Bod\u00f8/Glimt",
+          "short_name": "Bod\u00f8/Glimt",
+          "form_results": [
+            1,
+            3,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#28"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 223,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171554103300",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171554103305",
+            "name": "Atl\u00e9tico Madrid",
+            "betslip_name": "Atl\u00e9tico Madrid",
+            "odds": 1.24,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606825",
+              "contestant:543841480471025"
+            ],
+            "betslipMarketId": "1006171554103300",
+            "player_ids": [],
+            "bet_trend": 96
+          },
+          {
+            "selection_id": "1006171554103306",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 7.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606825",
+              "contestant:543841480471025"
+            ],
+            "betslipMarketId": "1006171554103300",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1006171554103307",
+            "name": "Bod\u00f8/Glimt",
+            "betslip_name": "Bod\u00f8/Glimt",
+            "odds": 9.75,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606825",
+              "contestant:543841480471025"
+            ],
+            "betslipMarketId": "1006171554103300",
+            "player_ids": [],
+            "bet_trend": 2
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171546058752",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171586609152",
+      "team_names": "Athletic Bilbao - Sporting Portugal",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606919",
+          "full_name": "Athletic Bilbao",
+          "short_name": "Athletic Bilbao",
+          "form_results": [
+            2,
+            1,
+            2,
+            1,
+            2
+          ],
+          "ranking": "#23"
+        },
+        {
+          "contestant_id": "543844252606836",
+          "full_name": "Sporting Portugal",
+          "short_name": "Sporting",
+          "form_results": [
+            3,
+            2,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#10"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 223,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171592019972",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171591852041",
+            "name": "Athletic Bilbao",
+            "betslip_name": "Athletic Bilbao",
+            "odds": 2.17,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606919",
+              "contestant:543844252606836"
+            ],
+            "betslipMarketId": "1006171592019972",
+            "player_ids": [],
+            "bet_trend": 37
+          },
+          {
+            "selection_id": "1006171591852042",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606919",
+              "contestant:543844252606836"
+            ],
+            "betslipMarketId": "1006171592019972",
+            "player_ids": [],
+            "bet_trend": 12
+          },
+          {
+            "selection_id": "1006171591852043",
+            "name": "Sporting Portugal",
+            "betslip_name": "Sporting Portugal",
+            "odds": 3.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606919",
+              "contestant:543844252606836"
+            ],
+            "betslipMarketId": "1006171592019972",
+            "player_ids": [],
+            "bet_trend": 51
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171586609152",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006171703001088",
+      "team_names": "Bayer Leverkusen - Villarreal",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606833",
+          "full_name": "Bayer Leverkusen",
+          "short_name": "B. Leverkusen",
+          "form_results": [
+            1,
+            2,
+            2,
+            2,
+            1
+          ],
+          "ranking": "#20"
+        },
+        {
+          "contestant_id": "543844252606860",
+          "full_name": "Villarreal",
+          "short_name": "Villarreal",
+          "form_results": [
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#35"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 229,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006171707195396",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006171707195401",
+            "name": "Bayer Leverkusen",
+            "betslip_name": "Bayer Leverkusen",
+            "odds": 1.52,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606833",
+              "contestant:543844252606860"
+            ],
+            "betslipMarketId": "1006171707195396",
+            "player_ids": [],
+            "bet_trend": 90
+          },
+          {
+            "selection_id": "1006171707195402",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 4.65,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606833",
+              "contestant:543844252606860"
+            ],
+            "betslipMarketId": "1006171707195396",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "1006171707195403",
+            "name": "Villarreal",
+            "betslip_name": "Villarreal",
+            "odds": 5.6,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606833",
+              "contestant:543844252606860"
+            ],
+            "betslipMarketId": "1006171707195396",
+            "player_ids": [],
+            "bet_trend": 6
+          }
+        ],
+        "position": 1,
+        "match_id": "1006171703001088",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006172608266240",
+      "team_names": "Club Bruges - Marseille",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606847",
+          "full_name": "Club Bruges",
+          "short_name": "Club Bruges",
+          "form_results": [
+            3,
+            2,
+            2,
+            1,
+            1
+          ],
+          "ranking": "#27"
+        },
+        {
+          "contestant_id": "543841480470976",
+          "full_name": "Marseille",
+          "short_name": "Marseille",
+          "form_results": [
+            2,
+            1,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#19"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 226,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006172615262212",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006172615262217",
+            "name": "Club Bruges",
+            "betslip_name": "Club Bruges",
+            "odds": 2.83,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606847",
+              "contestant:543841480470976"
+            ],
+            "betslipMarketId": "1006172615262212",
+            "player_ids": [],
+            "bet_trend": 12
+          },
+          {
+            "selection_id": "1006172615262218",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.5,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606847",
+              "contestant:543841480470976"
+            ],
+            "betslipMarketId": "1006172615262212",
+            "player_ids": [],
+            "bet_trend": 7
+          },
+          {
+            "selection_id": "1006172615262219",
+            "name": "Marseille",
+            "betslip_name": "Marseille",
+            "odds": 2.33,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606847",
+              "contestant:543841480470976"
+            ],
+            "betslipMarketId": "1006172615262212",
+            "player_ids": [],
+            "bet_trend": 81
+          }
+        ],
+        "position": 1,
+        "match_id": "1006172608266240",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006173157376000",
+      "team_names": "Liverpool - Qaraba\u011f",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470974",
+          "full_name": "Liverpool",
+          "short_name": "Liverpool",
+          "form_results": [
+            3,
+            1,
+            3,
+            1,
+            2
+          ],
+          "ranking": "#4"
+        },
+        {
+          "contestant_id": "543841480471210",
+          "full_name": "Qaraba\u011f",
+          "short_name": "Qaraba\u011f",
+          "form_results": [
+            2,
+            1,
+            1,
+            1,
+            2
+          ],
+          "ranking": "#18"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 221,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006173166100489",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006173167157253",
+            "name": "Liverpool",
+            "betslip_name": "Liverpool",
+            "odds": 1.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470974",
+              "contestant:543841480471210"
+            ],
+            "betslipMarketId": "1006173166100489",
+            "player_ids": [],
+            "bet_trend": 98
+          },
+          {
+            "selection_id": "1006173167157254",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 10.5,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470974",
+              "contestant:543841480471210"
+            ],
+            "betslipMarketId": "1006173166100489",
+            "player_ids": [],
+            "bet_trend": 1
+          },
+          {
+            "selection_id": "1006173167157255",
+            "name": "Qaraba\u011f",
+            "betslip_name": "Qaraba\u011f",
+            "odds": 22.0,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470974",
+              "contestant:543841480471210"
+            ],
+            "betslipMarketId": "1006173166100489",
+            "player_ids": [],
+            "bet_trend": 2
+          }
+        ],
+        "position": 1,
+        "match_id": "1006173157376000",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006173199654912",
+      "team_names": "Manchester City - Galatasaray",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606820",
+          "full_name": "Manchester City",
+          "short_name": "Manchester City",
+          "form_results": [
+            1,
+            1,
+            2,
+            2,
+            1
+          ],
+          "ranking": "#11"
+        },
+        {
+          "contestant_id": "543841480471002",
+          "full_name": "Galatasaray",
+          "short_name": "Galatasaray",
+          "form_results": [
+            2,
+            1,
+            3,
+            3,
+            1
+          ],
+          "ranking": "#17"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 220,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006173203513348",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006173203849225",
+            "name": "Manchester City",
+            "betslip_name": "Manchester City",
+            "odds": 1.19,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606820",
+              "contestant:543841480471002"
+            ],
+            "betslipMarketId": "1006173203513348",
+            "player_ids": [],
+            "bet_trend": 95
+          },
+          {
+            "selection_id": "1006173203849226",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 7.75,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606820",
+              "contestant:543841480471002"
+            ],
+            "betslipMarketId": "1006173203513348",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1006173203849227",
+            "name": "Galatasaray",
+            "betslip_name": "Galatasaray",
+            "odds": 12.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606820",
+              "contestant:543841480471002"
+            ],
+            "betslipMarketId": "1006173203513348",
+            "player_ids": [],
+            "bet_trend": 3
+          }
+        ],
+        "position": 1,
+        "match_id": "1006173199654912",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006173221339136",
+      "team_names": "Borussia Dortmund - Inter Milan",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470978",
+          "full_name": "Borussia Dortmund",
+          "short_name": "Dortmund",
+          "form_results": [
+            3,
+            1,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#16"
+        },
+        {
+          "contestant_id": "543844252606827",
+          "full_name": "Inter Milan",
+          "short_name": "Inter",
+          "form_results": [
+            3,
+            1,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#14"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 229,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006173231112196",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006173232168969",
+            "name": "Borussia Dortmund",
+            "betslip_name": "Borussia Dortmund",
+            "odds": 2.92,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470978",
+              "contestant:543844252606827"
+            ],
+            "betslipMarketId": "1006173231112196",
+            "player_ids": [],
+            "bet_trend": 19
+          },
+          {
+            "selection_id": "1006173232168970",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.5,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470978",
+              "contestant:543844252606827"
+            ],
+            "betslipMarketId": "1006173231112196",
+            "player_ids": [],
+            "bet_trend": 13
+          },
+          {
+            "selection_id": "1006173232168971",
+            "name": "Inter Milan",
+            "betslip_name": "Inter Milan",
+            "odds": 2.37,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470978",
+              "contestant:543844252606827"
+            ],
+            "betslipMarketId": "1006173231112196",
+            "player_ids": [],
+            "bet_trend": 69
+          }
+        ],
+        "position": 1,
+        "match_id": "1006173221339136",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006173567705088",
+      "team_names": "Eintracht Francfort - Tottenham",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606877",
+          "full_name": "Eintracht Francfort",
+          "short_name": "Francfort",
+          "form_results": [
+            3,
+            2,
+            3,
+            2,
+            2
+          ],
+          "ranking": "#33"
+        },
+        {
+          "contestant_id": "543841480470993",
+          "full_name": "Tottenham",
+          "short_name": "Tottenham",
+          "form_results": [
+            2,
+            2,
+            2,
+            1,
+            3
+          ],
+          "ranking": "#5"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 226,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006173571907588",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006173571731465",
+            "name": "Eintracht Francfort",
+            "betslip_name": "Eintracht Francfort",
+            "odds": 4.15,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606877",
+              "contestant:543841480470993"
+            ],
+            "betslipMarketId": "1006173571907588",
+            "player_ids": [],
+            "bet_trend": 6
+          },
+          {
+            "selection_id": "1006173571731466",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.98,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606877",
+              "contestant:543841480470993"
+            ],
+            "betslipMarketId": "1006173571907588",
+            "player_ids": [],
+            "bet_trend": 5
+          },
+          {
+            "selection_id": "1006173571731467",
+            "name": "Tottenham",
+            "betslip_name": "Tottenham",
+            "odds": 1.79,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606877",
+              "contestant:543841480470993"
+            ],
+            "betslipMarketId": "1006173571907588",
+            "player_ids": [],
+            "bet_trend": 89
+          }
+        ],
+        "position": 1,
+        "match_id": "1006173567705088",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006175071195136",
+      "team_names": "Naples - Chelsea",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470980",
+          "full_name": "Naples",
+          "short_name": "Naples",
+          "form_results": [
+            3,
+            3,
+            1,
+            3,
+            2
+          ],
+          "ranking": "#25"
+        },
+        {
+          "contestant_id": "543841480470991",
+          "full_name": "Chelsea",
+          "short_name": "Chelsea",
+          "form_results": [
+            1,
+            2,
+            1,
+            1,
+            1
+          ],
+          "ranking": "#8"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 230,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006175074340866",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006175074172941",
+            "name": "Naples",
+            "betslip_name": "Naples",
+            "odds": 3.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470980",
+              "contestant:543841480470991"
+            ],
+            "betslipMarketId": "1006175074340866",
+            "player_ids": [],
+            "bet_trend": 12
+          },
+          {
+            "selection_id": "1006175074172942",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470980",
+              "contestant:543841480470991"
+            ],
+            "betslipMarketId": "1006175074340866",
+            "player_ids": [],
+            "bet_trend": 8
+          },
+          {
+            "selection_id": "1006175074516999",
+            "name": "Chelsea",
+            "betslip_name": "Chelsea",
+            "odds": 2.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470980",
+              "contestant:543841480470991"
+            ],
+            "betslipMarketId": "1006175074340866",
+            "player_ids": [],
+            "bet_trend": 80
+          }
+        ],
+        "position": 1,
+        "match_id": "1006175071195136",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006175135334400",
+      "team_names": "Monaco - Juventus",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841480470988",
+          "full_name": "Monaco",
+          "short_name": "Monaco",
+          "form_results": [
+            2,
+            1,
+            2,
+            2,
+            3
+          ],
+          "ranking": "#21"
+        },
+        {
+          "contestant_id": "543841480470979",
+          "full_name": "Juventus",
+          "short_name": "Juventus",
+          "form_results": [
+            1,
+            1,
+            2,
+            1,
+            1
+          ],
+          "ranking": "#15"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 229,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006175143723012",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006175143546889",
+            "name": "Monaco",
+            "betslip_name": "Monaco",
+            "odds": 3.42,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470988",
+              "contestant:543841480470979"
+            ],
+            "betslipMarketId": "1006175143723012",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "1006175143546890",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470988",
+              "contestant:543841480470979"
+            ],
+            "betslipMarketId": "1006175143723012",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "1006175143546891",
+            "name": "Juventus",
+            "betslip_name": "Juventus",
+            "odds": 2.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841480470988",
+              "contestant:543841480470979"
+            ],
+            "betslipMarketId": "1006175143723012",
+            "player_ids": [],
+            "bet_trend": 92
+          }
+        ],
+        "position": 1,
+        "match_id": "1006175135334400",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006175640403968",
+      "team_names": "Paris SG - Newcastle",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606819",
+          "full_name": "Paris SG",
+          "short_name": "Paris SG",
+          "form_results": [
+            1,
+            2,
+            1,
+            2,
+            1
+          ],
+          "ranking": "#6"
+        },
+        {
+          "contestant_id": "543844252606861",
+          "full_name": "Newcastle",
+          "short_name": "Newcastle",
+          "form_results": [
+            1,
+            2,
+            3,
+            1,
+            2
+          ],
+          "ranking": "#7"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 228,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006175647911940",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006175647744009",
+            "name": "Paris SG",
+            "betslip_name": "Paris SG",
+            "odds": 1.5,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606819",
+              "contestant:543844252606861"
+            ],
+            "betslipMarketId": "1006175647911940",
+            "player_ids": [],
+            "bet_trend": 93
+          },
+          {
+            "selection_id": "1006175647744010",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 4.8,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606819",
+              "contestant:543844252606861"
+            ],
+            "betslipMarketId": "1006175647911940",
+            "player_ids": [],
+            "bet_trend": 3
+          },
+          {
+            "selection_id": "1006175647744011",
+            "name": "Newcastle",
+            "betslip_name": "Newcastle",
+            "odds": 5.75,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606819",
+              "contestant:543844252606861"
+            ],
+            "betslipMarketId": "1006175647911940",
+            "player_ids": [],
+            "bet_trend": 4
+          }
+        ],
+        "position": 1,
+        "match_id": "1006175640403968",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006176107020293",
+      "team_names": "Union Saint-Gilloise - Atalanta",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606839",
+          "full_name": "Union Saint-Gilloise",
+          "short_name": "Union Saint-Gilloise",
+          "form_results": [
+            3,
+            1,
+            1,
+            2,
+            3
+          ],
+          "ranking": "#31"
+        },
+        {
+          "contestant_id": "543841480471038",
+          "full_name": "Atalanta",
+          "short_name": "Atalanta",
+          "form_results": [
+            1,
+            1,
+            3,
+            2,
+            1
+          ],
+          "ranking": "#13"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 223,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006176114413570",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006176114360325",
+            "name": "Union Saint-Gilloise",
+            "betslip_name": "Union Saint-Gilloise",
+            "odds": 3.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606839",
+              "contestant:543841480471038"
+            ],
+            "betslipMarketId": "1006176114413570",
+            "player_ids": [],
+            "bet_trend": 5
+          },
+          {
+            "selection_id": "1006176114360326",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.68,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606839",
+              "contestant:543841480471038"
+            ],
+            "betslipMarketId": "1006176114413570",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "1006176114360327",
+            "name": "Atalanta",
+            "betslip_name": "Atalanta",
+            "odds": 2.13,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606839",
+              "contestant:543841480471038"
+            ],
+            "betslipMarketId": "1006176114413570",
+            "player_ids": [],
+            "bet_trend": 90
+          }
+        ],
+        "position": 1,
+        "match_id": "1006176107020293",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006176147210240",
+      "team_names": "PSV Eindhoven - Bayern Munich",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844252606849",
+          "full_name": "PSV Eindhoven",
+          "short_name": "PSV Eindhoven",
+          "form_results": [
+            1,
+            1,
+            1,
+            2,
+            3
+          ],
+          "ranking": "#22"
+        },
+        {
+          "contestant_id": "543844252606822",
+          "full_name": "Bayern Munich",
+          "short_name": "Bayern Munich",
+          "form_results": [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "ranking": "#2"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 222,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006176152276996",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006176152109065",
+            "name": "PSV Eindhoven",
+            "betslip_name": "PSV Eindhoven",
+            "odds": 4.65,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606849",
+              "contestant:543844252606822"
+            ],
+            "betslipMarketId": "1006176152276996",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1006176152109066",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 4.6,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606849",
+              "contestant:543844252606822"
+            ],
+            "betslipMarketId": "1006176152276996",
+            "player_ids": [],
+            "bet_trend": 1
+          },
+          {
+            "selection_id": "1006176152109067",
+            "name": "Bayern Munich",
+            "betslip_name": "Bayern Munich",
+            "odds": 1.62,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543844252606849",
+              "contestant:543844252606822"
+            ],
+            "betslipMarketId": "1006176152276996",
+            "player_ids": [],
+            "bet_trend": 97
+          }
+        ],
+        "position": 1,
+        "match_id": "1006176147210240",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1006176167133184",
+      "team_names": "Pafos FC - Slavia Prague",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841509532088",
+          "full_name": "Pafos FC",
+          "short_name": "Pafos",
+          "form_results": [
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#30"
+        },
+        {
+          "contestant_id": "543844252606842",
+          "full_name": "Slavia Prague",
+          "short_name": "Slavia Prague",
+          "form_results": [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "ranking": "#34"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 225,
+      "competition": {
+        "competition_id": "8",
+        "competition_name": "Ligue des Champions",
+        "competition_sport": "Football",
+        "country_code": "EU"
+      },
+      "market": {
+        "market_id": "1006176174182447",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1006176175345840",
+            "name": "Pafos FC",
+            "betslip_name": "Pafos FC",
+            "odds": 2.15,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532088",
+              "contestant:543844252606842"
+            ],
+            "betslipMarketId": "1006176174182447",
+            "player_ids": [],
+            "bet_trend": 67
+          },
+          {
+            "selection_id": "1006176175345841",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.63,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532088",
+              "contestant:543844252606842"
+            ],
+            "betslipMarketId": "1006176174182447",
+            "player_ids": [],
+            "bet_trend": 12
+          },
+          {
+            "selection_id": "1006176175345842",
+            "name": "Slavia Prague",
+            "betslip_name": "Slavia Prague",
+            "odds": 3.25,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532088",
+              "contestant:543844252606842"
+            ],
+            "betslipMarketId": "1006176174182447",
+            "player_ids": [],
+            "bet_trend": 21
+          }
+        ],
+        "position": 1,
+        "match_id": "1006176167133184",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J8",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    },
+    {
+      "match_id": "1009542157668352",
+      "team_names": "CA Aldosivi - Barracas Central",
+      "match_date_utc": "2026-01-28T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543843173621773",
+          "full_name": "CA Aldosivi",
+          "short_name": "Aldosivi",
+          "form_results": [
+            2,
+            1,
+            1,
+            1,
+            3
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543841537094377",
+          "full_name": "Barracas Central",
+          "short_name": "Barracas Central",
+          "form_results": [
+            3,
+            3,
+            1,
+            2,
+            2
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 121,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009542160760834",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009542160814085",
+            "name": "CA Aldosivi",
+            "betslip_name": "CA Aldosivi",
+            "odds": 2.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543843173621773",
+              "contestant:543841537094377"
+            ],
+            "betslipMarketId": "1009542160760834",
+            "player_ids": [],
+            "bet_trend": 86
+          },
+          {
+            "selection_id": "1009542160814086",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.73,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543843173621773",
+              "contestant:543841537094377"
+            ],
+            "betslipMarketId": "1009542160760834",
+            "player_ids": [],
+            "bet_trend": 10
+          },
+          {
+            "selection_id": "1009542160814087",
+            "name": "Barracas Central",
+            "betslip_name": "Barracas Central",
+            "odds": 3.6,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543843173621773",
+              "contestant:543841537094377"
+            ],
+            "betslipMarketId": "1009542160760834",
+            "player_ids": [],
+            "bet_trend": 5
+          }
+        ],
+        "position": 1,
+        "match_id": "1009542157668352",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group B, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group B"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1005787981828096",
+      "team_names": "Libertad Asuncion - Club Sportivo Ameliano",
+      "match_date_utc": "2026-01-28T21:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543841566154861",
+          "full_name": "Libertad Asuncion",
+          "short_name": "Libertad Asuncion",
+          "form_results": [
+            3,
+            1,
+            2,
+            1,
+            3
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844391019134",
+          "full_name": "Club Sportivo Ameliano",
+          "short_name": "Club Sportivo Ameliano",
+          "form_results": [
+            1,
+            2,
+            2,
+            3,
+            3
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 99,
+      "competition": {
+        "competition_id": "5642",
+        "competition_name": "Paraguay Primera Divisi\u00f3n",
+        "competition_sport": "Football",
+        "country_code": "PY"
+      },
+      "market": {
+        "market_id": "1014266701393922",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1014266702778373",
+            "name": "Libertad Asuncion",
+            "betslip_name": "Libertad Asuncion",
+            "odds": 1.55,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841566154861",
+              "contestant:543844391019134"
+            ],
+            "betslipMarketId": "1014266701393922",
+            "player_ids": [],
+            "bet_trend": 98
+          },
+          {
+            "selection_id": "1014266702778374",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.45,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841566154861",
+              "contestant:543844391019134"
+            ],
+            "betslipMarketId": "1014266701393922",
+            "player_ids": [],
+            "bet_trend": 1
+          },
+          {
+            "selection_id": "1014266702778375",
+            "name": "Club Sportivo Ameliano",
+            "betslip_name": "Club Sportivo Ameliano",
+            "odds": 4.9,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841566154861",
+              "contestant:543844391019134"
+            ],
+            "betslipMarketId": "1014266701393922",
+            "player_ids": [],
+            "bet_trend": 2
+          }
+        ],
+        "position": 1,
+        "match_id": "1005787981828096",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J2",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1002946704941071",
+      "team_names": "Alianza FC Valledupar - Boyac\u00e1 Chic\u00f3",
+      "match_date_utc": "2026-01-28T21:10:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543842147066219",
+          "full_name": "Alianza FC Valledupar",
+          "short_name": "Alianza FC Valledupar",
+          "form_results": [
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#19"
+        },
+        {
+          "contestant_id": "543844391018879",
+          "full_name": "Boyac\u00e1 Chic\u00f3",
+          "short_name": "Boyac\u00e1 Chic\u00f3",
+          "form_results": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "ranking": "#20"
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 118,
+      "competition": {
+        "competition_id": "5500",
+        "competition_name": "Colombie Primera A",
+        "competition_sport": "Football",
+        "country_code": "CO"
+      },
+      "market": {
+        "market_id": "1010470982352898",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1010470982025221",
+            "name": "Alianza FC Valledupar",
+            "betslip_name": "Alianza FC Valledupar",
+            "odds": 1.47,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842147066219",
+              "contestant:543844391018879"
+            ],
+            "betslipMarketId": "1010470982352898",
+            "player_ids": [],
+            "bet_trend": 99
+          },
+          {
+            "selection_id": "1010470982025222",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 3.58,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842147066219",
+              "contestant:543844391018879"
+            ],
+            "betslipMarketId": "1010470982352898",
+            "player_ids": [],
+            "bet_trend": 0
+          },
+          {
+            "selection_id": "1010470982025223",
+            "name": "Boyac\u00e1 Chic\u00f3",
+            "betslip_name": "Boyac\u00e1 Chic\u00f3",
+            "odds": 5.5,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543842147066219",
+              "contestant:543844391018879"
+            ],
+            "betslipMarketId": "1010470982352898",
+            "player_ids": [],
+            "bet_trend": 1
+          }
+        ],
+        "position": 1,
+        "match_id": "1002946704941071",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, J3",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "1009544091541504",
+      "team_names": "Racing Club - Rosario Central",
+      "match_date_utc": "2026-01-28T22:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": true,
+      "contestants": [
+        {
+          "contestant_id": "543841509532055",
+          "full_name": "Racing Club",
+          "short_name": "Racing Club",
+          "form_results": [
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844281217179",
+          "full_name": "Rosario Central",
+          "short_name": "Rosario Central",
+          "form_results": [
+            1,
+            3,
+            2,
+            2,
+            2
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 121,
+      "competition": {
+        "competition_id": "230",
+        "competition_name": "Argentine Primera",
+        "competition_sport": "Football",
+        "country_code": "AR"
+      },
+      "market": {
+        "market_id": "1009544093589506",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "1009544093638669",
+            "name": "Racing Club",
+            "betslip_name": "Racing Club",
+            "odds": 2.1,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532055",
+              "contestant:543844281217179"
+            ],
+            "betslipMarketId": "1009544093589506",
+            "player_ids": [],
+            "bet_trend": 96
+          },
+          {
+            "selection_id": "1009544093638670",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.88,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532055",
+              "contestant:543844281217179"
+            ],
+            "betslipMarketId": "1009544093589506",
+            "player_ids": [],
+            "bet_trend": 2
+          },
+          {
+            "selection_id": "1009544093638671",
+            "name": "Rosario Central",
+            "betslip_name": "Rosario Central",
+            "odds": 3.37,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841509532055",
+              "contestant:543844281217179"
+            ],
+            "betslipMarketId": "1009544093589506",
+            "player_ids": [],
+            "bet_trend": 2
+          }
+        ],
+        "position": 1,
+        "match_id": "1009544091541504",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "Gr. Apertura, Group B, J2",
+        "match_leg_type": 0,
+        "group_name": "Gr.Apertura, Group B"
+      },
+      "streaming_provider_type": 1
+    },
+    {
+      "match_id": "979947517923328",
+      "team_names": "Coritiba PR - Bragantino",
+      "match_date_utc": "2026-01-28T22:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841916679069",
+          "full_name": "Coritiba PR",
+          "short_name": "Coritiba",
+          "form_results": [
+            3,
+            1,
+            1,
+            2,
+            3
+          ],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543841509531876",
+          "full_name": "Bragantino",
+          "short_name": "Bragantino",
+          "form_results": [
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": true,
+      "has_lineup": false,
+      "open_market_count": 121,
+      "competition": {
+        "competition_id": "187",
+        "competition_name": "Br\u00e9sil S\u00e9rie A",
+        "competition_sport": "Football",
+        "country_code": "BR"
+      },
+      "market": {
+        "market_id": "984505514270725",
+        "name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "betslip_name": "R\u00e9sultat du match (tps r\u00e9g.)",
+        "has_boosted_odds": false,
+        "is_cashoutable": true,
+        "main_selections": [
+          {
+            "selection_id": "984505514000394",
+            "name": "Coritiba PR",
+            "betslip_name": "Coritiba PR",
+            "odds": 2.13,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841916679069",
+              "contestant:543841509531876"
+            ],
+            "betslipMarketId": "984505514270725",
+            "player_ids": [],
+            "bet_trend": 50
+          },
+          {
+            "selection_id": "984505514000395",
+            "name": "Nul",
+            "betslip_name": "Nul",
+            "odds": 2.9,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841916679069",
+              "contestant:543841509531876"
+            ],
+            "betslipMarketId": "984505514270725",
+            "player_ids": [],
+            "bet_trend": 4
+          },
+          {
+            "selection_id": "984505514000396",
+            "name": "Bragantino",
+            "betslip_name": "Bragantino",
+            "odds": 3.05,
+            "status": 1,
+            "is_live": false,
+            "keys": [
+              "contestant:543841916679069",
+              "contestant:543841509531876"
+            ],
+            "betslipMarketId": "984505514270725",
+            "player_ids": [],
+            "bet_trend": 46
+          }
+        ],
+        "position": 1,
+        "match_id": "979947517923328",
+        "is_outright": false,
+        "is_good_deal": false,
+        "is_early_win": false
+      },
+      "match_info": {
+        "round_name": "J1",
+        "match_leg_type": 0,
+        "group_name": ""
+      },
+      "streaming_provider_type": 0
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import json
 from bs4 import BeautifulSoup
 from curl_cffi import requests
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 # Pydantic data models
 class Contestant(BaseModel):
@@ -70,6 +70,15 @@ class Match(BaseModel):
     market: Market | None = None
     match_info: Match_info | None = Field(alias="competitionInfo", default=None)
     streaming_provider_type: int = Field(alias="streamingProviderType", default=0)
+
+    @model_validator(mode="before")
+    @classmethod
+    def fallback_competition_info(cls, data: dict):
+        if not data.get("competitionInfo"):
+            inner = data.get("matchInfo", {}).get("competitionInfo")
+            if inner:
+                data["competitionInfo"] = inner
+        return data
 
 class Sport_data(BaseModel):
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)

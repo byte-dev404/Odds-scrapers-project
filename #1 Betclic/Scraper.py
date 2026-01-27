@@ -66,9 +66,9 @@ class Match(BaseModel):
     has_match_center: bool = Field(alias="hasMatchCenter", default=False)
     has_lineup: bool = Field(alias="hasLineup", default=False)
     open_market_count: int = Field(alias="openMarketCount", default=0)
-    competition_info: Competition_info = Field(alias="competition")
-    market: Market
-    match_info: Match_info = Field(alias="competitionInfo")
+    competition: Competition_info = Field(alias="competition")
+    market: Market | None = None
+    match_info: Match_info | None = Field(alias="competitionInfo", default=None)
     streaming_provider_type: int = Field(alias="streamingProviderType", default=0)
 
 class Sport_data(BaseModel):

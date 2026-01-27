@@ -1,6 +1,14 @@
 import json
 from bs4 import BeautifulSoup
 from curl_cffi import requests
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+# Pydantic data models
+class Sport_data(BaseModel):
+    model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
+
+    sport_name: str = Field(alias="name")
+    matches: list[Match] = Field(default_factory=list)
 
 
 def save_json_file(file_path: str, data: dict) -> None:
@@ -60,8 +68,15 @@ print(response.status_code)
 if response.status_code == 200:
     # save_html_file("Requests test.html", response.text)
     soup = BeautifulSoup(response.text, "html.parser")
-
     script_tag = soup.find("script", {"id": "ng-state"})
-    script_content = script_tag.string
 
-    save_json_file("Json test.json", json.loads(script_content))
+    response_data = json.loads(script_tag.string) if script_tag.string else {}
+    playload = response_data.get("grpc:1145672543", {}).get("response", {}).get("payload", {})
+    
+    clean_data = Sport_data(**playload)
+
+    save_json_file("output_json.json", clean_data.model_dump())
+        
+
+
+    # save_json_file("Json test.json", )

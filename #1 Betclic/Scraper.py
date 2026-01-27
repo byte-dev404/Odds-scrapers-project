@@ -4,6 +4,17 @@ from curl_cffi import requests
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Pydantic data models
+class Main_selections(BaseModel):
+    selection_id: str = Field(alias="id")
+    name: str
+    betslip_name: str = Field(alias="betslipName")
+    odds: float
+    status: int
+    is_live: bool = Field(alias="isLive", default=False)
+    keys: list[str] = Field(default_factory=list)
+    betslipMarketId: str
+    player_ids: list[str] = Field(alias="playerIds", default_factory=list)
+    bet_trend: int | None = Field(alias="betTrend", default=None)
 
 class Market(BaseModel):
     market_id: str = Field(alias="id")

@@ -4,6 +4,24 @@ from curl_cffi import requests
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Pydantic data models
+
+class Match(BaseModel):
+    match_id: str = Field(alias="matchId")
+    team_names: str = Field(alias="name")
+    match_date_utc: str = Field(alias="matchDateUtc")
+    is_live: bool = Field(alias="isLive", default=False)
+    has_live_stream: bool = Field(alias="hasLiveStream", default=False)
+    contestants: list[Contestant] = Field(alias="contestants", default_factory=list)
+    is_bet_builder_eligible: bool = Field(alias="isBetbuilderEligible", default=False)
+    is_match_of_the_day: bool = Field(alias="isMatchOfTheDay", default=False)
+    has_match_center: bool = Field(alias="hasMatchCenter", default=False)
+    has_lineup: bool = Field(alias="hasLineup", default=False)
+    open_market_count: int = Field(alias="openMarketCount", default=0)
+    competition_info: Competition_info = Field(alias="competition")
+    market: Market
+    match_info: Match_info = Field(alias="competitionInfo")
+    streaming_provider_type: int = Field(alias="streamingProviderType", default=0)
+
 class Sport_data(BaseModel):
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
 

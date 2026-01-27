@@ -5,6 +5,11 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Pydantic data models
 
+class Match_info(BaseModel):
+    round_name: str = Field(alias="roundName")
+    match_leg_type: int = Field(alias="matchLegType", default=0)
+    group_name: str = Field(alias="groupName", default="")
+
 class Match(BaseModel):
     match_id: str = Field(alias="matchId")
     team_names: str = Field(alias="name")

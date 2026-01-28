@@ -149,3 +149,16 @@ def fetch(url: str) -> str:
         print(e)
 
     return None
+
+def save_json_file(file_path: str, data: dict) -> None:
+    with open(file_path, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, indent=2)
+        print(f"{file_path} saved successfully.")
+
+def save_html_file(file_path: str, html: str) -> None:
+    with open(file_path, "w", encoding="utf-8") as html_file:
+        html_file.write(html)
+        print(f"{file_path} saved successfully.")
+
+
+

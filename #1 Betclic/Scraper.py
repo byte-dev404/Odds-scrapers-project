@@ -54,6 +54,13 @@ class Match_info(BaseModel):
     match_leg_type: int = Field(alias="matchLegType", default=0)
     group_name: str = Field(alias="groupName", default="")
 
+class Selection(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str
+    name: str
+    odds: float
+
 class Match(BaseModel):
     match_id: str = Field(alias="matchId")
     team_names: str = Field(alias="name")

@@ -114,7 +114,7 @@ class Match(BaseModel):
     market_overview: Market_overview | None = None
     match_info: Match_info | None = Field(alias="competitionInfo", default=None)
     streaming_provider_type: int = Field(alias="streamingProviderType", default=0)
-    all_Markets: list[Market_details] = Field(default_factory=list)
+    all_Markets: All_markets | None = None
 
     @model_validator(mode="before")
     @classmethod

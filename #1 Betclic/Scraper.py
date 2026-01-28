@@ -251,3 +251,27 @@ headers = {
 }
 
 base_url = "https://www.betclic.fr"
+
+
+def main():
+    print("Scraper started!")
+    response_html = fetch("https://www.betclic.fr/football-sfootball")
+
+    print("Extracting urls of all cards...")
+    urls, page_json = get_urls_and_json(response_html)
+
+    print("Extracting markets...")
+    all_clean_markets = get_detailed_markets(urls)
+
+    imporant_keys = [k for k in page_json if k.startswith("grpc:")]
+    main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
+    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+
+    print(f'Total matches: {len(playload.get("matches", []))}\nTotal URLs: {len(urls)}')
+    clean_data = Sport_data(**playload)
+    
+    for index, match in enumerate(clean_data.matches):
+        match.all_Markets = all_clean_markets[index]
+        
+if __name__ == "__main__":
+    main()

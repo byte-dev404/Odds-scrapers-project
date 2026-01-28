@@ -114,7 +114,7 @@ class Match(BaseModel):
     market_overview: Market_overview | None = None
     match_info: Match_info | None = Field(alias="competitionInfo", default=None)
     streaming_provider_type: int = Field(alias="streamingProviderType", default=0)
-    all_Markets: list = Field(default_factory=list)
+    all_Markets: list[Market_details] = Field(default_factory=list)
 
     @model_validator(mode="before")
     @classmethod
@@ -126,11 +126,6 @@ class Match(BaseModel):
         return data
 
 class Sport_data(BaseModel):
-    model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
-
-    sport_name: str = Field(alias="name")
-    matches: list[Match] = Field(default_factory=list)
-
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
 
     sport_name: str = Field(alias="name")
@@ -171,7 +166,7 @@ def get_urls_and_json(html: str) -> list[str]:
     script_tag = soup.find("script", {"id": "ng-state"})
     json_data = json.loads(script_tag.string) if script_tag.string else {}
 
-    return card_urls, json_data
+    return card_urls or None, json_data or None
 
 def get_json_data(html: str) -> tuple:
     soup = BeautifulSoup(html, "html.parser")
@@ -252,26 +247,56 @@ headers = {
 
 base_url = "https://www.betclic.fr"
 
+sports = {
+    "Football": "football-sfootball",
+    "Tennis": "tennis-stennis",
+    "Basketball": "basketball-sbasketball",
+    "Baseball": "baseball-sbaseball",
+    "Boxing": "boxe-sboxing",
+    "Cycling": "cyclisme-scycling",
+    "Golf": "golf-sgolf",
+    "Handball": "handball-shandball",
+    "Ice hockey": "hockey-sur-glace-sice_hockey",
+    "MMA": "mma-smartial_arts",
+    "Rugby union": "rugby-a-xv-srugby_union",
+}
+
 
 def main():
-    print("Scraper started!")
-    response_html = fetch("https://www.betclic.fr/football-sfootball")
+    print("Scraper started!\n")
 
-    print("Extracting urls of all cards...")
-    urls, page_json = get_urls_and_json(response_html)
+    for sport_name, sport_path in sports.items():
+        while True:
+            try: 
+                print(f"Scraping {sport_name}")
+                url = parse.urljoin(base_url, sport_path)
+                response_html = fetch(url)
 
-    print("Extracting markets...")
-    all_clean_markets = get_detailed_markets(urls)
+                print("Extracting urls of all cards...")
+                urls, page_json = get_urls_and_json(response_html)
 
-    imporant_keys = [k for k in page_json if k.startswith("grpc:")]
-    main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
-    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+                print("Extracting markets...")
+                all_clean_markets = get_detailed_markets(urls)
 
-    print(f'Total matches: {len(playload.get("matches", []))}\nTotal URLs: {len(urls)}')
-    clean_data = Sport_data(**playload)
-    
-    for index, match in enumerate(clean_data.matches):
-        match.all_Markets = all_clean_markets[index]
+                imporant_keys = [k for k in page_json if k.startswith("grpc:")]
+                main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
+                playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+
+                print(f'Scraped details of {len(playload.get("matches", []))} matches from {len(urls)} URLs.')
+                clean_data = Sport_data(**playload)
+                
+                for index, match in enumerate(clean_data.matches):
+                    match.all_Markets = all_clean_markets[index]
+
+                file_path = f"{sport_name}.json"
+                save_json_file(file_path, clean_data.model_dump())
+                print("\n")
+
+            except Exception as e:
+                print(f"Something went wrong!\nException: {e}")
+                print("Trying again...")
+                continue
+            break
         
 if __name__ == "__main__":
     main()

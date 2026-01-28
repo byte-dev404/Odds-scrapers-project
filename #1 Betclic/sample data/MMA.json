@@ -1,0 +1,3342 @@
+{
+  "sport_name": "MMA",
+  "matches": [
+    {
+      "match_id": "1016363086864384",
+      "team_names": "Akhmed Amaev - Ilie Munteanu",
+      "match_date_utc": "2026-01-30T20:15:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "860096552886272",
+          "full_name": "Akhmed Amaev",
+          "short_name": "Akhmed Amaev",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "1016362844250112",
+          "full_name": "Ilie Munteanu",
+          "short_name": "Ilie Munteanu",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1016362261016576",
+      "team_names": "Vincent Yerly - Mathieu Abbe",
+      "match_date_utc": "2026-01-30T20:40:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "1016361918648320",
+          "full_name": "Vincent Yerly",
+          "short_name": "Vincent Yerly",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "1016362088226816",
+          "full_name": "Mathieu Abbe",
+          "short_name": "Mathieu Abbe",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1016361476407296",
+      "team_names": "Zakaria Hamou - Abubakar Khasiev",
+      "match_date_utc": "2026-01-30T21:05:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "646278829510656",
+          "full_name": "Zakaria Hamou",
+          "short_name": "Zakaria Hamou",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "1016361396457472",
+          "full_name": "Abubakar Khasiev",
+          "short_name": "Abubakar Khasiev",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1016360750637056",
+      "team_names": "Shamkhan Kushagov - Junior Hernandez",
+      "match_date_utc": "2026-01-30T21:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "816069984976896",
+          "full_name": "Shamkhan Kushagov",
+          "short_name": "Shamkhan Kushagov",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "813384653447168",
+          "full_name": "Junior Hernandez",
+          "short_name": "Junior Hernandez",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "960151456862208",
+      "team_names": "Magomed Umarkhadzhiev - Dorobshokh Nabotov",
+      "match_date_utc": "2026-01-30T22:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543839858025367",
+          "full_name": "Magomed Umarkhadzhiev",
+          "short_name": "Magomed Umarkhadzhiev",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "960149963825152",
+          "full_name": "Dorobshokh Nabotov",
+          "short_name": "Dorobshokh Nabotov",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 15,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1016377027837958",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029161006",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.38
+              },
+              {
+                "id": "1016377029161002",
+                "name": "Par KO, TKO, DQ",
+                "odds": 1.98
+              },
+              {
+                "id": "1016377029161003",
+                "name": "Par Soumission",
+                "odds": 2.93
+              },
+              {
+                "id": "1016377029161004",
+                "name": "Par D\u00e9cision",
+                "odds": 4.55
+              },
+              {
+                "id": "1016377029161007",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.15
+              },
+              {
+                "id": "1016377029161005",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 1.78
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837963",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029161037",
+                "name": "+ de 0,5",
+                "odds": 1.09
+              },
+              {
+                "id": "1016377029161038",
+                "name": "- de 0,5",
+                "odds": 6.5
+              },
+              {
+                "id": "1016377029161039",
+                "name": "+ de 1,5",
+                "odds": 1.77
+              },
+              {
+                "id": "1016377029161040",
+                "name": "- de 1,5",
+                "odds": 1.96
+              },
+              {
+                "id": "1016377029161041",
+                "name": "+ de 2,5",
+                "odds": 2.52
+              },
+              {
+                "id": "1016377029161042",
+                "name": "- de 2,5",
+                "odds": 1.49
+              },
+              {
+                "id": "1016377029161043",
+                "name": "+ de 3,5",
+                "odds": 3.07
+              },
+              {
+                "id": "1016377029161044",
+                "name": "- de 3,5",
+                "odds": 1.35
+              },
+              {
+                "id": "1016377029161045",
+                "name": "+ de 4,5",
+                "odds": 3.9
+              },
+              {
+                "id": "1016377029161046",
+                "name": "- de 4,5",
+                "odds": 1.23
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837968",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029161047",
+                "name": "Oui",
+                "odds": 4.55
+              },
+              {
+                "id": "1016377029161048",
+                "name": "Non",
+                "odds": 1.15
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837957",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029160992",
+                "name": "Round 1",
+                "odds": 2.77
+              },
+              {
+                "id": "1016377029160993",
+                "name": "Round 2",
+                "odds": 3.85
+              },
+              {
+                "id": "1016377029160994",
+                "name": "Round 3",
+                "odds": 6.5
+              },
+              {
+                "id": "1016377029160995",
+                "name": "Round 4",
+                "odds": 11.25
+              },
+              {
+                "id": "1016377029160996",
+                "name": "Round 5",
+                "odds": 14.75
+              },
+              {
+                "id": "1016377029160997",
+                "name": "Par D\u00e9cision",
+                "odds": 4.55
+              },
+              {
+                "id": "1016377029161001",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1016377029160998",
+                "name": "Round 1 - 2",
+                "odds": 1.65
+              },
+              {
+                "id": "1016377029160999",
+                "name": "Round 3 - 4",
+                "odds": 4.2
+              },
+              {
+                "id": "1016377029161000",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 3.58
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837955",
+            "market_name": "Vainqueur et issue du combat - Magomed Umarkhadzhiev",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029160974",
+                "name": "Round 1",
+                "odds": 3.5
+              },
+              {
+                "id": "1016377029160975",
+                "name": "Round 2",
+                "odds": 4.5
+              },
+              {
+                "id": "1016377029160976",
+                "name": "Round 3",
+                "odds": 8.0
+              },
+              {
+                "id": "1016377029160977",
+                "name": "Round 4",
+                "odds": 16.0
+              },
+              {
+                "id": "1016377029160978",
+                "name": "Round 5",
+                "odds": 22.0
+              },
+              {
+                "id": "1016377029160979",
+                "name": "Par D\u00e9cision",
+                "odds": 8.0
+              },
+              {
+                "id": "1016377029160982",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 6.5
+              },
+              {
+                "id": "1016377029160980",
+                "name": "Round 1 - Round 2",
+                "odds": 2.17
+              },
+              {
+                "id": "1016377029160981",
+                "name": "Round 3 - Round 4",
+                "odds": 5.9
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837956",
+            "market_name": "Vainqueur et issue du combat - Dorobshokh Nabotov",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029160983",
+                "name": "Round 1",
+                "odds": 9.0
+              },
+              {
+                "id": "1016377029160984",
+                "name": "Round 2",
+                "odds": 16.0
+              },
+              {
+                "id": "1016377029160985",
+                "name": "Round 3",
+                "odds": 22.0
+              },
+              {
+                "id": "1016377029160986",
+                "name": "Round 4",
+                "odds": 28.0
+              },
+              {
+                "id": "1016377029160987",
+                "name": "Round 5",
+                "odds": 35.0
+              },
+              {
+                "id": "1016377029160988",
+                "name": "Par D\u00e9cision",
+                "odds": 9.0
+              },
+              {
+                "id": "1016377029160991",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 7.75
+              },
+              {
+                "id": "1016377029160989",
+                "name": "Round 1 - Round 2",
+                "odds": 6.4
+              },
+              {
+                "id": "1016377029160990",
+                "name": "Round 3 - Round 4",
+                "odds": 13.5
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837959",
+            "market_name": "Issue du combat et type de victoire - Magomed Umarkhadzhiev",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029161008",
+                "name": "Magomed Umarkhadzhiev Round 1 par KO/TKO/DQ",
+                "odds": 5.75
+              },
+              {
+                "id": "1016377029161009",
+                "name": "Magomed Umarkhadzhiev Round 2 par KO/TKO/DQ",
+                "odds": 7.25
+              },
+              {
+                "id": "1016377029161010",
+                "name": "Magomed Umarkhadzhiev Round 3 par KO/TKO/DQ",
+                "odds": 13.0
+              },
+              {
+                "id": "1016377029161011",
+                "name": "Magomed Umarkhadzhiev Round 4 par KO/TKO/DQ",
+                "odds": 26.0
+              },
+              {
+                "id": "1016377029161012",
+                "name": "Magomed Umarkhadzhiev Round 5 par KO/TKO/DQ",
+                "odds": 35.0
+              },
+              {
+                "id": "1016377029161013",
+                "name": "Magomed Umarkhadzhiev Round 1 par Soumission",
+                "odds": 8.0
+              },
+              {
+                "id": "1016377029161014",
+                "name": "Magomed Umarkhadzhiev Round 2 par Soumission",
+                "odds": 10.25
+              },
+              {
+                "id": "1016377029161015",
+                "name": "Magomed Umarkhadzhiev Round 3 par Soumission",
+                "odds": 18.25
+              },
+              {
+                "id": "1016377029161016",
+                "name": "Magomed Umarkhadzhiev Round 4 par Soumission",
+                "odds": 35.0
+              },
+              {
+                "id": "1016377029161017",
+                "name": "Magomed Umarkhadzhiev Round 5 par Soumission",
+                "odds": 50.0
+              }
+            ]
+          },
+          {
+            "market_id": "1016377027837960",
+            "market_name": "Issue du combat et type de victoire - Dorobshokh Nabotov",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "960151456862208",
+            "selections": [
+              {
+                "id": "1016377029161018",
+                "name": "Dorobshokh Nabotov Round 1 par KO/TKO/DQ",
+                "odds": 13.5
+              },
+              {
+                "id": "1016377029161019",
+                "name": "Dorobshokh Nabotov Round 2 par KO/TKO/DQ",
+                "odds": 24.0
+              },
+              {
+                "id": "1016377029161020",
+                "name": "Dorobshokh Nabotov Round 3 par KO/TKO/DQ",
+                "odds": 33.0
+              },
+              {
+                "id": "1016377029161021",
+                "name": "Dorobshokh Nabotov Round 4 par KO/TKO/DQ",
+                "odds": 43.0
+              },
+              {
+                "id": "1016377029161022",
+                "name": "Dorobshokh Nabotov Round 5 par KO/TKO/DQ",
+                "odds": 55.0
+              },
+              {
+                "id": "1016377029161023",
+                "name": "Dorobshokh Nabotov Round 1 par Soumission",
+                "odds": 23.0
+              },
+              {
+                "id": "1016377029161024",
+                "name": "Dorobshokh Nabotov Round 2 par Soumission",
+                "odds": 40.0
+              },
+              {
+                "id": "1016377029161025",
+                "name": "Dorobshokh Nabotov Round 3 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1016377029161026",
+                "name": "Dorobshokh Nabotov Round 4 par Soumission",
+                "odds": 70.0
+              },
+              {
+                "id": "1016377029161027",
+                "name": "Dorobshokh Nabotov Round 5 par Soumission",
+                "odds": 90.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "985863909605376",
+      "team_names": "Z\u00e9bo - Ramazan Mustapaev",
+      "match_date_utc": "2026-01-30T22:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543840243900963",
+          "full_name": "Z\u00e9bo",
+          "short_name": "Jordan Z\u00e9bo",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "985863711539200",
+          "full_name": "Ramazan Mustapaev",
+          "short_name": "Ramazan Mustapaev",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 15,
+      "competition": {
+        "competition_id": "30019",
+        "competition_name": "ARES FC",
+        "competition_sport": "MMA",
+        "country_code": "FR"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1016374217695238",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654318",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.12
+              },
+              {
+                "id": "1016374217654314",
+                "name": "Par KO, TKO, DQ",
+                "odds": 1.98
+              },
+              {
+                "id": "1016374217654315",
+                "name": "Par Soumission",
+                "odds": 6.5
+              },
+              {
+                "id": "1016374217654316",
+                "name": "Par D\u00e9cision",
+                "odds": 2.57
+              },
+              {
+                "id": "1016374217654319",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.43
+              },
+              {
+                "id": "1016374217654317",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 1.84
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695243",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654349",
+                "name": "+ de 0,5",
+                "odds": 1.04
+              },
+              {
+                "id": "1016374217654350",
+                "name": "- de 0,5",
+                "odds": 9.0
+              },
+              {
+                "id": "1016374217654351",
+                "name": "+ de 1,5",
+                "odds": 1.36
+              },
+              {
+                "id": "1016374217654352",
+                "name": "- de 1,5",
+                "odds": 3.0
+              },
+              {
+                "id": "1016374217654353",
+                "name": "+ de 2,5",
+                "odds": 1.64
+              },
+              {
+                "id": "1016374217654354",
+                "name": "- de 2,5",
+                "odds": 2.18
+              },
+              {
+                "id": "1016374217654355",
+                "name": "+ de 3,5",
+                "odds": 1.9
+              },
+              {
+                "id": "1016374217654356",
+                "name": "- de 3,5",
+                "odds": 1.84
+              },
+              {
+                "id": "1016374217654357",
+                "name": "+ de 4,5",
+                "odds": 2.25
+              },
+              {
+                "id": "1016374217654358",
+                "name": "- de 4,5",
+                "odds": 1.6
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695248",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654359",
+                "name": "Oui",
+                "odds": 2.57
+              },
+              {
+                "id": "1016374217654360",
+                "name": "Non",
+                "odds": 1.43
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695237",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654304",
+                "name": "Round 1",
+                "odds": 3.88
+              },
+              {
+                "id": "1016374217654305",
+                "name": "Round 2",
+                "odds": 5.6
+              },
+              {
+                "id": "1016374217654306",
+                "name": "Round 3",
+                "odds": 7.25
+              },
+              {
+                "id": "1016374217654307",
+                "name": "Round 4",
+                "odds": 10.25
+              },
+              {
+                "id": "1016374217654308",
+                "name": "Round 5",
+                "odds": 14.0
+              },
+              {
+                "id": "1016374217654309",
+                "name": "Par D\u00e9cision",
+                "odds": 2.57
+              },
+              {
+                "id": "1016374217654313",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1016374217654310",
+                "name": "Round 1 - 2",
+                "odds": 2.35
+              },
+              {
+                "id": "1016374217654311",
+                "name": "Round 3 - 4",
+                "odds": 4.4
+              },
+              {
+                "id": "1016374217654312",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 2.22
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695235",
+            "market_name": "Vainqueur et issue du combat - Z\u00e9bo",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654286",
+                "name": "Round 1",
+                "odds": 5.0
+              },
+              {
+                "id": "1016374217654287",
+                "name": "Round 2",
+                "odds": 7.5
+              },
+              {
+                "id": "1016374217654288",
+                "name": "Round 3",
+                "odds": 10.0
+              },
+              {
+                "id": "1016374217654289",
+                "name": "Round 4",
+                "odds": 15.0
+              },
+              {
+                "id": "1016374217654290",
+                "name": "Round 5",
+                "odds": 22.0
+              },
+              {
+                "id": "1016374217654291",
+                "name": "Par D\u00e9cision",
+                "odds": 3.25
+              },
+              {
+                "id": "1016374217654294",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 3.12
+              },
+              {
+                "id": "1016374217654292",
+                "name": "Round 1 - Round 2",
+                "odds": 3.3
+              },
+              {
+                "id": "1016374217654293",
+                "name": "Round 3 - Round 4",
+                "odds": 6.6
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695236",
+            "market_name": "Vainqueur et issue du combat - Ramazan Mustapaev",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654295",
+                "name": "Round 1",
+                "odds": 12.0
+              },
+              {
+                "id": "1016374217654296",
+                "name": "Round 2",
+                "odds": 16.0
+              },
+              {
+                "id": "1016374217654297",
+                "name": "Round 3",
+                "odds": 20.0
+              },
+              {
+                "id": "1016374217654298",
+                "name": "Round 4",
+                "odds": 25.0
+              },
+              {
+                "id": "1016374217654299",
+                "name": "Round 5",
+                "odds": 30.0
+              },
+              {
+                "id": "1016374217654300",
+                "name": "Par D\u00e9cision",
+                "odds": 9.0
+              },
+              {
+                "id": "1016374217654303",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 7.5
+              },
+              {
+                "id": "1016374217654301",
+                "name": "Round 1 - Round 2",
+                "odds": 7.5
+              },
+              {
+                "id": "1016374217654302",
+                "name": "Round 3 - Round 4",
+                "odds": 12.25
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695239",
+            "market_name": "Issue du combat et type de victoire - Z\u00e9bo",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654320",
+                "name": "Z\u00e9bo Round 1 par KO/TKO/DQ",
+                "odds": 5.75
+              },
+              {
+                "id": "1016374217654321",
+                "name": "Z\u00e9bo Round 2 par KO/TKO/DQ",
+                "odds": 8.5
+              },
+              {
+                "id": "1016374217654322",
+                "name": "Z\u00e9bo Round 3 par KO/TKO/DQ",
+                "odds": 11.5
+              },
+              {
+                "id": "1016374217654323",
+                "name": "Z\u00e9bo Round 4 par KO/TKO/DQ",
+                "odds": 17.25
+              },
+              {
+                "id": "1016374217654324",
+                "name": "Z\u00e9bo Round 5 par KO/TKO/DQ",
+                "odds": 25.0
+              },
+              {
+                "id": "1016374217654325",
+                "name": "Z\u00e9bo Round 1 par Soumission",
+                "odds": 28.0
+              },
+              {
+                "id": "1016374217654326",
+                "name": "Z\u00e9bo Round 2 par Soumission",
+                "odds": 40.0
+              },
+              {
+                "id": "1016374217654327",
+                "name": "Z\u00e9bo Round 3 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1016374217654328",
+                "name": "Z\u00e9bo Round 4 par Soumission",
+                "odds": 85.0
+              },
+              {
+                "id": "1016374217654329",
+                "name": "Z\u00e9bo Round 5 par Soumission",
+                "odds": 125.0
+              }
+            ]
+          },
+          {
+            "market_id": "1016374217695240",
+            "market_name": "Issue du combat et type de victoire - Ramazan Mustapaev",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985863909605376",
+            "selections": [
+              {
+                "id": "1016374217654330",
+                "name": "Ramazan Mustapaev Round 1 par KO/TKO/DQ",
+                "odds": 18.0
+              },
+              {
+                "id": "1016374217654331",
+                "name": "Ramazan Mustapaev Round 2 par KO/TKO/DQ",
+                "odds": 24.0
+              },
+              {
+                "id": "1016374217654332",
+                "name": "Ramazan Mustapaev Round 3 par KO/TKO/DQ",
+                "odds": 30.0
+              },
+              {
+                "id": "1016374217654333",
+                "name": "Ramazan Mustapaev Round 4 par KO/TKO/DQ",
+                "odds": 38.0
+              },
+              {
+                "id": "1016374217654334",
+                "name": "Ramazan Mustapaev Round 5 par KO/TKO/DQ",
+                "odds": 45.0
+              },
+              {
+                "id": "1016374217654335",
+                "name": "Ramazan Mustapaev Round 1 par Soumission",
+                "odds": 30.0
+              },
+              {
+                "id": "1016374217654336",
+                "name": "Ramazan Mustapaev Round 2 par Soumission",
+                "odds": 40.0
+              },
+              {
+                "id": "1016374217654337",
+                "name": "Ramazan Mustapaev Round 3 par Soumission",
+                "odds": 50.0
+              },
+              {
+                "id": "1016374217654338",
+                "name": "Ramazan Mustapaev Round 4 par Soumission",
+                "odds": 65.0
+              },
+              {
+                "id": "1016374217654339",
+                "name": "Ramazan Mustapaev Round 5 par Soumission",
+                "odds": 75.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "1006075293868032",
+      "team_names": "Quillan Salkilld - Jamie Mullarkey",
+      "match_date_utc": "2026-02-01T02:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "682085733781504",
+          "full_name": "Quillan Salkilld",
+          "short_name": "Quillan Salkilld",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839799304996",
+          "full_name": "Jamie Mullarkey",
+          "short_name": "J. Mullarkey",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 12,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1016358849568774",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724453",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.23
+              },
+              {
+                "id": "1016358849724449",
+                "name": "Par KO, TKO, DQ",
+                "odds": 1.65
+              },
+              {
+                "id": "1016358849724450",
+                "name": "Par Soumission",
+                "odds": 3.47
+              },
+              {
+                "id": "1016358849724451",
+                "name": "Par D\u00e9cision",
+                "odds": 4.75
+              },
+              {
+                "id": "1016358849724454",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.14
+              },
+              {
+                "id": "1016358849724452",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 2.03
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568779",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724472",
+                "name": "+ de 1,5",
+                "odds": 2.2
+              },
+              {
+                "id": "1016358849724473",
+                "name": "- de 1,5",
+                "odds": 1.62
+              },
+              {
+                "id": "1016358849724474",
+                "name": "+ de 2,5",
+                "odds": 3.95
+              },
+              {
+                "id": "1016358849724475",
+                "name": "- de 2,5",
+                "odds": 1.23
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568781",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724476",
+                "name": "Oui",
+                "odds": 4.75
+              },
+              {
+                "id": "1016358849724477",
+                "name": "Non",
+                "odds": 1.14
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568773",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724442",
+                "name": "Round 1",
+                "odds": 2.33
+              },
+              {
+                "id": "1016358849724443",
+                "name": "Round 2",
+                "odds": 3.22
+              },
+              {
+                "id": "1016358849724444",
+                "name": "Round 3",
+                "odds": 6.0
+              },
+              {
+                "id": "1016358849724445",
+                "name": "Par D\u00e9cision",
+                "odds": 4.75
+              },
+              {
+                "id": "1016358849724448",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1016358849724446",
+                "name": "Round 1 - 2",
+                "odds": 1.39
+              },
+              {
+                "id": "1016358849724447",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 2.72
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568771",
+            "market_name": "Vainqueur et issue du combat - Quillan Salkilld",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724430",
+                "name": "Round 1",
+                "odds": 2.5
+              },
+              {
+                "id": "1016358849724431",
+                "name": "Round 2",
+                "odds": 3.5
+              },
+              {
+                "id": "1016358849724432",
+                "name": "Round 3",
+                "odds": 7.0
+              },
+              {
+                "id": "1016358849724433",
+                "name": "Par D\u00e9cision",
+                "odds": 6.5
+              },
+              {
+                "id": "1016358849724435",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 3.7
+              },
+              {
+                "id": "1016358849724434",
+                "name": "Round 1 - Round 2",
+                "odds": 1.6
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568772",
+            "market_name": "Vainqueur et issue du combat - Jamie Mullarkey",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724436",
+                "name": "Round 1",
+                "odds": 14.0
+              },
+              {
+                "id": "1016358849724437",
+                "name": "Round 2",
+                "odds": 18.0
+              },
+              {
+                "id": "1016358849724438",
+                "name": "Round 3",
+                "odds": 24.0
+              },
+              {
+                "id": "1016358849724439",
+                "name": "Par D\u00e9cision",
+                "odds": 14.0
+              },
+              {
+                "id": "1016358849724441",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 9.75
+              },
+              {
+                "id": "1016358849724440",
+                "name": "Round 1 - Round 2",
+                "odds": 8.75
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568775",
+            "market_name": "Issue du combat et type de victoire - Quillan Salkilld",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724455",
+                "name": "Quillan Salkilld Round 1 par KO/TKO/DQ",
+                "odds": 3.48
+              },
+              {
+                "id": "1016358849724456",
+                "name": "Quillan Salkilld Round 2 par KO/TKO/DQ",
+                "odds": 4.9
+              },
+              {
+                "id": "1016358849724457",
+                "name": "Quillan Salkilld Round 3 par KO/TKO/DQ",
+                "odds": 9.75
+              },
+              {
+                "id": "1016358849724458",
+                "name": "Quillan Salkilld Round 1 par Soumission",
+                "odds": 7.5
+              },
+              {
+                "id": "1016358849724459",
+                "name": "Quillan Salkilld Round 2 par Soumission",
+                "odds": 10.5
+              },
+              {
+                "id": "1016358849724460",
+                "name": "Quillan Salkilld Round 3 par Soumission",
+                "odds": 21.0
+              }
+            ]
+          },
+          {
+            "market_id": "1016358849568776",
+            "market_name": "Issue du combat et type de victoire - Jamie Mullarkey",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "1006075293868032",
+            "selections": [
+              {
+                "id": "1016358849724461",
+                "name": "Jamie Mullarkey Round 1 par KO/TKO/DQ",
+                "odds": 21.0
+              },
+              {
+                "id": "1016358849724462",
+                "name": "Jamie Mullarkey Round 2 par KO/TKO/DQ",
+                "odds": 26.0
+              },
+              {
+                "id": "1016358849724463",
+                "name": "Jamie Mullarkey Round 3 par KO/TKO/DQ",
+                "odds": 35.0
+              },
+              {
+                "id": "1016358849724464",
+                "name": "Jamie Mullarkey Round 1 par Soumission",
+                "odds": 38.0
+              },
+              {
+                "id": "1016358849724465",
+                "name": "Jamie Mullarkey Round 2 par Soumission",
+                "odds": 48.0
+              },
+              {
+                "id": "1016358849724466",
+                "name": "Jamie Mullarkey Round 3 par Soumission",
+                "odds": 65.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "985656653590528",
+      "team_names": "Tai Tuivasa - Tallison Teixeira",
+      "match_date_utc": "2026-02-01T02:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841395237231",
+          "full_name": "Tai Tuivasa",
+          "short_name": "Tai Tuivasa",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "783400933253120",
+          "full_name": "Tallison Teixeira",
+          "short_name": "Tallison Teixeira",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 12,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1016356593393670",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033253",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.05
+              },
+              {
+                "id": "1016356593033249",
+                "name": "Par KO, TKO, DQ",
+                "odds": 1.25
+              },
+              {
+                "id": "1016356593033250",
+                "name": "Par Soumission",
+                "odds": 6.9
+              },
+              {
+                "id": "1016356593033251",
+                "name": "Par D\u00e9cision",
+                "odds": 5.6
+              },
+              {
+                "id": "1016356593033254",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.1
+              },
+              {
+                "id": "1016356593033252",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 3.37
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393676",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033272",
+                "name": "+ de 1,5",
+                "odds": 3.13
+              },
+              {
+                "id": "1016356593033273",
+                "name": "- de 1,5",
+                "odds": 1.33
+              },
+              {
+                "id": "1016356593033274",
+                "name": "+ de 2,5",
+                "odds": 5.0
+              },
+              {
+                "id": "1016356593033275",
+                "name": "- de 2,5",
+                "odds": 1.15
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393677",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033276",
+                "name": "Oui",
+                "odds": 5.6
+              },
+              {
+                "id": "1016356593033277",
+                "name": "Non",
+                "odds": 1.1
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393669",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033242",
+                "name": "Round 1",
+                "odds": 2.0
+              },
+              {
+                "id": "1016356593033243",
+                "name": "Round 2",
+                "odds": 3.15
+              },
+              {
+                "id": "1016356593033244",
+                "name": "Round 3",
+                "odds": 7.0
+              },
+              {
+                "id": "1016356593033245",
+                "name": "Par D\u00e9cision",
+                "odds": 5.6
+              },
+              {
+                "id": "1016356593033248",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1016356593033246",
+                "name": "Round 1 - 2",
+                "odds": 1.25
+              },
+              {
+                "id": "1016356593033247",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 3.22
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393667",
+            "market_name": "Vainqueur et issue du combat - Tai Tuivasa",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033230",
+                "name": "Round 1",
+                "odds": 8.0
+              },
+              {
+                "id": "1016356593033231",
+                "name": "Round 2",
+                "odds": 11.0
+              },
+              {
+                "id": "1016356593033232",
+                "name": "Round 3",
+                "odds": 18.0
+              },
+              {
+                "id": "1016356593033233",
+                "name": "Par D\u00e9cision",
+                "odds": 11.0
+              },
+              {
+                "id": "1016356593033235",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 7.5
+              },
+              {
+                "id": "1016356593033234",
+                "name": "Round 1 - Round 2",
+                "odds": 5.1
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393668",
+            "market_name": "Vainqueur et issue du combat - Tallison Teixeira",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033236",
+                "name": "Round 1",
+                "odds": 2.2
+              },
+              {
+                "id": "1016356593033237",
+                "name": "Round 2",
+                "odds": 3.75
+              },
+              {
+                "id": "1016356593033238",
+                "name": "Round 3",
+                "odds": 10.0
+              },
+              {
+                "id": "1016356593033239",
+                "name": "Par D\u00e9cision",
+                "odds": 10.0
+              },
+              {
+                "id": "1016356593033241",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 5.5
+              },
+              {
+                "id": "1016356593033240",
+                "name": "Round 1 - Round 2",
+                "odds": 1.5
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393671",
+            "market_name": "Issue du combat et type de victoire - Tai Tuivasa",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033255",
+                "name": "Tai Tuivasa Round 1 par KO/TKO/DQ",
+                "odds": 8.75
+              },
+              {
+                "id": "1016356593033256",
+                "name": "Tai Tuivasa Round 2 par KO/TKO/DQ",
+                "odds": 12.0
+              },
+              {
+                "id": "1016356593033257",
+                "name": "Tai Tuivasa Round 3 par KO/TKO/DQ",
+                "odds": 19.5
+              },
+              {
+                "id": "1016356593033258",
+                "name": "Tai Tuivasa Round 1 par Soumission",
+                "odds": 60.0
+              },
+              {
+                "id": "1016356593033259",
+                "name": "Tai Tuivasa Round 2 par Soumission",
+                "odds": 85.0
+              },
+              {
+                "id": "1016356593033260",
+                "name": "Tai Tuivasa Round 3 par Soumission",
+                "odds": 140.0
+              }
+            ]
+          },
+          {
+            "market_id": "1016356593393672",
+            "market_name": "Issue du combat et type de victoire - Tallison Teixeira",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "985656653590528",
+            "selections": [
+              {
+                "id": "1016356593033261",
+                "name": "Tallison Teixeira Round 1 par KO/TKO/DQ",
+                "odds": 2.83
+              },
+              {
+                "id": "1016356593033262",
+                "name": "Tallison Teixeira Round 2 par KO/TKO/DQ",
+                "odds": 4.55
+              },
+              {
+                "id": "1016356593033263",
+                "name": "Tallison Teixeira Round 3 par KO/TKO/DQ",
+                "odds": 11.25
+              },
+              {
+                "id": "1016356593033264",
+                "name": "Tallison Teixeira Round 1 par Soumission",
+                "odds": 14.75
+              },
+              {
+                "id": "1016356593033265",
+                "name": "Tallison Teixeira Round 2 par Soumission",
+                "odds": 23.0
+              },
+              {
+                "id": "1016356593033266",
+                "name": "Tallison Teixeira Round 3 par Soumission",
+                "odds": 60.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "970481632112640",
+      "team_names": "Rafael Fiziev - Mauricio Ruffy",
+      "match_date_utc": "2026-02-01T02:40:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543836217668025",
+          "full_name": "Rafael Fiziev",
+          "short_name": "Rafael Fiziev",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543841364079586",
+          "full_name": "Mauricio Ruffy",
+          "short_name": "Mauricio Ruffy",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 13,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1006402286247942",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304741",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.02
+              },
+              {
+                "id": "1006402287304737",
+                "name": "Par KO, TKO, DQ",
+                "odds": 2.5
+              },
+              {
+                "id": "1006402287304738",
+                "name": "Par Soumission",
+                "odds": 10.75
+              },
+              {
+                "id": "1006402287304739",
+                "name": "Par D\u00e9cision",
+                "odds": 1.64
+              },
+              {
+                "id": "1006402287304742",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 2.08
+              },
+              {
+                "id": "1006402287304740",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 1.43
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247947",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304760",
+                "name": "+ de 1,5",
+                "odds": 1.28
+              },
+              {
+                "id": "1006402287304761",
+                "name": "- de 1,5",
+                "odds": 3.45
+              },
+              {
+                "id": "1006402287304762",
+                "name": "+ de 2,5",
+                "odds": 1.51
+              },
+              {
+                "id": "1006402287304763",
+                "name": "- de 2,5",
+                "odds": 2.45
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247949",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304764",
+                "name": "Oui",
+                "odds": 1.64
+              },
+              {
+                "id": "1006402287304765",
+                "name": "Non",
+                "odds": 2.08
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247941",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304730",
+                "name": "Round 1",
+                "odds": 4.95
+              },
+              {
+                "id": "1006402287304731",
+                "name": "Round 2",
+                "odds": 6.25
+              },
+              {
+                "id": "1006402287304732",
+                "name": "Round 3",
+                "odds": 7.75
+              },
+              {
+                "id": "1006402287304733",
+                "name": "Par D\u00e9cision",
+                "odds": 1.64
+              },
+              {
+                "id": "1006402287304736",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1006402287304734",
+                "name": "Round 1 - 2",
+                "odds": 2.85
+              },
+              {
+                "id": "1006402287304735",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 1.38
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247939",
+            "market_name": "Vainqueur et issue du combat - Rafael Fiziev",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304718",
+                "name": "Round 1",
+                "odds": 9.0
+              },
+              {
+                "id": "1006402287304719",
+                "name": "Round 2",
+                "odds": 12.0
+              },
+              {
+                "id": "1006402287304720",
+                "name": "Round 3",
+                "odds": 15.0
+              },
+              {
+                "id": "1006402287304721",
+                "name": "Par D\u00e9cision",
+                "odds": 3.1
+              },
+              {
+                "id": "1006402287304723",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 2.83
+              },
+              {
+                "id": "1006402287304722",
+                "name": "Round 1 - Round 2",
+                "odds": 5.6
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247940",
+            "market_name": "Vainqueur et issue du combat - Mauricio Ruffy",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304724",
+                "name": "Round 1",
+                "odds": 9.0
+              },
+              {
+                "id": "1006402287304725",
+                "name": "Round 2",
+                "odds": 11.0
+              },
+              {
+                "id": "1006402287304726",
+                "name": "Round 3",
+                "odds": 13.0
+              },
+              {
+                "id": "1006402287304727",
+                "name": "Par D\u00e9cision",
+                "odds": 3.0
+              },
+              {
+                "id": "1006402287304729",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 2.68
+              },
+              {
+                "id": "1006402287304728",
+                "name": "Round 1 - Round 2",
+                "odds": 5.4
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247943",
+            "market_name": "Issue du combat et type de victoire - Rafael Fiziev",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304743",
+                "name": "Rafael Fiziev Round 1 par KO/TKO/DQ",
+                "odds": 11.0
+              },
+              {
+                "id": "1006402287304744",
+                "name": "Rafael Fiziev Round 2 par KO/TKO/DQ",
+                "odds": 14.5
+              },
+              {
+                "id": "1006402287304745",
+                "name": "Rafael Fiziev Round 3 par KO/TKO/DQ",
+                "odds": 18.25
+              },
+              {
+                "id": "1006402287304746",
+                "name": "Rafael Fiziev Round 1 par Soumission",
+                "odds": 40.0
+              },
+              {
+                "id": "1006402287304747",
+                "name": "Rafael Fiziev Round 2 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1006402287304748",
+                "name": "Rafael Fiziev Round 3 par Soumission",
+                "odds": 65.0
+              }
+            ]
+          },
+          {
+            "market_id": "1006402286247944",
+            "market_name": "Issue du combat et type de victoire - Mauricio Ruffy",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970481632112640",
+            "selections": [
+              {
+                "id": "1006402287304749",
+                "name": "Mauricio Ruffy Round 1 par KO/TKO/DQ",
+                "odds": 9.5
+              },
+              {
+                "id": "1006402287304750",
+                "name": "Mauricio Ruffy Round 2 par KO/TKO/DQ",
+                "odds": 12.5
+              },
+              {
+                "id": "1006402287304751",
+                "name": "Mauricio Ruffy Round 3 par KO/TKO/DQ",
+                "odds": 14.75
+              },
+              {
+                "id": "1006402287304752",
+                "name": "Mauricio Ruffy Round 1 par Soumission",
+                "odds": 50.0
+              },
+              {
+                "id": "1006402287304753",
+                "name": "Mauricio Ruffy Round 2 par Soumission",
+                "odds": 65.0
+              },
+              {
+                "id": "1006402287304754",
+                "name": "Mauricio Ruffy Round 3 par Soumission",
+                "odds": 75.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "970480614309888",
+      "team_names": "Dan Hooker - Benoit Saint Denis",
+      "match_date_utc": "2026-02-01T03:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543837464126393",
+          "full_name": "Dan Hooker",
+          "short_name": "Dan Hooker",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839106494906",
+          "full_name": "Benoit Saint Denis",
+          "short_name": "Benoit Saint Denis",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 13,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1006400585457670",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514469",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.45
+              },
+              {
+                "id": "1006400586514465",
+                "name": "Par KO, TKO, DQ",
+                "odds": 2.95
+              },
+              {
+                "id": "1006400586514466",
+                "name": "Par Soumission",
+                "odds": 2.42
+              },
+              {
+                "id": "1006400586514467",
+                "name": "Par D\u00e9cision",
+                "odds": 2.62
+              },
+              {
+                "id": "1006400586514470",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.41
+              },
+              {
+                "id": "1006400586514468",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 1.31
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457676",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514488",
+                "name": "+ de 1,5",
+                "odds": 1.52
+              },
+              {
+                "id": "1006400586514489",
+                "name": "- de 1,5",
+                "odds": 2.4
+              },
+              {
+                "id": "1006400586514490",
+                "name": "+ de 2,5",
+                "odds": 2.18
+              },
+              {
+                "id": "1006400586514491",
+                "name": "- de 2,5",
+                "odds": 1.64
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457677",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514492",
+                "name": "Oui",
+                "odds": 2.6
+              },
+              {
+                "id": "1006400586514493",
+                "name": "Non",
+                "odds": 1.44
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457669",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514458",
+                "name": "Round 1",
+                "odds": 3.3
+              },
+              {
+                "id": "1006400586514459",
+                "name": "Round 2",
+                "odds": 4.1
+              },
+              {
+                "id": "1006400586514460",
+                "name": "Round 3",
+                "odds": 6.1
+              },
+              {
+                "id": "1006400586514461",
+                "name": "Par D\u00e9cision",
+                "odds": 2.62
+              },
+              {
+                "id": "1006400586514464",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1006400586514462",
+                "name": "Round 1 - 2",
+                "odds": 1.88
+              },
+              {
+                "id": "1006400586514463",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 1.88
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457667",
+            "market_name": "Vainqueur et issue du combat - Dan Hooker",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514446",
+                "name": "Round 1",
+                "odds": 12.0
+              },
+              {
+                "id": "1006400586514447",
+                "name": "Round 2",
+                "odds": 15.0
+              },
+              {
+                "id": "1006400586514448",
+                "name": "Round 3",
+                "odds": 18.0
+              },
+              {
+                "id": "1006400586514449",
+                "name": "Par D\u00e9cision",
+                "odds": 8.0
+              },
+              {
+                "id": "1006400586514451",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 6.1
+              },
+              {
+                "id": "1006400586514450",
+                "name": "Round 1 - Round 2",
+                "odds": 7.25
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457668",
+            "market_name": "Vainqueur et issue du combat - Benoit Saint Denis",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514452",
+                "name": "Round 1",
+                "odds": 3.95
+              },
+              {
+                "id": "1006400586514453",
+                "name": "Round 2",
+                "odds": 5.0
+              },
+              {
+                "id": "1006400586514454",
+                "name": "Round 3",
+                "odds": 8.0
+              },
+              {
+                "id": "1006400586514455",
+                "name": "Par D\u00e9cision",
+                "odds": 3.5
+              },
+              {
+                "id": "1006400586514457",
+                "name": "Round 3 - D\u00e9cision",
+                "odds": 2.68
+              },
+              {
+                "id": "1006400586514456",
+                "name": "Round 1 - Round 2",
+                "odds": 2.45
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457671",
+            "market_name": "Issue du combat et type de victoire - Dan Hooker",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514471",
+                "name": "Dan Hooker Round 1 par KO/TKO/DQ",
+                "odds": 14.5
+              },
+              {
+                "id": "1006400586514472",
+                "name": "Dan Hooker Round 2 par KO/TKO/DQ",
+                "odds": 18.25
+              },
+              {
+                "id": "1006400586514473",
+                "name": "Dan Hooker Round 3 par KO/TKO/DQ",
+                "odds": 22.0
+              },
+              {
+                "id": "1006400586514474",
+                "name": "Dan Hooker Round 1 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1006400586514475",
+                "name": "Dan Hooker Round 2 par Soumission",
+                "odds": 65.0
+              },
+              {
+                "id": "1006400586514476",
+                "name": "Dan Hooker Round 3 par Soumission",
+                "odds": 80.0
+              }
+            ]
+          },
+          {
+            "market_id": "1006400585457672",
+            "market_name": "Issue du combat et type de victoire - Benoit Saint Denis",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "970480614309888",
+            "selections": [
+              {
+                "id": "1006400586514477",
+                "name": "Benoit Saint Denis Round 1 par KO/TKO/DQ",
+                "odds": 11.5
+              },
+              {
+                "id": "1006400586514478",
+                "name": "Benoit Saint Denis Round 2 par KO/TKO/DQ",
+                "odds": 14.25
+              },
+              {
+                "id": "1006400586514479",
+                "name": "Benoit Saint Denis Round 3 par KO/TKO/DQ",
+                "odds": 23.0
+              },
+              {
+                "id": "1006400586514480",
+                "name": "Benoit Saint Denis Round 1 par Soumission",
+                "odds": 5.75
+              },
+              {
+                "id": "1006400586514481",
+                "name": "Benoit Saint Denis Round 2 par Soumission",
+                "odds": 7.0
+              },
+              {
+                "id": "1006400586514482",
+                "name": "Benoit Saint Denis Round 3 par Soumission",
+                "odds": 11.5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "962120306167808",
+      "team_names": "Alexander Volkanovski - Diego Lopes",
+      "match_date_utc": "2026-02-01T03:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543832734298667",
+          "full_name": "Alexander Volkanovski",
+          "short_name": "Alexander Volkanovski",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839361299157",
+          "full_name": "Diego Lopes",
+          "short_name": "Diego Lopes",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 16,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": [
+          {
+            "market_id": "1006397007380486",
+            "market_name": "Type de victoire",
+            "position": 3,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597038",
+                "name": "Par KO/TKO ou D\u00e9cision",
+                "odds": 1.08
+              },
+              {
+                "id": "1006397008597034",
+                "name": "Par KO, TKO, DQ",
+                "odds": 2.43
+              },
+              {
+                "id": "1006397008597035",
+                "name": "Par Soumission",
+                "odds": 5.6
+              },
+              {
+                "id": "1006397008597036",
+                "name": "Par D\u00e9cision",
+                "odds": 1.95
+              },
+              {
+                "id": "1006397008597039",
+                "name": "Par KO, TKO ou Soumission",
+                "odds": 1.73
+              },
+              {
+                "id": "1006397008597037",
+                "name": "Par Soumission ou D\u00e9cision",
+                "odds": 1.44
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380492",
+            "market_name": "Nombre de rounds (0,5 correspond \u00e0 2min30 du round suivant)",
+            "position": 4,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597069",
+                "name": "+ de 0,5",
+                "odds": 1.01
+              },
+              {
+                "id": "1006397008597070",
+                "name": "- de 0,5",
+                "odds": 12.25
+              },
+              {
+                "id": "1006397008597071",
+                "name": "+ de 1,5",
+                "odds": 1.2
+              },
+              {
+                "id": "1006397008597072",
+                "name": "- de 1,5",
+                "odds": 4.2
+              },
+              {
+                "id": "1006397008597073",
+                "name": "+ de 2,5",
+                "odds": 1.41
+              },
+              {
+                "id": "1006397008597074",
+                "name": "- de 2,5",
+                "odds": 2.78
+              },
+              {
+                "id": "1006397008597075",
+                "name": "+ de 3,5",
+                "odds": 1.56
+              },
+              {
+                "id": "1006397008597076",
+                "name": "- de 3,5",
+                "odds": 2.33
+              },
+              {
+                "id": "1006397008597077",
+                "name": "+ de 4,5",
+                "odds": 1.87
+              },
+              {
+                "id": "1006397008597078",
+                "name": "- de 4,5",
+                "odds": 1.87
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380496",
+            "market_name": "Combat \u00e0 son terme",
+            "position": 6,
+            "is_early_win": false,
+            "is_cashoutable": true,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597079",
+                "name": "Oui",
+                "odds": 1.95
+              },
+              {
+                "id": "1006397008597080",
+                "name": "Non",
+                "odds": 1.75
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380485",
+            "market_name": "Issue du combat",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597024",
+                "name": "Round 1",
+                "odds": 5.25
+              },
+              {
+                "id": "1006397008597025",
+                "name": "Round 2",
+                "odds": 6.6
+              },
+              {
+                "id": "1006397008597026",
+                "name": "Round 3",
+                "odds": 8.5
+              },
+              {
+                "id": "1006397008597027",
+                "name": "Round 4",
+                "odds": 11.0
+              },
+              {
+                "id": "1006397008597028",
+                "name": "Round 5",
+                "odds": 13.5
+              },
+              {
+                "id": "1006397008597029",
+                "name": "Par D\u00e9cision",
+                "odds": 1.95
+              },
+              {
+                "id": "1006397008597033",
+                "name": "Nul",
+                "odds": 80.0
+              },
+              {
+                "id": "1006397008597030",
+                "name": "Round 1 - 2",
+                "odds": 3.0
+              },
+              {
+                "id": "1006397008597031",
+                "name": "Round 3 - 4",
+                "odds": 4.9
+              },
+              {
+                "id": "1006397008597032",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 1.75
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380483",
+            "market_name": "Vainqueur et issue du combat - Alexander Volkanovski",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597006",
+                "name": "Round 1",
+                "odds": 12.0
+              },
+              {
+                "id": "1006397008597007",
+                "name": "Round 2",
+                "odds": 13.0
+              },
+              {
+                "id": "1006397008597008",
+                "name": "Round 3",
+                "odds": 16.0
+              },
+              {
+                "id": "1006397008597009",
+                "name": "Round 4",
+                "odds": 20.0
+              },
+              {
+                "id": "1006397008597010",
+                "name": "Round 5",
+                "odds": 24.0
+              },
+              {
+                "id": "1006397008597011",
+                "name": "Par D\u00e9cision",
+                "odds": 2.6
+              },
+              {
+                "id": "1006397008597014",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 2.58
+              },
+              {
+                "id": "1006397008597012",
+                "name": "Round 1 - Round 2",
+                "odds": 6.9
+              },
+              {
+                "id": "1006397008597013",
+                "name": "Round 3 - Round 4",
+                "odds": 9.75
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380484",
+            "market_name": "Vainqueur et issue du combat - Diego Lopes",
+            "position": 8,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597015",
+                "name": "Round 1",
+                "odds": 8.0
+              },
+              {
+                "id": "1006397008597016",
+                "name": "Round 2",
+                "odds": 11.0
+              },
+              {
+                "id": "1006397008597017",
+                "name": "Round 3",
+                "odds": 15.0
+              },
+              {
+                "id": "1006397008597018",
+                "name": "Round 4",
+                "odds": 20.0
+              },
+              {
+                "id": "1006397008597019",
+                "name": "Round 5",
+                "odds": 25.0
+              },
+              {
+                "id": "1006397008597020",
+                "name": "Par D\u00e9cision",
+                "odds": 6.0
+              },
+              {
+                "id": "1006397008597023",
+                "name": "Round 5 - D\u00e9cision",
+                "odds": 5.25
+              },
+              {
+                "id": "1006397008597021",
+                "name": "Round 1 - Round 2",
+                "odds": 5.1
+              },
+              {
+                "id": "1006397008597022",
+                "name": "Round 3 - Round 4",
+                "odds": 9.5
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380487",
+            "market_name": "Issue du combat et type de victoire - Alexander Volkanovski",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597040",
+                "name": "Alexander Volkanovski Round 1 par KO/TKO/DQ",
+                "odds": 15.75
+              },
+              {
+                "id": "1006397008597041",
+                "name": "Alexander Volkanovski Round 2 par KO/TKO/DQ",
+                "odds": 17.0
+              },
+              {
+                "id": "1006397008597042",
+                "name": "Alexander Volkanovski Round 3 par KO/TKO/DQ",
+                "odds": 21.0
+              },
+              {
+                "id": "1006397008597043",
+                "name": "Alexander Volkanovski Round 4 par KO/TKO/DQ",
+                "odds": 26.0
+              },
+              {
+                "id": "1006397008597044",
+                "name": "Alexander Volkanovski Round 5 par KO/TKO/DQ",
+                "odds": 30.0
+              },
+              {
+                "id": "1006397008597045",
+                "name": "Alexander Volkanovski Round 1 par Soumission",
+                "odds": 43.0
+              },
+              {
+                "id": "1006397008597046",
+                "name": "Alexander Volkanovski Round 2 par Soumission",
+                "odds": 45.0
+              },
+              {
+                "id": "1006397008597047",
+                "name": "Alexander Volkanovski Round 3 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1006397008597048",
+                "name": "Alexander Volkanovski Round 4 par Soumission",
+                "odds": 70.0
+              },
+              {
+                "id": "1006397008597049",
+                "name": "Alexander Volkanovski Round 5 par Soumission",
+                "odds": 85.0
+              }
+            ]
+          },
+          {
+            "market_id": "1006397007380488",
+            "market_name": "Issue du combat et type de victoire - Diego Lopes",
+            "position": 10,
+            "is_early_win": false,
+            "is_cashoutable": false,
+            "match_id": "962120306167808",
+            "selections": [
+              {
+                "id": "1006397008597050",
+                "name": "Diego Lopes Round 1 par KO/TKO/DQ",
+                "odds": 11.5
+              },
+              {
+                "id": "1006397008597051",
+                "name": "Diego Lopes Round 2 par KO/TKO/DQ",
+                "odds": 15.75
+              },
+              {
+                "id": "1006397008597052",
+                "name": "Diego Lopes Round 3 par KO/TKO/DQ",
+                "odds": 21.0
+              },
+              {
+                "id": "1006397008597053",
+                "name": "Diego Lopes Round 4 par KO/TKO/DQ",
+                "odds": 28.0
+              },
+              {
+                "id": "1006397008597054",
+                "name": "Diego Lopes Round 5 par KO/TKO/DQ",
+                "odds": 35.0
+              },
+              {
+                "id": "1006397008597055",
+                "name": "Diego Lopes Round 1 par Soumission",
+                "odds": 23.0
+              },
+              {
+                "id": "1006397008597056",
+                "name": "Diego Lopes Round 2 par Soumission",
+                "odds": 30.0
+              },
+              {
+                "id": "1006397008597057",
+                "name": "Diego Lopes Round 3 par Soumission",
+                "odds": 43.0
+              },
+              {
+                "id": "1006397008597058",
+                "name": "Diego Lopes Round 4 par Soumission",
+                "odds": 55.0
+              },
+              {
+                "id": "1006397008597059",
+                "name": "Diego Lopes Round 5 par Soumission",
+                "odds": 70.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "match_id": "1016334113816576",
+      "team_names": "Jean Matsumoto - Farid Basharat",
+      "match_date_utc": "2026-02-08T02:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543838088327660",
+          "full_name": "Jean Matsumoto",
+          "short_name": "Jean Matsumoto",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839071592489",
+          "full_name": "Farid Basharat",
+          "short_name": "F. Basharat",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "975118287560704",
+      "team_names": "Michal Oleksiejczuk - Marc Andre Barriault",
+      "match_date_utc": "2026-02-08T02:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543834739925796",
+          "full_name": "Michal Oleksiejczuk",
+          "short_name": "Michal Oleksiejczuk",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543837221904891",
+          "full_name": "Marc Andre Barriault",
+          "short_name": "Marc Andre Barriault",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1016333412360192",
+      "team_names": "Amir Albazi - Kyoji Horiguchi",
+      "match_date_utc": "2026-02-08T03:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543837221905080",
+          "full_name": "Amir Albazi",
+          "short_name": "Amir Albazi",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543838684668113",
+          "full_name": "Kyoji Horiguchi",
+          "short_name": "K. Horiguchi",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "990071648006144",
+      "team_names": "Mario Bautista - Vinicius de Oliveira",
+      "match_date_utc": "2026-02-08T03:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543844108951924",
+          "full_name": "Mario Bautista",
+          "short_name": "Mario Bautista",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543844081988088",
+          "full_name": "Vinicius de Oliveira",
+          "short_name": "Vinicius de Oliveira",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "970483470278656",
+      "team_names": "Sean Strickland - Anthony Hernandez",
+      "match_date_utc": "2026-02-22T03:40:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543838026461391",
+          "full_name": "Sean Strickland",
+          "short_name": "Sean Strickland",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "624350994042880",
+          "full_name": "Anthony Hernandez",
+          "short_name": "Anthony Hernandez",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "975495749754880",
+      "team_names": "Brandon Moreno - Asu Almabaev",
+      "match_date_utc": "2026-03-01T04:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543833242858087",
+          "full_name": "Brandon Moreno",
+          "short_name": "Brandon Moreno",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543838420726552",
+          "full_name": "Asu Almabaev",
+          "short_name": "Asu Almabaev",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "981895425110016",
+      "team_names": "Caio Borralho - Reinier de Ridder",
+      "match_date_utc": "2026-03-08T04:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543838026461564",
+          "full_name": "Caio Borralho",
+          "short_name": "Caio Borralho",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543835421500255",
+          "full_name": "Reinier de Ridder",
+          "short_name": "Reinier de Ridder",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "969404069289984",
+      "team_names": "Max Holloway - Charles Oliveira",
+      "match_date_utc": "2026-03-08T04:30:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543834041872616",
+          "full_name": "Max Holloway",
+          "short_name": "Max Holloway",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543843879313986",
+          "full_name": "Charles Oliveira",
+          "short_name": "Charles Oliveira",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1013810714722304",
+      "team_names": "Ion Cutelaba - Oumar Sy",
+      "match_date_utc": "2026-03-15T02:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543841302212935",
+          "full_name": "Ion Cutelaba",
+          "short_name": "I. Cutelaba",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839212102066",
+          "full_name": "Oumar Sy",
+          "short_name": "Oumar Sy",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1007463695736832",
+      "team_names": "Josh Emmett - Kevin Vallejos",
+      "match_date_utc": "2026-03-15T04:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543839146041965",
+          "full_name": "Josh Emmett",
+          "short_name": "Josh Emmett",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543838308529022",
+          "full_name": "Kevin Vallejos",
+          "short_name": "Kevin Vallejos",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "986786428989440",
+      "team_names": "Movsar Evloev - Lerone Murphy",
+      "match_date_utc": "2026-03-21T20:00:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543840126460304",
+          "full_name": "Movsar Evloev",
+          "short_name": "Movsar Evloev",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543839680816084",
+          "full_name": "Lerone Murphy",
+          "short_name": "Lerone Murphy",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    },
+    {
+      "match_id": "1004781575503872",
+      "team_names": "Israel Adesanya - Joe Pyfer",
+      "match_date_utc": "2026-03-29T03:20:00.0000000Z",
+      "is_live": false,
+      "has_live_stream": false,
+      "contestants": [
+        {
+          "contestant_id": "543833178895027",
+          "full_name": "Israel Adesanya",
+          "short_name": "I. Adesanya",
+          "form_results": [],
+          "ranking": null
+        },
+        {
+          "contestant_id": "543838026461353",
+          "full_name": "Joe Pyfer",
+          "short_name": "Joe Pyfer",
+          "form_results": [],
+          "ranking": null
+        }
+      ],
+      "is_bet_builder_eligible": false,
+      "is_match_of_the_day": false,
+      "has_match_center": false,
+      "has_lineup": false,
+      "open_market_count": 1,
+      "competition": {
+        "competition_id": "15946",
+        "competition_name": "UFC",
+        "competition_sport": "MMA",
+        "country_code": "ZZ"
+      },
+      "market_overview": null,
+      "match_info": null,
+      "streaming_provider_type": 0,
+      "all_Markets": {
+        "markets": []
+      }
+    }
+  ]
+}

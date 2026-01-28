@@ -132,3 +132,20 @@ class Sport_data(BaseModel):
 
     sport_name: str = Field(alias="name")
     matches: list[Match] = Field(default_factory=list)
+
+
+# Helper funcs
+def fetch(url: str) -> str:
+    retries = 5
+    try:
+        for i in range(retries):
+            response = requests.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+
+            if response.status_code == 200:
+                return response.text
+            
+        raise Exception(f"Requests failed: Failed to get a response, status code: {response.status_code}")
+    except Exception as e:
+        print(e)
+
+    return None

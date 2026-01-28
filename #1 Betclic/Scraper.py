@@ -172,3 +172,12 @@ def get_urls_and_json(html: str) -> list[str]:
 
     return card_urls, json_data
 
+def get_json_data(html: str) -> tuple:
+    soup = BeautifulSoup(html, "html.parser")
+    script_tag = soup.find("script", {"id": "ng-state"})
+    json_data = json.loads(script_tag.string) if script_tag.string else {}
+
+    return json_data
+
+
+

@@ -1,4 +1,6 @@
 import json
+import time
+import traceback
 from urllib import parse
 from bs4 import BeautifulSoup
 from curl_cffi import requests
@@ -266,9 +268,13 @@ def main():
     print("Scraper started!\n")
 
     for sport_name, sport_path in sports.items():
+        attempt = 0
+
         while True:
+            attempt += 1
             try: 
-                print(f"Scraping {sport_name}")
+                print(f"Scraping {sport_name} (attempt {attempt})")
+
                 url = parse.urljoin(base_url, sport_path)
                 response_html = fetch(url)
 
@@ -290,13 +296,21 @@ def main():
 
                 file_path = f"{sport_name}.json"
                 save_json_file(file_path, clean_data.model_dump())
-                print("\n")
+                print()
 
-            except Exception as e:
-                print(f"Something went wrong!\nException: {e}")
-                print("Trying again...")
-                continue
-            break
+                break
+            
+            except KeyboardInterrupt:
+                print("\nInterrupted by user. Exiting cleanly.")
+                raise
+
+            except Exception:
+                print(f"\nError while scraping {sport_name} (attempt {attempt})")
+                traceback.print_exc()
+
+                print("Retrying...\n")
+                time.sleep(2)
+            
         
 if __name__ == "__main__":
     main()

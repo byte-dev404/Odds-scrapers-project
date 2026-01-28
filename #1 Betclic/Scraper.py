@@ -61,6 +61,36 @@ class Selection(BaseModel):
     name: str
     odds: float
 
+class Market_details(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    market_id: str = Field(alias="id")
+    market_name: str = Field(alias="name")
+    position: int
+    is_early_win: bool = Field(alias="isEarlyWin")
+    is_cashoutable: bool = Field(alias="isCashoutable")
+    match_id: str = Field(alias="matchId")
+    selections: list[Selection] = Field(default_factory=list)
+
+    @classmethod
+    def from_raw(cls, raw: dict) -> "Market_details":
+        selections: list[dict] = []
+        selections.extend(raw.get("mainSelections", []))
+
+        for group in raw.get("selectionMatrix", []):
+            for item in group.get("selections", []):
+                sel = item.get("selectionOneof", {}).get("selection")
+                if sel:
+                    selections.append(sel)
+
+        for group in raw.get("splitCardGroups", []):
+            selections.extend(group.get("selections", []))
+
+        raw = dict(raw)
+        raw["selections"] = selections
+
+        return cls.model_validate(raw)
+
 class Match(BaseModel):
     match_id: str = Field(alias="matchId")
     team_names: str = Field(alias="name")
@@ -94,10 +124,6 @@ class Sport_data(BaseModel):
     matches: list[Match] = Field(default_factory=list)
 
 
-def save_json_file(file_path: str, data: dict) -> None:
-    with open(file_path, "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, indent=2)
-        print(f"{file_path} saved successfully.")
 
 def save_html_file(file_path: str, html: str) -> None:
     with open(file_path, "w", encoding="utf-8") as html_file:

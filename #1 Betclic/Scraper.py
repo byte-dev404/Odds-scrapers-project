@@ -1,4 +1,6 @@
 import json
+from urllib import parse
+from bs4 import BeautifulSoup
 from curl_cffi import requests
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -160,5 +162,13 @@ def save_html_file(file_path: str, html: str) -> None:
         html_file.write(html)
         print(f"{file_path} saved successfully.")
 
+def get_urls_and_json(html: str) -> list[str]:
+    soup = BeautifulSoup(html, "html.parser")
+    card_tags = soup.select("a.cardEvent")
+    card_urls = [tag['href'] for tag in card_tags]
 
+    script_tag = soup.find("script", {"id": "ng-state"})
+    json_data = json.loads(script_tag.string) if script_tag.string else {}
+
+    return card_urls, json_data
 

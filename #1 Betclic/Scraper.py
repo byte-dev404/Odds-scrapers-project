@@ -179,5 +179,36 @@ def get_json_data(html: str) -> tuple:
 
     return json_data
 
+def get_detailed_markets(links: list[str]) -> list[All_markets]:
+    clean_markets = []
+
+    for i, link in enumerate(links, start=1):
+        url = parse.urljoin(base_url, link)
+
+        while True:
+            print(f"Extracting makrets of card {i}")
+            card_page = fetch(url)
+            json_data = get_json_data(card_page)
+            
+            imporant_keys = [k for k in json_data if k.startswith("grpc:")]
+            main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
+            
+            payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+            subcats = payload.get("match", {}).get("subCategories")
+
+            if isinstance(subcats, list):
+                markets = subcats[0].get("markets", [])
+                break
+            else: 
+                print(f"subCategories type is not list: {type(subcats)}\nTrying again...")
+
+        # To skip the first and second summary card.
+        filtered_markets = [m for m in markets if m["position"] != 1 and m["position"] != 2]
+
+        clean_market = All_markets(markets=[Market_details.from_raw(m) for m in filtered_markets])
+        clean_markets.append(clean_market)
+        
+    return clean_markets
+
 
 

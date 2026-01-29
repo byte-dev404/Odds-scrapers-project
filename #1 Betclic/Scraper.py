@@ -1,7 +1,10 @@
 import json
+import asyncio
+import aiofiles
+import traceback
 from urllib import parse
 from bs4 import BeautifulSoup
-from curl_cffi import requests
+from curl_cffi.requests import AsyncSession
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
@@ -133,77 +136,89 @@ class Sport_data(BaseModel):
 
 
 # Helper funcs
-def fetch(url: str) -> str:
+async def fetch(url: str, session: AsyncSession) -> str:
     retries = 5
-    try:
-        for i in range(retries):
-            response = requests.get(url, cookies=cookies, headers=headers, impersonate="chrome")
 
-            if response.status_code == 200:
-                return response.text
+    for attempt in range(1, retries + 1):
+        try:
+            response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+
+            if response.status_code != 200:
+                raise RuntimeError(f"Non-200 response: {response.status_code}")
             
-        raise Exception(f"Requests failed: Failed to get a response, status code: {response.status_code}")
-    except Exception as e:
-        print(e)
+            return response.text
 
-    return None
+        except KeyboardInterrupt:
+            raise
 
-def save_json_file(file_path: str, data: dict) -> None:
-    with open(file_path, "w", encoding="utf-8") as json_file:
-        json.dump(data, json_file, indent=2)
-        print(f"{file_path} saved successfully.")
+        except Exception as e:
+            print(
+                f"[fetch] attempt {attempt}/{retries} failed for {url}\n"
+                f"{type(e).__name__}: {e}"
+            )
 
-def save_html_file(file_path: str, html: str) -> None:
-    with open(file_path, "w", encoding="utf-8") as html_file:
-        html_file.write(html)
-        print(f"{file_path} saved successfully.")
+            if attempt == retries:
+                raise
 
-def get_urls_and_json(html: str) -> list[str]:
+            await asyncio.sleep(1)
+
+async def save_json_file(file_path: str, data: dict) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(json.dumps(data, indent=2, ensure_ascii=False))
+    print(f"{file_path} saved successfully.")
+
+async def save_html_file(file_path: str, html: str) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(html)
+    print(f"{file_path} saved successfully.")
+
+def get_urls_and_json(html: str) -> tuple[list[str], dict]:
     soup = BeautifulSoup(html, "html.parser")
     card_tags = soup.select("a.cardEvent")
     card_urls = [tag['href'] for tag in card_tags]
 
     script_tag = soup.find("script", {"id": "ng-state"})
-    json_data = json.loads(script_tag.string) if script_tag.string else {}
+    json_data =  json.loads(script_tag.string) if script_tag and script_tag.string else {}
 
-    return card_urls or None, json_data or None
+    return card_urls, json_data
 
-def get_json_data(html: str) -> tuple:
+def get_json_data(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "ng-state"})
-    json_data = json.loads(script_tag.string) if script_tag.string else {}
+    return json.loads(script_tag.string) if script_tag and script_tag.string else {}
 
-    return json_data
-
-def get_detailed_markets(links: list[str]) -> list[All_markets]:
+async def get_detailed_markets(links: list[str], session) -> list[All_markets]:
     clean_markets = []
 
     for i, link in enumerate(links, start=1):
         url = parse.urljoin(base_url, link)
 
-        while True:
-            print(f"Extracting makrets of card {i}")
-            card_page = fetch(url)
+        for attempt in range(1, 6):
+            print(f"Extracting markets of card {i} (attempt {attempt})")
+
+            card_page = await fetch(url, session)
             json_data = get_json_data(card_page)
-            
-            imporant_keys = [k for k in json_data if k.startswith("grpc:")]
-            main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
-            
+
+            important_keys = [k for k in json_data if k.startswith("grpc:")]
+            main_key = important_keys[1] if len(important_keys) > 1 else None
+
             payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
             subcats = payload.get("match", {}).get("subCategories")
 
             if isinstance(subcats, list):
                 markets = subcats[0].get("markets", [])
                 break
-            else: 
-                print(f"subCategories type is not list: {type(subcats)}\nTrying again...")
 
+            print(f"subCategories invalid ({type(subcats)}), retrying...")
+        else:
+            raise RuntimeError(f"Failed to load markets for card {i}")
+        
         # To skip the first and second summary card.
-        filtered_markets = [m for m in markets if m["position"] != 1 and m["position"] != 2]
+        filtered_markets = [m for m in markets if m.get("position") not in (1, 2)]
 
         clean_market = All_markets(markets=[Market_details.from_raw(m) for m in filtered_markets])
         clean_markets.append(clean_market)
-        
+
     return clean_markets
 
 
@@ -262,41 +277,55 @@ sports = {
 }
 
 
-def main():
+async def main():
     print("Scraper started!\n")
 
     for sport_name, sport_path in sports.items():
+        attempt = 0
+
         while True:
+            attempt += 1
+
             try: 
-                print(f"Scraping {sport_name}")
-                url = parse.urljoin(base_url, sport_path)
-                response_html = fetch(url)
+                print(f"Scraping {sport_name} (attempt {attempt})")
 
-                print("Extracting urls of all cards...")
-                urls, page_json = get_urls_and_json(response_html)
+                async with AsyncSession() as session:
+                    url = parse.urljoin(base_url, sport_path)
+                    response_html = await fetch(url, session)
 
-                print("Extracting markets...")
-                all_clean_markets = get_detailed_markets(urls)
+                    print("Extracting urls of all cards...")
+                    urls, page_json = get_urls_and_json(response_html)
 
-                imporant_keys = [k for k in page_json if k.startswith("grpc:")]
-                main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
-                playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+                    print("Extracting markets...")
+                    all_clean_markets = await get_detailed_markets(urls, session)
 
-                print(f'Scraped details of {len(playload.get("matches", []))} matches from {len(urls)} URLs.')
-                clean_data = Sport_data(**playload)
+                    imporant_keys = [k for k in page_json if k.startswith("grpc:")]
+                    main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
+                    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+
+                    print(f'Scraped details of {len(playload.get("matches", []))} matches from {len(urls)} URLs.')
+                    clean_data = Sport_data(**playload)
                 
-                for index, match in enumerate(clean_data.matches):
-                    match.all_Markets = all_clean_markets[index]
+                    for index, match in enumerate(clean_data.matches):
+                        match.all_Markets = all_clean_markets[index]
 
-                file_path = f"{sport_name}.json"
-                save_json_file(file_path, clean_data.model_dump())
-                print("\n")
+                    file_path = f"{sport_name}.json"
+                    await save_json_file(file_path, clean_data.model_dump())
 
-            except Exception as e:
-                print(f"Something went wrong!\nException: {e}")
-                print("Trying again...")
-                continue
-            break
+                print()
+                break
+            
+            except KeyboardInterrupt:
+                print("\nInterrupted by user. Exiting cleanly.")
+                raise
+
+            except Exception:
+                print(f"\nError while scraping {sport_name} (attempt {attempt})")
+                traceback.print_exc()
+
+                print("Retrying...\n")
+                await asyncio.sleep(2)
+            
         
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

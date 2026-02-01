@@ -168,7 +168,7 @@ class Market_details(BaseModel):
     is_early_win: bool = Field(alias="isEarlyWin")
     is_cashoutable: bool = Field(alias="isCashoutable")
     match_id: str = Field(alias="matchId")
-    selections: list[Selection | GroupedSelection] = Field(default_factory=list)
+    selections: list[GroupedSelection | Selection] = Field(default_factory=list)
 
     @classmethod
     def from_raw(cls, raw: dict) -> "Market_details":
@@ -277,7 +277,8 @@ async def fetch(url: str, session: AsyncSession) -> str:
             )
 
             if attempt == retries:
-                raise
+                raise RuntimeError(f"Fetch failed for {url}") from e
+                # raise
 
             await asyncio.sleep(1)
 
@@ -352,9 +353,18 @@ async def click_all_show_more_btns(page: Page) -> None:
 
     if btn_count > 0:
         for i in range(btn_count):
-            await show_more_btns.nth(i).click()
-            await page.wait_for_timeout(1000)
-        print("Expended all cards!")
+            btn = show_more_btns.nth(i)
+            await btn.scroll_into_view_if_needed()
+
+            try:
+                await btn.click()
+            except TimeoutError:
+                print("Normal click timed out, trying force click...")
+                await btn.click(force=True)
+                print("Force click succeeded!")
+
+            await page.wait_for_timeout(100)
+        print("Expanded all cards!")
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
 async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str]) -> None:
@@ -366,6 +376,7 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
         complete_pages = []
 
         try:
+            current_tab_index = None
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
             await close_modal(page)
 
@@ -373,11 +384,27 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
             await page.wait_for_timeout(1000)
 
             for i in range(2, tabs_count):
-                await page.locator("div.tab_item").nth(i).click()
-                await page.wait_for_timeout(500)
+                current_tab_index = i
+                current_tab = page.locator("div.tab_item").nth(i)
+                # while True:
+
+                #     if "isActive" in await current_tab.get_attribute("class"):
+                #         break
+                #     await current_tab.click()
+
+                for _ in range(5):
+                    classes = await current_tab.get_attribute("class") or ""
+                    if "isActive" in classes:
+                        break
+                    await current_tab.click()
+                    await page.wait_for_timeout(50)
+                else:
+                    raise RuntimeError(f"Tab {i} never became active")
+
+                await page.wait_for_timeout(300) # Wait time for angular to hydrate betclic 
 
                 await click_all_show_more_btns(page)
-                await page.wait_for_timeout(1000)
+                await page.wait_for_timeout(500) # Wait time for angular to load all expanded tabs
                 
                 full_page = await page.content()
                 # n_page = await page.locator("app-desktop").inner_html()
@@ -390,7 +417,7 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
             raise
 
         except Exception:
-            print(f"\nError while scraping tab {i}/{tabs_count} of match {match_num} (attempt {attempt})")
+            print(f"\nError while scraping tab {current_tab_index}/{tabs_count} of match {match_num} (attempt {attempt})")
             traceback.print_exc()
 
             print("Retrying...\n")
@@ -402,47 +429,50 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
             break
 
 # Gets market details of a match from all available tabs inside a match page
-async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_context: BrowserContext) -> list[All_markets]:
+async def get_detailed_markets(links: list[str], session: AsyncSession, browser_context: BrowserContext) -> list[All_markets]:
     clean_markets = []
 
     for match_number, link in enumerate(links, start=1):
         url = parse.urljoin(base_url, link)
-        page = await brwoser_context.new_page()
+        page = await browser_context.new_page()
 
         for attempt in range(1, 6):
-            print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+            try: # (try, finally) block for closing the page to avoid memory leaks
+                print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
 
-            match_page = await fetch(url, session)
-            json_data = get_json_data(match_page)
+                match_page = await fetch(url, session)
+                json_data = get_json_data(match_page)
 
-            important_keys = [k for k in json_data if k.startswith("grpc:")]
-            main_key = important_keys[1] if len(important_keys) > 1 else None
+                important_keys = [k for k in json_data if k.startswith("grpc:")]
+                main_key = important_keys[1] if len(important_keys) > 1 else None
 
-            payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
-            match = payload.get("match", {})
-            cats = match.get("categories", {})
-            subcats = match.get("subCategories")  
+                payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+                match = payload.get("match", {})
+                cats = match.get("categories", {})
+                subcats = match.get("subCategories")  
 
-            if isinstance(subcats, list) and cats:
-                cats_names = [cat.get("name") for cat in cats]
-                markets = subcats[0].get("markets", [])
-                await get_markets_from_other_tabs(page, match_number, url, cats_names)
-                await page.close()
-                break
+                if isinstance(subcats, list) and cats:
+                    cats_names = [cat.get("name") for cat in cats]
+                    markets = subcats[0].get("markets", [])
+                    await get_markets_from_other_tabs(page, match_number, url, cats_names)
+                    break
 
-            # Logging errors
-            if not cats and not isinstance(subcats, list):
-                error_msg = "Missing Categories and Invalid subCategories"
-            elif not cats:
-                error_msg = f'Missing Categories! (Categories: "{cats}"), retrying...'
-            elif not isinstance(subcats, list):
-                error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
-            else:
-                error_msg = "Something unknown went wrong"
+                # Logging errors
+                if not cats and not isinstance(subcats, list):
+                    error_msg = "Missing Categories and Invalid subCategories"
+                elif not cats:
+                    error_msg = f'Missing Categories! (Categories: "{cats}"), retrying...'
+                elif not isinstance(subcats, list):
+                    error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
+                else:
+                    error_msg = "Something unknown went wrong"
 
-            print(error_msg)
+                print(error_msg)
+
+            finally:
+                if not page.is_closed():
+                    await page.close()
         else:
-            await page.close()
             raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
         clean_market = All_markets(markets=[Market_details.from_raw(m) for m in markets])
@@ -514,8 +544,8 @@ async def main():
                         print("Extracting markets...")
                         all_clean_markets = await get_detailed_markets(urls, session, context)
 
-                        imporant_keys = [k for k in page_json if k.startswith("grpc:")]
-                        main_key = imporant_keys[1] if len(imporant_keys) > 1 else None
+                        important_keys = [k for k in page_json if k.startswith("grpc:")]
+                        main_key = important_keys[1] if len(important_keys) > 1 else None
                         playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
 
                         print(f'Scraped details of {len(playload.get("matches", []))} matches from {len(urls)} URLs.')

@@ -251,6 +251,7 @@ class Sport_data(BaseModel):
 
 
 # Helper functions.
+# ----
 
 # For fetching data from endpoints (URLs)
 async def fetch(url: str, session: AsyncSession) -> str:
@@ -293,6 +294,7 @@ async def save_html_file(file_path: str, html: str) -> None:
 
 
 # Important functions for request based API scraping.
+# ----
 
 # To get urls of all matches and json of listing page from raw html listing endpoint
 def get_urls_and_json(html: str) -> tuple[list[str], dict]:
@@ -313,6 +315,7 @@ def get_json_data(html: str) -> dict:
 
 
 # Important functions for browser automation (Playwright) based scraping.
+# ----
 
 # Converts normal cooikes to playwright's required format
 def convert_cookies(cookies_dict: dict) -> list[dict]:
@@ -364,7 +367,7 @@ async def get_markets_from_other_tabs(page: Page, match_url: str, tab_names: lis
     await page.wait_for_selector("app-desktop")
     await page.wait_for_timeout(1000)
 
-    for i in range(2, tabs_count + 1):
+    for i in range(2, tabs_count):
         await page.locator("div.tab_item").nth(i).click()
         await page.wait_for_timeout(500)
 
@@ -380,7 +383,7 @@ async def get_markets_from_other_tabs(page: Page, match_url: str, tab_names: lis
     for i, html_page in enumerate(complete_pages, start=2):
         await save_html_file(f"PW page {i}.html", html_page)
 
-# Add later
+# Gets market details of a match from all available tabs inside a match page
 async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_context: BrowserContext) -> list[All_markets]:
     clean_markets = []
 
@@ -405,7 +408,7 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_
             if isinstance(subcats, list) and cats:
                 cats_names = [cat.get("name") for cat in cats]
                 markets = subcats[0].get("markets", [])
-                get_markets_from_other_tabs(page, url, cats_names)
+                await get_markets_from_other_tabs(page, url, cats_names)
                 break
 
             # Logging errors
@@ -460,6 +463,7 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_
 #     return None
 
 
+# Main scraper logic and entry point of the script
 async def main():
     print("Initializing the scraper...")
     async with async_playwright() as p:

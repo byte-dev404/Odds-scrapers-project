@@ -181,11 +181,24 @@ class Market_details(BaseModel):
                 if sel:
                     selections.append(sel)
 
+        # for group in raw.get("splitCardGroups", []):
+        #     name = group.get("name", "")
+        #     sel = group.get("selections", [])
+        #     selections.extend({str(name): sel})
+            # selections.append({"name": name, "odds": sel})
+
         for group in raw.get("splitCardGroups", []):
-            name = group.get("name", "")
-            sel = group.get("selections", [])
-            # selections.extend({str(name): sel})
-            selections.append({"name": name, "odds": sel})
+            odds_map: dict[str, float] = {}
+
+            for sel in group.get("selections", []):
+                sel_name = sel.get("name")
+                sel_odds = sel.get("odds")
+
+                if sel_name and isinstance(sel_odds, (int, float)):
+                    odds_map[sel_name] = sel_odds
+
+            if odds_map:
+                selections.append({"name": group.get("name", ""), "odds": odds_map,})
 
         grouped_markets = raw.get("groupMarkets", [])
         if grouped_markets:
@@ -341,6 +354,65 @@ async def close_modal(page: Page) -> None:
             break
         await page.wait_for_timeout(300)
 
+# To wait until angular loads all dynamic content
+async def wait_for_dom_stable(page: Page, timeout: int = 8000) -> None:
+    await page.evaluate(
+        """
+        (maxTime) => new Promise(resolve => {
+            let last = document.body.innerHTML.length;
+            let sameCount = 0;
+
+            const interval = setInterval(() => {
+                const current = document.body.innerHTML.length;
+
+                if (current === last) {
+                    sameCount++;
+                } else {
+                    sameCount = 0;
+                    last = current;
+                }
+
+                if (sameCount >= 3) {
+                    clearInterval(interval);
+                    resolve();
+                }
+            }, 200);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                resolve();
+            }, maxTime);
+        })
+        """,
+        timeout
+    )
+
+# Scrolls to the bottom of the scrollable container
+async def scroll_to_bottom(page: Page):
+    await page.evaluate("""
+() => {
+    const container =
+        document.querySelector('div.marketBox_container.is-active');
+
+    if (container) {
+        container.scrollTop = container.scrollHeight;
+    }
+}
+""")
+    await page.wait_for_timeout(300)
+
+# For disabling overlays to avoid flaky behaviour when expanding cards
+async def disable_overlays(page: Page) -> None:
+    await page.evaluate("""
+        () => {
+            const sticky = document.querySelector('.event_header.is-sticky');
+            if (sticky) sticky.style.pointerEvents = 'none';
+
+            const backToTop = document.querySelector('bcdk-scrolltop-button');
+            if (backToTop) backToTop.style.pointerEvents = 'none';
+        }
+    """)
+
 # For expanding all the cards inside a market tab of a match page
 async def click_all_show_more_btns(page: Page) -> None:
     try:
@@ -348,27 +420,25 @@ async def click_all_show_more_btns(page: Page) -> None:
     except:
         return # For tabs that has no expandable cards
 
-    show_more_btns = page.locator(".btn.is-seeMore")
-    btn_count = await show_more_btns.count()
+    while True:
+        btn = page.locator(".btn.is-seeMore:not(.is-expanded)").first
+        if await btn.count() == 0:
+            break
 
-    if btn_count > 0:
-        for i in range(btn_count):
-            btn = show_more_btns.nth(i)
+        try:
             await btn.scroll_into_view_if_needed()
+            await btn.click(timeout=3000)
+        except:
+            await btn.click(force=True)
 
-            try:
-                await btn.click()
-            except TimeoutError:
-                print("Normal click timed out, trying force click...")
-                await btn.click(force=True)
-                print("Force click succeeded!")
+        await page.wait_for_timeout(120)
 
-            await page.wait_for_timeout(100)
-        print("Expanded all cards!")
+    print("Expanded all cards!")
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
-async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str]) -> None:
+async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str], is_my_combis_present: bool = True) -> None:
     tabs_count = len(tab_names)
+    start_tab = 3 if is_my_combis_present else 2 if "Le Top" in tab_names and tab_names.index("Le Top") == 0 else 1 # Index of the tab that comes right after the default (Le top/The top)
     # pages = []
     attempt = 0
     while True:
@@ -380,34 +450,38 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
             await close_modal(page)
 
-            await page.wait_for_selector("app-desktop")
+            await page.wait_for_selector("div.marketBox_container.is-active")
             await page.wait_for_timeout(1000)
 
-            for i in range(2, tabs_count):
+            for i in range(start_tab, tabs_count):
                 current_tab_index = i
                 current_tab = page.locator("div.tab_item").nth(i)
-                # while True:
-
-                #     if "isActive" in await current_tab.get_attribute("class"):
-                #         break
-                #     await current_tab.click()
 
                 for _ in range(5):
                     classes = await current_tab.get_attribute("class") or ""
                     if "isActive" in classes:
                         break
                     await current_tab.click()
-                    await page.wait_for_timeout(50)
+                    await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
+                    await wait_for_dom_stable(page)
                 else:
                     raise RuntimeError(f"Tab {i} never became active")
 
-                await page.wait_for_timeout(300) # Wait time for angular to hydrate betclic 
+                await page.wait_for_timeout(500) # Wait time for angular to hydrate betclic 
+
+                await disable_overlays(page)
+                await wait_for_dom_stable(page)
+
+                await scroll_to_bottom(page)
+                await wait_for_dom_stable(page)
 
                 await click_all_show_more_btns(page)
-                await page.wait_for_timeout(500) # Wait time for angular to load all expanded tabs
+                await wait_for_dom_stable(page)
+
+                await page.wait_for_timeout(500) # Additional wait time for angular to load all expanded tabs
                 
                 full_page = await page.content()
-                # n_page = await page.locator("app-desktop").inner_html()
+                # n_page = await page.locator("app-desktopf").inner_html()
                 print(f"Got full page of tab {i} (Match {match_num})")
                 # pages.append(n_page)
                 complete_pages.append(full_page)
@@ -447,6 +521,7 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, browser_
                 main_key = important_keys[1] if len(important_keys) > 1 else None
 
                 payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+                is_my_combis_present = True if payload.get("topMycombis") else False
                 match = payload.get("match", {})
                 cats = match.get("categories", {})
                 subcats = match.get("subCategories")  
@@ -454,7 +529,7 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, browser_
                 if isinstance(subcats, list) and cats:
                     cats_names = [cat.get("name") for cat in cats]
                     markets = subcats[0].get("markets", [])
-                    await get_markets_from_other_tabs(page, match_number, url, cats_names)
+                    await get_markets_from_other_tabs(page, match_number, url, cats_names, is_my_combis_present)
                     break
 
                 # Logging errors

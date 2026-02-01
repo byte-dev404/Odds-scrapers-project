@@ -184,7 +184,8 @@ class Market_details(BaseModel):
         for group in raw.get("splitCardGroups", []):
             name = group.get("name", "")
             sel = group.get("selections", [])
-            selections.extend({str(name): sel})
+            # selections.extend({str(name): sel})
+            selections.append({"name": name, "odds": sel})
 
         grouped_markets = raw.get("groupMarkets", [])
         if grouped_markets:
@@ -356,46 +357,63 @@ async def click_all_show_more_btns(page: Page) -> None:
         print("Expended all cards!")
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
-async def get_markets_from_other_tabs(page: Page, match_url: str, tab_names: list[str]) -> None:
+async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str]) -> None:
     tabs_count = len(tab_names)
     # pages = []
-    complete_pages = []
+    attempt = 0
+    while True:
+        attempt += 1
+        complete_pages = []
 
-    await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
-    await close_modal(page)
+        try:
+            await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
+            await close_modal(page)
 
-    await page.wait_for_selector("app-desktop")
-    await page.wait_for_timeout(1000)
+            await page.wait_for_selector("app-desktop")
+            await page.wait_for_timeout(1000)
 
-    for i in range(2, tabs_count):
-        await page.locator("div.tab_item").nth(i).click()
-        await page.wait_for_timeout(500)
+            for i in range(2, tabs_count):
+                await page.locator("div.tab_item").nth(i).click()
+                await page.wait_for_timeout(500)
 
-        await click_all_show_more_btns(page)
-        await page.wait_for_timeout(1000)
-        
-        full_page = await page.content()
-        # n_page = await page.locator("app-desktop").inner_html()
-        print(f"Got full page of tab {i}")
-        # pages.append(n_page)
-        complete_pages.append(full_page)
+                await click_all_show_more_btns(page)
+                await page.wait_for_timeout(1000)
+                
+                full_page = await page.content()
+                # n_page = await page.locator("app-desktop").inner_html()
+                print(f"Got full page of tab {i} (Match {match_num})")
+                # pages.append(n_page)
+                complete_pages.append(full_page)
 
-    for i, html_page in enumerate(complete_pages, start=2):
-        await save_html_file(f"PW page {i}.html", html_page)
+        except KeyboardInterrupt:
+            print("\nInterrupted by user. Exiting cleanly at (Tab level).")
+            raise
+
+        except Exception:
+            print(f"\nError while scraping tab {i}/{tabs_count} of match {match_num} (attempt {attempt})")
+            traceback.print_exc()
+
+            print("Retrying...\n")
+            await asyncio.sleep(2)
+
+        if len(complete_pages) == tabs_count - 2:
+            for i, html_page in enumerate(complete_pages, start=2):
+                await save_html_file(f"PW page {i}.html", html_page)
+            break
 
 # Gets market details of a match from all available tabs inside a match page
 async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_context: BrowserContext) -> list[All_markets]:
     clean_markets = []
 
-    for i, link in enumerate(links, start=1):
+    for match_number, link in enumerate(links, start=1):
         url = parse.urljoin(base_url, link)
         page = await brwoser_context.new_page()
 
         for attempt in range(1, 6):
-            print(f"Extracting markets of card {i} (attempt {attempt})")
+            print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
 
-            card_page = await fetch(url, session)
-            json_data = get_json_data(card_page)
+            match_page = await fetch(url, session)
+            json_data = get_json_data(match_page)
 
             important_keys = [k for k in json_data if k.startswith("grpc:")]
             main_key = important_keys[1] if len(important_keys) > 1 else None
@@ -408,7 +426,8 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_
             if isinstance(subcats, list) and cats:
                 cats_names = [cat.get("name") for cat in cats]
                 markets = subcats[0].get("markets", [])
-                await get_markets_from_other_tabs(page, url, cats_names)
+                await get_markets_from_other_tabs(page, match_number, url, cats_names)
+                await page.close()
                 break
 
             # Logging errors
@@ -423,7 +442,8 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, brwoser_
 
             print(error_msg)
         else:
-            raise RuntimeError(f"Failed to load markets for card {i}")
+            await page.close()
+            raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
         clean_market = All_markets(markets=[Market_details.from_raw(m) for m in markets])
         clean_markets.append(clean_market)
@@ -485,7 +505,7 @@ async def main():
                         url = parse.urljoin(base_url, relative_path)
                         response_html = await fetch(url, session)
 
-                        print("Extracting urls of all cards...")
+                        print("Extracting urls of all matches...\n")
                         urls, page_json = get_urls_and_json(response_html)
 
                         # print("Saving all raw cards...")

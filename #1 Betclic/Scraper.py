@@ -387,20 +387,6 @@ async def wait_for_dom_stable(page: Page, timeout: int = 8000) -> None:
         timeout
     )
 
-# Scrolls to the bottom of the scrollable container
-async def scroll_to_bottom(page: Page):
-    await page.evaluate("""
-() => {
-    const container =
-        document.querySelector('div.marketBox_container.is-active');
-
-    if (container) {
-        container.scrollTop = container.scrollHeight;
-    }
-}
-""")
-    await page.wait_for_timeout(300)
-
 # For disabling overlays to avoid flaky behaviour when expanding cards
 async def disable_overlays(page: Page) -> None:
     await page.evaluate("""
@@ -436,32 +422,46 @@ async def click_all_show_more_btns(page: Page) -> None:
     print("Expanded all cards!")
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
-async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str], is_my_combis_present: bool = True) -> None:
-    tabs_count = len(tab_names)
-    start_tab = 3 if is_my_combis_present else 2 if "Le Top" in tab_names and tab_names.index("Le Top") == 0 else 1 # Index of the tab that comes right after the default (Le top/The top)
-    # pages = []
+async def get_markets_from_other_tabs(browser_context: BrowserContext, match_num: int, match_url: str) -> None:
+    excluded_tabs = {"MyCombi", "Le Top", "The Top"}
+    pages = []
     attempt = 0
+
     while True:
         attempt += 1
-        complete_pages = []
+        skipped_page = 0
 
         try:
+            page = await browser_context.new_page()
             current_tab_index = None
+
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
             await close_modal(page)
 
-            await page.wait_for_selector("div.marketBox_container.is-active")
+            await page.wait_for_selector("app-desktop")
             await page.wait_for_timeout(1000)
 
-            for i in range(start_tab, tabs_count):
+            tabs = page.locator("div.tab_item")
+            tabs_count = await tabs.count()
+
+            for i in range(tabs_count):
+                current_tab = tabs.nth(i)
+                text = (await current_tab.text_content() or "").strip()
+
+                if text in excluded_tabs:
+                    print(f"Skipped excluded tab {text}")
+                    skipped_page += 1
+                    continue
+
                 current_tab_index = i
-                current_tab = page.locator("div.tab_item").nth(i)
 
                 for _ in range(5):
                     classes = await current_tab.get_attribute("class") or ""
                     if "isActive" in classes:
                         break
-                    await current_tab.click()
+                    # await current_tab.click()
+                    el = await current_tab.element_handle()
+                    await page.evaluate("(el) => el.click()", el)
                     await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
                     await wait_for_dom_stable(page)
                 else:
@@ -472,19 +472,19 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
                 await disable_overlays(page)
                 await wait_for_dom_stable(page)
 
-                await scroll_to_bottom(page)
-                await wait_for_dom_stable(page)
+                # await scroll_markets_to_bottom(page)
+                # await wait_for_dom_stable(page)
 
                 await click_all_show_more_btns(page)
                 await wait_for_dom_stable(page)
 
                 await page.wait_for_timeout(500) # Additional wait time for angular to load all expanded tabs
-                
-                full_page = await page.content()
-                # n_page = await page.locator("app-desktopf").inner_html()
+                # raw_html = await page.content()
+                raw_html  = await page.locator("div.marketBox_container.is-active").inner_html()
+
                 print(f"Got full page of tab {i} (Match {match_num})")
-                # pages.append(n_page)
-                complete_pages.append(full_page)
+                pages.append(raw_html)
+                # await scroll_markets_to_top(page)
 
         except KeyboardInterrupt:
             print("\nInterrupted by user. Exiting cleanly at (Tab level).")
@@ -497,8 +497,13 @@ async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str
             print("Retrying...\n")
             await asyncio.sleep(2)
 
-        if len(complete_pages) == tabs_count - 2:
-            for i, html_page in enumerate(complete_pages, start=2):
+        finally:
+            if not page.is_closed():
+                await page.close()
+
+
+        if len(pages) == tabs_count - skipped_page:
+            for i, html_page in enumerate(pages, start=2):
                 await save_html_file(f"PW page {i}.html", html_page)
             break
 
@@ -508,45 +513,31 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, browser_
 
     for match_number, link in enumerate(links, start=1):
         url = parse.urljoin(base_url, link)
-        page = await browser_context.new_page()
 
         for attempt in range(1, 6):
-            try: # (try, finally) block for closing the page to avoid memory leaks
-                print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+            print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
 
-                match_page = await fetch(url, session)
-                json_data = get_json_data(match_page)
+            match_page = await fetch(url, session)
+            json_data = get_json_data(match_page)
 
-                important_keys = [k for k in json_data if k.startswith("grpc:")]
-                main_key = important_keys[1] if len(important_keys) > 1 else None
+            important_keys = [k for k in json_data if k.startswith("grpc:")]
+            main_key = important_keys[1] if len(important_keys) > 1 else None
 
-                payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
-                is_my_combis_present = True if payload.get("topMycombis") else False
-                match = payload.get("match", {})
-                cats = match.get("categories", {})
-                subcats = match.get("subCategories")  
+            payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+            subcats = payload.get("match", {}).get("subCategories")  
 
-                if isinstance(subcats, list) and cats:
-                    cats_names = [cat.get("name") for cat in cats]
-                    markets = subcats[0].get("markets", [])
-                    await get_markets_from_other_tabs(page, match_number, url, cats_names, is_my_combis_present)
-                    break
+            if isinstance(subcats, list):
+                markets = subcats[0].get("markets", [])
+                await get_markets_from_other_tabs(browser_context, match_number, url)
+                break
 
-                # Logging errors
-                if not cats and not isinstance(subcats, list):
-                    error_msg = "Missing Categories and Invalid subCategories"
-                elif not cats:
-                    error_msg = f'Missing Categories! (Categories: "{cats}"), retrying...'
-                elif not isinstance(subcats, list):
-                    error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
-                else:
-                    error_msg = "Something unknown went wrong"
+            # Logging errors
+            if not isinstance(subcats, list):
+                error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
+            else:
+                error_msg = "Something unknown went wrong"
 
-                print(error_msg)
-
-            finally:
-                if not page.is_closed():
-                    await page.close()
+            print(error_msg)
         else:
             raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 

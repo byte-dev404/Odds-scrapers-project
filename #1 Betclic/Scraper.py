@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from curl_cffi.requests import AsyncSession, Session
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 from playwright.async_api import async_playwright, Page, BrowserContext
+from playwright.async_api import Error as PlaywrightError
 
 
 base_url = "https://www.betclic.fr"
@@ -433,13 +434,14 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, match_num
 
         try:
             page = await browser_context.new_page()
-            current_tab_index = None
+            current_tab_index = 0
+            tabs_count = None
 
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
             await close_modal(page)
 
             await page.wait_for_selector("app-desktop")
-            await page.wait_for_timeout(1000)
+            await page.wait_for_timeout(500)
 
             tabs = page.locator("div.tab_item")
             tabs_count = await tabs.count()
@@ -459,7 +461,6 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, match_num
                     classes = await current_tab.get_attribute("class") or ""
                     if "isActive" in classes:
                         break
-                    # await current_tab.click()
                     el = await current_tab.element_handle()
                     await page.evaluate("(el) => el.click()", el)
                     await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
@@ -467,16 +468,13 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, match_num
                 else:
                     raise RuntimeError(f"Tab {i} never became active")
 
-                await page.wait_for_timeout(500) # Wait time for angular to hydrate betclic 
+                await page.wait_for_timeout(300) # Wait time for angular to hydrate betclic 
 
                 await disable_overlays(page)
-                await wait_for_dom_stable(page)
-
-                # await scroll_markets_to_bottom(page)
-                # await wait_for_dom_stable(page)
-
                 await click_all_show_more_btns(page)
-                await wait_for_dom_stable(page)
+                # await wait_for_dom_stable(page)
+                
+                # await page.wait_for_function("() => !document.querySelector('.btn.is-seeMore:not(.is-expanded)')", timeout=5000) # Untested wait
 
                 await page.wait_for_timeout(500) # Additional wait time for angular to load all expanded tabs
                 # raw_html = await page.content()
@@ -484,11 +482,27 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, match_num
 
                 print(f"Got full page of tab {i} (Match {match_num})")
                 pages.append(raw_html)
-                # await scroll_markets_to_top(page)
 
         except KeyboardInterrupt:
             print("\nInterrupted by user. Exiting cleanly at (Tab level).")
             raise
+
+        except PlaywrightError as e:
+            msg = str(e)
+
+            if "ERR_CONNECTION_CLOSED" in msg or "net::" in msg:
+                print(
+                    f"\nNetwork error while loading match {match_num}. "
+                    f"Retrying match (attempt {attempt})"
+                )
+                await asyncio.sleep(5)
+                continue
+
+            print(
+                f"\nPlaywright error while scraping tab "
+                f"{current_tab_index}/{tabs_count} of match {match_num}"
+            )
+            traceback.print_exc()
 
         except Exception:
             print(f"\nError while scraping tab {current_tab_index}/{tabs_count} of match {match_num} (attempt {attempt})")
@@ -515,7 +529,7 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, browser_
         url = parse.urljoin(base_url, link)
 
         for attempt in range(1, 6):
-            print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+            print(f"\nExtracting markets of match {match_number}/{len(links)} (attempt {attempt})")
 
             match_page = await fetch(url, session)
             json_data = get_json_data(match_page)

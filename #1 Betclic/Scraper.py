@@ -298,8 +298,30 @@ class Match(BaseModel):
 class Sport_data(BaseModel):
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
 
-    sport_name: str = Field(alias="name")
+    sport_name: str | None = Field(alias="name", default=None)
     matches: list[Match] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def resolve_sport_name(cls, data: dict):
+        if data.get("name"):
+            return data
+
+        competition = data.get("competition")
+        if isinstance(competition, dict):
+            sport = competition.get("sport")
+            comp_name = competition.get("name")
+
+            if isinstance(sport, dict):
+                sport_name = sport.get("name")
+
+                if sport_name and comp_name:
+                    data = dict(data)
+                    data["name"] = f"{sport_name} - {comp_name}"
+                    return data
+
+        return data
+
 
 
 # Helper functions.
@@ -334,12 +356,12 @@ def setup_logging():
     return log_file
 
 # For fetching data from endpoints (URLs)
-async def fetch(url: str) -> str:
+async def fetch(url: str, session: AsyncSession) -> str:
     retries = 5
 
     for attempt in range(1, retries + 1):
         try:
-            response = requests.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
+            response = session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
 
             if response.status_code == 403:
                 await asyncio.sleep(15 + random.random() * 10)
@@ -588,14 +610,14 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", html_page)
             break
 
-async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, browser_obj: Browser, semaphore: asyncio.Semaphore) -> All_markets:
+async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session: AsyncSession, browser_obj: Browser, semaphore: asyncio.Semaphore) -> All_markets:
     async with semaphore:
         url = parse.urljoin(base_url, link)
 
         for attempt in range(1, 6):
             logging.info("\nExtracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
 
-            match_page = await fetch(url)
+            match_page = await fetch(url, session)
             json_data = get_json_data(match_page)
 
             important_keys = [k for k in json_data if k.startswith("grpc:")]
@@ -620,13 +642,13 @@ async def process_single_match(sport: str, match_number: int, link: str, total_m
         raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
 # # Gets market details of a match from all available tabs inside a match page
-async def get_detailed_markets(sport: str, links: list[str], browser_obj: Browser, semaphore: asyncio.Semaphore) -> list[All_markets]:
+async def get_detailed_markets(sport: str, links: list[str], session: AsyncSession, browser_obj: Browser, semaphore: asyncio.Semaphore) -> list[All_markets]:
     tasks = []
     clean = []
     total = len(links)
 
     for match_number, link in enumerate(links, start=1):
-        task = asyncio.create_task(process_single_match(sport, match_number, link, total, browser_obj, semaphore))
+        task = asyncio.create_task(process_single_match(sport, match_number, link, total, session, browser_obj, semaphore))
         tasks.append(task)
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -735,43 +757,42 @@ async def main():
                 try: 
                     logging.info("Scraping %s | attempt=%d", sport_name, attempt)
 
-                    # async with AsyncSession() as session:
-                    url = parse.urljoin(base_url, relative_path)
-                    response_html = await fetch(url)
+                    async with AsyncSession() as session:
+                        url = parse.urljoin(base_url, relative_path)
+                        response_html = await fetch(url)
 
-                    logging.info("Extracting urls of all matches...\n")
-                    urls, page_json = get_urls_and_json(response_html)
+                        logging.info("Extracting urls of all matches...\n")
+                        urls, page_json = get_urls_and_json(response_html)
 
-                    # print("Saving all raw cards...")
-                    # await save_raw_json_cards(urls, session, sport_name)
+                        # print("Saving all raw cards...")
+                        # await save_raw_json_cards(urls, session, sport_name)
 
-                    logging.info("Extracting markets...")
-                    # try:
-                    all_clean_markets = await get_detailed_markets(sport_name, urls, browser, match_semaphore)
-                    # finally:
-                    #     for task in asyncio.all_tasks():
-                    #         task.cancel()
+                        logging.info("Extracting markets...")
+                        # try:
+                        all_clean_markets = await get_detailed_markets(sport_name, urls, session, browser, match_semaphore)
+                        # finally:
+                        #     for task in asyncio.all_tasks():
+                        #         task.cancel()
 
-                    important_keys = [k for k in page_json if k.startswith("grpc:")]
-                    main_key = important_keys[1] if len(important_keys) > 1 else None
-                    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+                        important_keys = [k for k in page_json if k.startswith("grpc:")]
+                        main_key = important_keys[1] if len(important_keys) > 1 else None
+                        playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
 
-                    logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
-                    clean_data = Sport_data(**playload)
-                
-                    for index, match in enumerate(clean_data.matches):
-                        if all_clean_markets[index] != None:
-                            match.all_Markets = all_clean_markets[index]
+                        logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
+                        clean_data = Sport_data(**playload)
 
-                    file_path = f"{sport_name}.json"
-                    await save_json_file(file_path, clean_data.model_dump())
+                        if not clean_data.sport_name:
+                            clean_data.sport_name = sport_name
+                    
+                        for index, match in enumerate(clean_data.matches):
+                            if all_clean_markets[index] != None:
+                                match.all_Markets = all_clean_markets[index]
 
-                    logging.info("\n")
-                    break
-                
-                # except KeyboardInterrupt:
-                #     print("\nInterrupted by user. Exiting cleanly.")
-                #     raise
+                        file_path = f"{sport_name}.json"
+                        await save_json_file(file_path, clean_data.model_dump())
+
+                        logging.info("\n")
+                        break
 
                 except KeyboardInterrupt:
                     logging.info("\nStopping scraper...")
@@ -781,8 +802,7 @@ async def main():
                     logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
                     logging.info("Retrying...\n")
                     await asyncio.sleep(2)
-            
-        await context.close() 
+
         await browser.close()
 
 if __name__ == "__main__":

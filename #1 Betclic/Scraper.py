@@ -323,6 +323,41 @@ class Sport_data(BaseModel):
         return data
 
 
+# Helper classes
+# ----
+
+# To manage and rotate multiple request sessions asynchronously  
+class SessionManager:
+    def __init__(self, max_requests: int = 6, rest_seconds: tuple[int, int] = (3, 6)):
+        self.max_requests = max_requests
+        self.rest_seconds = rest_seconds
+        self._session: AsyncSession | None = None
+        self._request_count = 0
+        self._lock = asyncio.Lock()
+
+    async def get_session(self) -> AsyncSession:
+        async with self._lock:
+            if self._session is None or self._request_count >= self.max_requests:
+                await self._rotate_session()
+            self._request_count += 1
+            return self._session
+
+    async def _rotate_session(self):
+        if self._session:
+            await self._session.close()
+
+        sleep_time = random.uniform(*self.rest_seconds)
+        logging.info("Rotating API session, resting %.2fs", sleep_time)
+        await asyncio.sleep(sleep_time)
+
+        self._session = AsyncSession()
+        self._request_count = 0
+
+    async def close(self):
+        if self._session:
+            await self._session.close()
+            self._session = None
+
 
 # Helper functions.
 # ----
@@ -356,12 +391,14 @@ def setup_logging():
     return log_file
 
 # For fetching data from endpoints (URLs)
-async def fetch(url: str, session: AsyncSession) -> str:
+async def fetch(url: str, session_mgr: SessionManager) -> str:
     retries = 5
 
     for attempt in range(1, retries + 1):
+        session = await session_mgr.get_session()
+
         try:
-            response = session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
+            response = await session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
 
             if response.status_code == 403:
                 await asyncio.sleep(15 + random.random() * 10)
@@ -369,14 +406,14 @@ async def fetch(url: str, session: AsyncSession) -> str:
 
             if response.status_code != 200:
                 raise RuntimeError(f"Non-200 response: {response.status_code}")
-            
+
             return response.text
 
         except KeyboardInterrupt:
             raise
 
         except Exception as e:
-            logging.warning("Fetch failed | attempt=%d/%d | url=%s\n%s: %s", attempt, retries, url, type(e).__name__, e)
+            logging.warning("Fetch failed: %s: %s | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
 
             if attempt == retries:
                 raise RuntimeError(f"Fetch failed for {url}") from e
@@ -582,22 +619,22 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 pages.append(raw_html)
 
         except KeyboardInterrupt:
-            logging.info("\nInterrupted by user!\nExiting cleanly at (Tab level).")
+            logging.info("Interrupted by user, Exiting cleanly at (Tab level).")
             raise
 
         except PlaywrightError as e:
             msg = str(e)
 
             if "ERR_CONNECTION_CLOSED" in msg or "net::" in msg:
-                logging.warning("\nNetwork error, | match=%d | attempt=%d\nRetrying match...", match_num, attempt)
+                logging.warning("Network error, Retrying match... | match=%d | attempt=%d", match_num, attempt)
                 await asyncio.sleep(5)
                 continue
-            logging.exception("\nPlaywright error | match=%d | tab=%d/%d", match_num, current_tab_index, tabs_count)
+            logging.exception("Playwright error | match=%d | tab=%d/%d", match_num, current_tab_index, tabs_count)
 
         except Exception:
-            logging.exception("\nUnknown error | match=%d | attempt=%d | tab=%d/%d", match_num, attempt, current_tab_index, tabs_count)
+            logging.exception("Unknown error | match=%d | attempt=%d | tab=%d/%d", match_num, attempt, current_tab_index, tabs_count)
 
-            logging.info("Retrying...\n")
+            logging.info("Retrying...")
             await asyncio.sleep(2)
 
         finally:
@@ -610,14 +647,14 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", html_page)
             break
 
-async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session: AsyncSession, browser_obj: Browser, semaphore: asyncio.Semaphore) -> All_markets:
+async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session_mgr: SessionManager, browser_obj: Browser, semaphore: asyncio.Semaphore) -> All_markets:
     async with semaphore:
         url = parse.urljoin(base_url, link)
 
         for attempt in range(1, 6):
-            logging.info("\nExtracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
+            logging.info("Extracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
 
-            match_page = await fetch(url, session)
+            match_page = await fetch(url, session_mgr)
             json_data = get_json_data(match_page)
 
             important_keys = [k for k in json_data if k.startswith("grpc:")]
@@ -637,18 +674,18 @@ async def process_single_match(sport: str, match_number: int, link: str, total_m
 
                 return All_markets(markets=[Market_details.from_raw(m) for m in markets])
 
-            logging.info("\nInvalid subCategories, retrying...")
+            logging.info("Invalid subCategories, retrying...")
 
         raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
 # # Gets market details of a match from all available tabs inside a match page
-async def get_detailed_markets(sport: str, links: list[str], session: AsyncSession, browser_obj: Browser, semaphore: asyncio.Semaphore) -> list[All_markets]:
+async def get_detailed_markets(sport: str, links: list[str], session_mgr: SessionManager, browser_obj: Browser, semaphore: asyncio.Semaphore) -> list[All_markets]:
     tasks = []
     clean = []
     total = len(links)
 
     for match_number, link in enumerate(links, start=1):
-        task = asyncio.create_task(process_single_match(sport, match_number, link, total, session, browser_obj, semaphore))
+        task = asyncio.create_task(process_single_match(sport, match_number, link, total, session_mgr, browser_obj, semaphore))
         tasks.append(task)
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
@@ -741,7 +778,7 @@ async def main():
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
-        max_match_workers = 2
+        max_match_workers = 3
         match_semaphore = asyncio.Semaphore(max_match_workers)
 
         logging.info("Scraper started\n")
@@ -757,42 +794,42 @@ async def main():
                 try: 
                     logging.info("Scraping %s | attempt=%d", sport_name, attempt)
 
-                    async with AsyncSession() as session:
-                        url = parse.urljoin(base_url, relative_path)
-                        response_html = await fetch(url)
+                    session_mgr = SessionManager(max_requests=6, rest_seconds=(4, 8))
+                    url = parse.urljoin(base_url, relative_path)
+                    response_html = await fetch(url, session_mgr)
 
-                        logging.info("Extracting urls of all matches...\n")
-                        urls, page_json = get_urls_and_json(response_html)
+                    logging.info("Extracting urls of all matches...\n")
+                    urls, page_json = get_urls_and_json(response_html)
 
-                        # print("Saving all raw cards...")
-                        # await save_raw_json_cards(urls, session, sport_name)
+                    # print("Saving all raw cards...")
+                    # await save_raw_json_cards(urls, session, sport_name)
 
-                        logging.info("Extracting markets...")
-                        # try:
-                        all_clean_markets = await get_detailed_markets(sport_name, urls, session, browser, match_semaphore)
-                        # finally:
-                        #     for task in asyncio.all_tasks():
-                        #         task.cancel()
+                    logging.info("Extracting markets...")
+                    # try:
+                    all_clean_markets = await get_detailed_markets(sport_name, urls, session_mgr, browser, match_semaphore)
+                    # finally:
+                    #     for task in asyncio.all_tasks():
+                    #         task.cancel()
 
-                        important_keys = [k for k in page_json if k.startswith("grpc:")]
-                        main_key = important_keys[1] if len(important_keys) > 1 else None
-                        playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+                    important_keys = [k for k in page_json if k.startswith("grpc:")]
+                    main_key = important_keys[1] if len(important_keys) > 1 else None
+                    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
 
-                        logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
-                        clean_data = Sport_data(**playload)
+                    logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
+                    clean_data = Sport_data(**playload)
 
-                        if not clean_data.sport_name:
-                            clean_data.sport_name = sport_name
-                    
-                        for index, match in enumerate(clean_data.matches):
-                            if all_clean_markets[index] != None:
-                                match.all_Markets = all_clean_markets[index]
+                    if not clean_data.sport_name:
+                        clean_data.sport_name = sport_name
+                
+                    for index, match in enumerate(clean_data.matches):
+                        if all_clean_markets[index] != None:
+                            match.all_Markets = all_clean_markets[index]
 
-                        file_path = f"{sport_name}.json"
-                        await save_json_file(file_path, clean_data.model_dump())
+                    file_path = f"{sport_name}.json"
+                    await save_json_file(file_path, clean_data.model_dump())
 
-                        logging.info("\n")
-                        break
+                    logging.info("\n")
+                    break
 
                 except KeyboardInterrupt:
                     logging.info("\nStopping scraper...")
@@ -802,6 +839,9 @@ async def main():
                     logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
                     logging.info("Retrying...\n")
                     await asyncio.sleep(2)
+
+                finally:
+                    await session_mgr.close()
 
         await browser.close()
 

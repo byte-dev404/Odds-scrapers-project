@@ -326,24 +326,43 @@ class Sport_data(BaseModel):
 # Helper classes
 # ----
 
-# To manage and rotate multiple request sessions asynchronously  
+# To manage and rotate multiple request sessions asynchronously
 class SessionManager:
-    def __init__(self, max_requests: int = 6, rest_seconds: tuple[int, int] = (3, 6)):
+    def __init__(self, max_requests=6, rest_seconds=(3, 6)):
         self.max_requests = max_requests
         self.rest_seconds = rest_seconds
         self._session: AsyncSession | None = None
         self._request_count = 0
+        self._active_requests = 0
         self._lock = asyncio.Lock()
 
     async def get_session(self) -> AsyncSession:
         async with self._lock:
             if self._session is None or self._request_count >= self.max_requests:
                 await self._rotate_session()
+
             self._request_count += 1
+            self._active_requests += 1
             return self._session
 
+    async def release(self):
+        async with self._lock:
+            self._active_requests -= 1
+
+    async def _rotate_session(self):
+
+
+        sleep_time = random.uniform(*self.rest_seconds)
+        logging.info("Rotating API session, resting %.2fs", sleep_time)
+        await asyncio.sleep(sleep_time)
+
+        self._session = AsyncSession()
+        self._request_count = 0
+    
     async def _rotate_session(self):
         if self._session:
+            # while self._active_requests > 0:
+            #     await asyncio.sleep(0.1)
             await self._session.close()
 
         sleep_time = random.uniform(*self.rest_seconds)
@@ -352,11 +371,15 @@ class SessionManager:
 
         self._session = AsyncSession()
         self._request_count = 0
+        self._active_requests = 0
 
     async def close(self):
-        if self._session:
-            await self._session.close()
-            self._session = None
+        async with self._lock:
+            if self._session:
+                while self._active_requests > 0:
+                    await asyncio.sleep(0.1)
+                await self._session.close()
+                self._session = None
 
 
 # Helper functions.
@@ -401,24 +424,32 @@ async def fetch(url: str, session_mgr: SessionManager) -> str:
             response = await session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
 
             if response.status_code == 403:
-                await asyncio.sleep(15 + random.random() * 10)
                 raise RuntimeError("403 blocked")
 
             if response.status_code != 200:
                 raise RuntimeError(f"Non-200 response: {response.status_code}")
 
             return response.text
-
+        
         except KeyboardInterrupt:
             raise
 
         except Exception as e:
-            logging.warning("Fetch failed: %s: %s | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
+            logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
 
             if attempt == retries:
                 raise RuntimeError(f"Fetch failed for {url}") from e
 
-            await asyncio.sleep(8 + random.random() * 10)
+            if "403" in str(e):
+                rest_time = 15 + random.random() * 10
+            else:
+                rest_time = random.uniform(8, 15)
+            
+            logging.info("Retrying after resting %.2fs", rest_time)
+            await asyncio.sleep(rest_time)
+
+        finally:
+            await session_mgr.release()
 
 # For saving json files
 async def save_json_file(file_path: str, data: dict) -> None:
@@ -537,8 +568,6 @@ async def click_all_show_more_btns(page: Page) -> None:
             break
 
         try:
-            # await btn.scroll_into_view_if_needed()
-            # await btn.click(timeout=3000)
             await page.evaluate("""
             (btn) => {
                 btn.scrollIntoView({ block: 'center', inline: 'center' });
@@ -553,6 +582,35 @@ async def click_all_show_more_btns(page: Page) -> None:
             continue
 
         await page.wait_for_timeout(120)
+
+def extract_odds_from_tabs(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    market_boxes = soup.find_all('div', class_='marketBox')
+    
+    for box in market_boxes:
+        market_data = {}
+        
+        name_tag = box.find('h2', class_='marketBox_headTitle')
+        if not name_tag:
+            continue
+        market_data["market_name"] = " ".join(name_tag.get_text(strip=True).split()).capitalize() if name_tag else ""
+
+        selections = []
+
+        selections = box.find_all('div', class_='marketBox_lineSelection')
+        for sel in selections:
+            name_el = sel.find('p', class_='marketBox_label')
+            odds_el = sel.find('bcdk-bet-button-label')
+            
+            if name_el and odds_el:
+                sel_obj = {}
+                sel_obj["name"] = " ".join(name_el.get_text(strip=True).split()) if name_tag else ""
+                sel_obj["odds"] = " ".join(odds_el.get_text(strip=True).split()) if odds_el else 0.00
+                selections.append(sel_obj)
+
+        market_data["selections"] = selections
+
+        return market_data
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
 async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: str, match_num: int, match_url: str) -> None:
@@ -573,7 +631,10 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
             await close_modal(page)
 
             await page.wait_for_selector("app-desktop")
+            await close_modal(page)
+
             await page.wait_for_timeout(500)
+            await close_modal(page)
 
             tabs = page.locator("div.tab_item")
             tabs_count = await tabs.count()
@@ -593,9 +654,15 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                     classes = await current_tab.get_attribute("class") or ""
                     if "isActive" in classes:
                         break
+
                     el = await current_tab.element_handle()
+
+                    if not el:
+                        raise RuntimeError("Tab element disappeared")
+                    
                     await page.evaluate("(el) => el.click()", el)
                     await page.wait_for_selector("app-desktop", timeout=15000)
+
                     # await page.wait_for_function("(el) => el.classList.contains('isActive')", arg=el, timeout=6000)
                     # await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
                 else:
@@ -609,10 +676,7 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 await click_all_show_more_btns(page)
                 logging.debug("Expanded all cards! | match=%d | tab=%d", match_num, i)
 
-                # await page.wait_for_function("() => !document.querySelector('.btn.is-seeMore:not(.is-expanded)')", timeout=5000) # Untested wait
-
                 await page.wait_for_timeout(500)
-                # raw_html = await page.content()
                 raw_html  = await page.locator("div.marketBox_container.is-active").inner_html()
 
                 logging.debug("Captured tab HTML | match=%d | tab=%d", match_num, i)
@@ -647,58 +711,69 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", html_page)
             break
 
-async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session_mgr: SessionManager, browser_obj: Browser, semaphore: asyncio.Semaphore) -> All_markets:
-    async with semaphore:
-        url = parse.urljoin(base_url, link)
+async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session_mgr: SessionManager, context: BrowserContext) -> All_markets:
+    url = parse.urljoin(base_url, link)
 
-        for attempt in range(1, 6):
-            logging.info("Extracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
+    for attempt in range(1, 6):
+        logging.info("Extracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
 
-            match_page = await fetch(url, session_mgr)
-            json_data = get_json_data(match_page)
+        match_page = await fetch(url, session_mgr)
+        json_data = get_json_data(match_page)
 
-            important_keys = [k for k in json_data if k.startswith("grpc:")]
-            main_key = important_keys[1] if len(important_keys) > 1 else None
+        important_keys = [k for k in json_data if k.startswith("grpc:")]
+        main_key = important_keys[1] if len(important_keys) > 1 else None
 
-            payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
-            subcats = payload.get("match", {}).get("subCategories")
+        payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+        subcats = payload.get("match", {}).get("subCategories")
 
-            if isinstance(subcats, list):
-                markets = subcats[0].get("markets", [])
-                context = await browser_obj.new_context(extra_http_headers=headers_for_playwright)
-                await context.add_cookies(convert_cookies(cookies_for_playwright))
-                try:
-                    await get_markets_from_other_tabs(context, sport, match_number, url)
-                finally:
-                    await context.close()
+        if isinstance(subcats, list):
+            markets = subcats[0].get("markets", [])
+            await get_markets_from_other_tabs(context, sport, match_number, url)
+            return All_markets(markets=[Market_details.from_raw(m) for m in markets])
 
-                return All_markets(markets=[Market_details.from_raw(m) for m in markets])
+        logging.info("Invalid subCategories, retrying...")
 
-            logging.info("Invalid subCategories, retrying...")
-
-        raise RuntimeError(f"Failed to fetch markets for match {match_number}")
+    raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
 # # Gets market details of a match from all available tabs inside a match page
-async def get_detailed_markets(sport: str, links: list[str], session_mgr: SessionManager, browser_obj: Browser, semaphore: asyncio.Semaphore) -> list[All_markets]:
-    tasks = []
-    clean = []
-    total = len(links)
+async def get_detailed_markets(sport: str, links: list[str], session_mgr: SessionManager, browser_obj: Browser, max_workers: int) -> list[All_markets | None]:
+    results: list[All_markets | None] = [None] * len(links)
+    queue = asyncio.Queue()
 
-    for match_number, link in enumerate(links, start=1):
-        task = asyncio.create_task(process_single_match(sport, match_number, link, total, session_mgr, browser_obj, semaphore))
-        tasks.append(task)
+    for idx, link in enumerate(links):
+        await queue.put((idx, link))
 
-    results = await asyncio.gather(*tasks, return_exceptions=True)
+    async def worker(worker_id: int):
+        context = await browser_obj.new_context(extra_http_headers=headers_for_playwright)
+        await context.add_cookies(convert_cookies(cookies_for_playwright))
 
-    for r in results:
-        if isinstance(r, Exception):
-            clean.append(None)
-            logging.debug("Match failed: %s", repr(r))
-            continue
+        try:
+            while True:
+                try:
+                    idx, link = await queue.get()
+                except asyncio.CancelledError:
+                    return
 
-        clean.append(r)
+                try:
+                    result = await process_single_match(sport, idx + 1, link, len(links), session_mgr, context)
+                    results[idx] = result
+                except Exception:
+                    logging.exception("Worker %d failed match %d", worker_id, idx + 1)
+                    results[idx] = None
+                finally:
+                    queue.task_done()
+        finally:
+            await context.close()
 
-    return clean
+    workers = [asyncio.create_task(worker(i)) for i in range(max_workers)]
+    await queue.join()
+
+    for w in workers:
+        w.cancel()
+
+    await asyncio.gather(*workers, return_exceptions=True)
+    return results
+
 
 # async def get_detailed_markets(sport: str, links: list[str], session: AsyncSession, browser_context: BrowserContext) -> list[All_markets]:
 #     clean_markets = []
@@ -779,7 +854,6 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
         max_match_workers = 3
-        match_semaphore = asyncio.Semaphore(max_match_workers)
 
         logging.info("Scraper started\n")
         if log_file:
@@ -794,7 +868,7 @@ async def main():
                 try: 
                     logging.info("Scraping %s | attempt=%d", sport_name, attempt)
 
-                    session_mgr = SessionManager(max_requests=6, rest_seconds=(4, 8))
+                    session_mgr = SessionManager(max_requests=1, rest_seconds=(0, 0.5))
                     url = parse.urljoin(base_url, relative_path)
                     response_html = await fetch(url, session_mgr)
 
@@ -806,7 +880,7 @@ async def main():
 
                     logging.info("Extracting markets...")
                     # try:
-                    all_clean_markets = await get_detailed_markets(sport_name, urls, session_mgr, browser, match_semaphore)
+                    all_clean_markets = await get_detailed_markets(sport_name, urls, session_mgr, browser, max_match_workers)
                     # finally:
                     #     for task in asyncio.all_tasks():
                     #         task.cancel()

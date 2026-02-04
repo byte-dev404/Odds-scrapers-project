@@ -24,7 +24,7 @@ sports = {
 
     # Europe Leagues
     # "Football (Conference League)": "football-sfootball/ligue-conference-c28946",
-    "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
+    # "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
 
     # England Leagues 
     "Football (England. Championship)": "football-sfootball/angl-championship-c28",

@@ -27,31 +27,31 @@ sports = {
     # "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
 
     # England Leagues 
-    "Football (England. Championship)": "football-sfootball/angl-championship-c28",
-    "Football (England. Premier League)": "football-sfootball/angl-premier-league-c3",
-    "Football (England EFL Cup)": "football-sfootball/angleterre-efl-cup-c41",
-    "Football (England FA Cup)": "football-sfootball/angleterre-fa-cup-c44",
+    # "Football (England. Championship)": "football-sfootball/angl-championship-c28",
+    # "Football (England. Premier League)": "football-sfootball/angl-premier-league-c3",
+    # "Football (England EFL Cup)": "football-sfootball/angleterre-efl-cup-c41",
+    # "Football (England FA Cup)": "football-sfootball/angleterre-fa-cup-c44",
 
     # French Leagues
-    "Football (Arkema Premier League)": "football-sfootball/arkema-premiere-ligue-c691",
-    "Football (French Cup)": "football-sfootball/coupe-de-france-c36",
-    "Football (Ligue 1 McDonald’s®)": "football-sfootball/ligue-1-mcdonald-s-c4",
-    "Football (Ligue 2 BKT®)": "football-sfootball/ligue-2-bkt-c19",
+    # "Football (Arkema Premier League)": "football-sfootball/arkema-premiere-ligue-c691",
+    # "Football (French Cup)": "football-sfootball/coupe-de-france-c36",
+    # "Football (Ligue 1 McDonald’s®)": "football-sfootball/ligue-1-mcdonald-s-c4",
+    # "Football (Ligue 2 BKT®)": "football-sfootball/ligue-2-bkt-c19",
 
     # Italy Leagues
-    "Football (Italy Cup)": "football-sfootball/italie-coupe-c50",
-    "Football (Italy Serie A)": "football-sfootball/italie-serie-a-c6",
-    "Football (Italy Serie B)": "football-sfootball/italie-serie-b-c30",
+    # "Football (Italy Cup)": "football-sfootball/italie-coupe-c50",
+    # "Football (Italy Serie A)": "football-sfootball/italie-serie-a-c6",
+    # "Football (Italy Serie B)": "football-sfootball/italie-serie-b-c30",
 
     # Germany Leagues
-    "Football (Germany Bundesliga)": "football-sfootball/allemagne-bundesliga-c5",
-    "Football (Germany Bundesliga 2)": "football-sfootball/allemagne-bundesliga-2-c29",
-    "Football (Germany Cup)": "football-sfootball/allemagne-coupe-c55",
+    # "Football (Germany Bundesliga)": "football-sfootball/allemagne-bundesliga-c5",
+    # "Football (Germany Bundesliga 2)": "football-sfootball/allemagne-bundesliga-2-c29",
+    # "Football (Germany Cup)": "football-sfootball/allemagne-coupe-c55",
 
     # Spain Leagues
-    "Football (Spain Copa del Rey)": "football-sfootball/espagne-coupe-du-roi-c47",
-    "Football (Spain LaLiga)": "football-sfootball/espagne-laliga-c7",
-    "Football (Spain Liga Segunda)": "football-sfootball/espagne-liga-segunda-c31",
+    # "Football (Spain Copa del Rey)": "football-sfootball/espagne-coupe-du-roi-c47",
+    # "Football (Spain LaLiga)": "football-sfootball/espagne-laliga-c7",
+    # "Football (Spain Liga Segunda)": "football-sfootball/espagne-liga-segunda-c31",
 
     # Other sports
     "Tennis": "tennis-stennis",
@@ -851,22 +851,23 @@ async def main():
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
-        context = await browser.new_context(extra_http_headers=chrome_headers)
-        cookies = dict(chrome_cookies)
-        cookies["bc-device-id"] = str(uuid.uuid4())
-        await context.add_cookies(convert_cookies(cookies))
         max_match_workers = 2
-
         logging.info("Scraper started\n")
+
         if log_file:
             logging.info("Logging to %s", log_file)
 
         for sport_name, relative_path in sports.items():
+
+            context = await browser.new_context(extra_http_headers=chrome_headers)
+            cookies = dict(chrome_cookies)
+            cookies["bc-device-id"] = str(uuid.uuid4())
+            await context.add_cookies(convert_cookies(cookies))
             attempt = 0
 
             while True:
                 attempt += 1
-
+                
                 try: 
                     logging.info("Scraping %s | attempt=%d", sport_name, attempt)
 
@@ -919,7 +920,7 @@ async def main():
                     logging.info("Retrying...\n")
                     await asyncio.sleep(2)
 
-        await context.close()
+            await context.close()
         await browser.close()
 
 if __name__ == "__main__":

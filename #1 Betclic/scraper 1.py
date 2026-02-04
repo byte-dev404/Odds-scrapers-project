@@ -1,4 +1,3 @@
-import uuid
 import json
 import random
 import asyncio
@@ -9,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from urllib import parse
 from datetime import datetime
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 from curl_cffi import requests, AsyncSession
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 from playwright.async_api import async_playwright, Page, BrowserContext, Browser
@@ -20,10 +19,10 @@ base_url = "https://www.betclic.fr"
 
 sports = {
     # Entire page
-    # "Football (The whole offer)": "football-sfootball",
+    "Football (The whole offer)": "football-sfootball",
 
     # Europe Leagues
-    # "Football (Conference League)": "football-sfootball/ligue-conference-c28946",
+    "Football (Conference League)": "football-sfootball/ligue-conference-c28946",
     "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
 
     # England Leagues 
@@ -67,7 +66,7 @@ sports = {
 }
 
 # Chrome profile for API
-chrome_cookies = {
+cookies_for_api = {
     'bc-device-id': 'fd981878-faf4-43a3-a1ce-6b87948f3b6c',
     'BC-TOKEN': 'eyJhbGciOiJIUzI1NiIsImtpZCI6ImM0MzQ3NWY5LTVlNjMtNDFjZC1hMWNlLWJlMTM1NWZmODUwZSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3ZWNjMzdhMS05MWY0LTQ5NjYtYjA3MS05OTNmMmJmOGJlODgiLCJyem4iOiJGUiIsImJybiI6IkJFVENMSUMiLCJwbHQiOiJERVNLVE9QIiwibG5nIjoiZnIiLCJ1bnYiOiJTUE9SVFMiLCJzaXQiOiJGUkZSIiwiZnB0IjoiZmQ5ODE4NzgtZmFmNC00M2EzLWExY2UtNmI4Nzk0OGYzYjZjIiwibmJmIjoxNzY5MTc2OTk4LCJleHAiOjE3Njk3ODE3OTgsImlzcyI6IkJFVENMSUMuRlIifQ.9D_CNmR3lIUDkpTZrun9yL2_PzBKGj3CA8GfziJG_KQ',
     'theme': 'light',
@@ -88,7 +87,7 @@ chrome_cookies = {
     '_dd_s': 'aid=03a3d112-3286-450b-8ab7-13e58bc864a3&rum=0&expire=1769419721964&logs=1&id=a74a621b-7824-4971-8349-d4db9950c8d8&created=1769418791503',
 }
 
-chrome_headers = {
+headers_for_api = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0',
@@ -106,7 +105,7 @@ chrome_headers = {
 }
 
 # Edge profile for browser automation
-edge_cookies = {
+cookies_for_playwright = {
     'theme': 'light',
     'bc-device-id': '1430c0b4-8a57-40f6-9ce1-4e47eaf35e67',
     'BC-TOKEN': 'eyJhbGciOiJIUzI1NiIsImtpZCI6ImM0MzQ3NWY5LTVlNjMtNDFjZC1hMWNlLWJlMTM1NWZmODUwZSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhODA5NWNhZS0xNzQyLTRkNTYtOTFkZC03YjJjMmUxODJiZTMiLCJyem4iOiJGUiIsImJybiI6IkJFVENMSUMiLCJwbHQiOiJERVNLVE9QIiwibG5nIjoiZnIiLCJ1bnYiOiJTUE9SVFMiLCJzaXQiOiJGUkZSIiwiZnB0IjoiMTQzMGMwYjQtOGE1Ny00MGY2LTljZTEtNGU0N2VhZjM1ZTY3IiwibmJmIjoxNzcwMDMzMjQ1LCJleHAiOjE3NzA2MzgwNDUsImlzcyI6IkJFVENMSUMuRlIifQ.6-6lFg6Ut__30EHvPQSAPl56ULPBCqKoHe2UmBSKDEk',
@@ -119,7 +118,7 @@ edge_cookies = {
     '_gcl_au': '1.1.234646844.1770033280',
 }
 
-edge_headers = {
+headers_for_playwright = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0',
@@ -201,12 +200,12 @@ class Selection(BaseModel):
 class Market_details(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
-    market_id: str = Field(alias="id", default="")
+    market_id: str = Field(alias="id")
     market_name: str = Field(alias="name")
-    position: int | None = None
-    is_early_win: bool = Field(alias="isEarlyWin", default=False)
-    is_cashoutable: bool = Field(alias="isCashoutable", default=True)
-    match_id: str = Field(alias="matchId", default="")
+    position: int
+    is_early_win: bool = Field(alias="isEarlyWin")
+    is_cashoutable: bool = Field(alias="isCashoutable")
+    match_id: str = Field(alias="matchId")
     selections: list[GroupedSelection | Selection] = Field(default_factory=list)
 
     @classmethod
@@ -219,6 +218,12 @@ class Market_details(BaseModel):
                 sel = item.get("selectionOneof", {}).get("selection")
                 if sel:
                     selections.append(sel)
+
+        # for group in raw.get("splitCardGroups", []):
+        #     name = group.get("name", "")
+        #     sel = group.get("selections", [])
+        #     selections.extend({str(name): sel})
+            # selections.append({"name": name, "odds": sel})
 
         for group in raw.get("splitCardGroups", []):
             odds_map: dict[str, float] = {}
@@ -258,96 +263,10 @@ class Market_details(BaseModel):
 
         return cls.model_validate(raw)
 
-    # # @classmethod
-    # # def from_html(cls, market_box: Tag, match_id: str = "", position: int | None = None) -> "Market_details":
-
-    #     title_el = market_box.select_one("h2.marketBox_headTitle")
-    #     market_name = " ".join(title_el.get_text(strip=True).split()) if title_el else ""
-
-    #     selections: list[Selection] = []
-
-    #     selection_nodes = market_box.select("div.marketBox_lineSelection")
-
-    #     for node in selection_nodes:
-
-    #         name_el = node.select_one("p.marketBox_label")
-    #         odds_el = node.select_one("bcdk-bet-button-label")
-
-    #         if not name_el or not odds_el:
-    #             continue
-
-    #         name = " ".join(name_el.get_text(strip=True).split())
-
-    #         odds_text = odds_el.get_text(strip=True)
-    #         odds_text = odds_text.replace(",", ".")
-    #         odds_text = odds_text.replace("\xa0", "")
-
-    #         try:
-    #             odds = float(odds_text)
-    #         except ValueError:
-    #             continue
-
-    #         selections.append(Selection(name=name, odds=odds))
-
-    #     return cls(id="", name=market_name, matchId=match_id, position=position, selections=selections)
-
-    @classmethod
-    def from_html(cls, market_box: Tag, match_id: str = "", position: int | None = None) -> "Market_details":
-
-        title_el = market_box.select_one("h2.marketBox_headTitle")
-        market_name = " ".join(title_el.get_text(strip=True).split()) if title_el else ""
-        selections: list[dict] = []
-
-        if "is-groupedMarket" in market_box.get("class", []):
-            rows = market_box.select("div.marketBox_lineSelection")
-
-            header_row = rows[0]
-            headers = [h.get_text(strip=True) for h in header_row.select("span.marketBox_itemValue")]
-
-            for row in rows[1:]:
-                label_el = row.select_one("p.marketBox_label")
-                if not label_el:
-                    continue
-
-                name = label_el.get_text(strip=True)
-                odds_cells = row.select("bcdk-bet-button-label")
-
-                odds_map: dict[str, float] = {}
-
-                for header, cell in zip(headers, odds_cells):
-                    txt = cell.get_text(strip=True).replace(",", ".")
-                    try:
-                        odds_map[header] = float(txt)
-                    except ValueError:
-                        continue
-
-                if odds_map:
-                    selections.append({"name": name, "odds": odds_map})
-
-            return cls(id="", name=market_name, matchId=match_id, position=position, selections=selections)
-
-        for node in market_box.select("div.marketBox_lineSelection"):
-            name_el = node.select_one("p.marketBox_label")
-            odds_el = node.select_one("bcdk-bet-button-label")
-
-            if not name_el or not odds_el:
-                continue
-
-            name = " ".join(name_el.get_text(strip=True).split())
-            odds_txt = odds_el.get_text(strip=True).replace(",", ".")
-
-            try:
-                odds = float(odds_txt)
-            except ValueError:
-                continue
-
-            selections.append({"name": name, "odds": odds})
-
-        return cls(id="", name=market_name, matchId=match_id, position=position, selections=selections)
-
+# Maybe this model is useless (look at this later)
 class All_markets(BaseModel):
-    model_config = ConfigDict(extra="allow")
-    le_top: list[Market_details]
+    model_config = ConfigDict(extra="ignore")
+    markets: list[Market_details]
 
 class Match(BaseModel):
     match_id: str = Field(alias="matchId")
@@ -443,7 +362,7 @@ async def fetch(url: str) -> str:
 
         try:
             async with AsyncSession() as session:
-                response = await session.get(url, cookies=edge_cookies, headers=edge_headers, impersonate="chrome")
+                response = await session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
 
             if response.status_code == 403:
                 raise RuntimeError("403 blocked")
@@ -463,9 +382,9 @@ async def fetch(url: str) -> str:
                 raise RuntimeError(f"Fetch failed for {url}") from e
 
             if "403" in str(e):
-                rest_time = 8 + random.random() * 10
+                rest_time = 15 + random.random() * 10
             else:
-                rest_time = random.uniform(3, 6)
+                rest_time = random.uniform(8, 15)
             
             logging.info("Retrying after resting %.2fs", rest_time)
             await asyncio.sleep(rest_time)
@@ -602,62 +521,68 @@ async def click_all_show_more_btns(page: Page) -> None:
 
         await page.wait_for_timeout(120)
 
-def extract_odds_from_tabs(tab_html: str, match_id: str = "") -> list[Market_details]:
-    soup = BeautifulSoup(tab_html, "html.parser")
+def extract_odds_from_tabs(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    market_boxes = soup.find_all('div', class_='marketBox')
+    
+    for box in market_boxes:
+        market_data = {}
+        
+        name_tag = box.find('h2', class_='marketBox_headTitle')
+        if not name_tag:
+            continue
+        market_data["market_name"] = " ".join(name_tag.get_text(strip=True).split()).capitalize() if name_tag else ""
 
-    markets: list[Market_details] = []
-    market_boxes = soup.select("div.marketBox")
+        selections = []
 
-    for pos, box in enumerate(market_boxes, start=1):
+        selections = box.find_all('div', class_='marketBox_lineSelection')
+        for sel in selections:
+            name_el = sel.find('p', class_='marketBox_label')
+            odds_el = sel.find('bcdk-bet-button-label')
+            
+            if name_el and odds_el:
+                sel_obj = {}
+                sel_obj["name"] = " ".join(name_el.get_text(strip=True).split()) if name_tag else ""
+                sel_obj["odds"] = " ".join(odds_el.get_text(strip=True).split()) if odds_el else 0.00
+                selections.append(sel_obj)
 
-        try:
-            market = Market_details.from_html(market_box=box, match_id=match_id, position=pos)
+        market_data["selections"] = selections
 
-            if market.selections:
-                markets.append(market)
-
-        except Exception:
-            logging.exception("Failed parsing market from HTML")
-
-    return markets
+        return market_data
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
-async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: str, match_num: int, match_url: str, match_base_page: All_markets) -> None:
+async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: str, match_num: int, match_url: str) -> None:
     excluded_tabs = {"MyCombi", "Le Top", "The Top"}
     attempt = 0
 
     while True:
-        tab_objs = []
+        pages = []
         skipped_page = 0
         attempt += 1
 
         try:
             page = await browser_context.new_page()
             current_tab_index = 0
-            tabs_count = 0
+            tabs_count = None
 
-            await asyncio.sleep(random.uniform(0.8, 1.6))
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
-            # await close_modal(page)
+            await close_modal(page)
 
-            try:
-                await page.wait_for_selector("app-desktop")
-            except:
-                await page.wait_for_load_state("domcontentloaded")
+            await page.wait_for_selector("app-desktop")
             await close_modal(page)
 
             await page.wait_for_timeout(500)
-            # await close_modal(page)
+            await close_modal(page)
 
             tabs = page.locator("div.tab_item")
             tabs_count = await tabs.count()
 
             for i in range(tabs_count):
                 current_tab = tabs.nth(i)
-                tab_name = (await current_tab.text_content() or "").strip()
+                text = (await current_tab.text_content() or "").strip()
 
-                if tab_name in excluded_tabs:
-                    logging.debug("Skipped excluded tab: %s", tab_name)
+                if text in excluded_tabs:
+                    logging.debug("Skipped excluded tab: %s", text)
                     skipped_page += 1
                     continue
 
@@ -674,10 +599,7 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                         raise RuntimeError("Tab element disappeared")
                     
                     await page.evaluate("(el) => el.click()", el)
-                    try:
-                        await page.wait_for_selector("app-desktop", timeout=15000)
-                    except PlaywrightError:
-                        pass
+                    await page.wait_for_selector("app-desktop", timeout=15000)
 
                     # await page.wait_for_function("(el) => el.classList.contains('isActive')", arg=el, timeout=6000)
                     # await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
@@ -696,8 +618,7 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 raw_html  = await page.locator("div.marketBox_container.is-active").inner_html()
 
                 logging.debug("Captured tab HTML | match=%d | tab=%d", match_num, i)
-                tab_objs.append({"tab_name": tab_name, "tab_page": raw_html})
-                logging.info("Saved details successfully. | Match %d | tab %d/%d", match_num, current_tab_index, tabs_count)
+                pages.append(raw_html)
 
         except KeyboardInterrupt:
             logging.info("Interrupted by user, Exiting cleanly at (Tab level).")
@@ -710,10 +631,10 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
                 logging.warning("Network error, Retrying match... | match=%d | attempt=%d", match_num, attempt)
                 await asyncio.sleep(5)
                 continue
-            logging.exception("Playwright error | match=%d | tab=%s/%s", match_num, current_tab_index, tabs_count)
+            logging.exception("Playwright error | match=%d | tab=%d/%d", match_num, current_tab_index, tabs_count)
 
         except Exception:
-            logging.exception("Unknown error | match=%d | attempt=%d | tab=%s/%s", match_num, attempt, current_tab_index, tabs_count)
+            logging.exception("Unknown error | match=%d | attempt=%d | tab=%d/%d", match_num, attempt, current_tab_index, tabs_count)
 
             logging.info("Retrying...")
             await asyncio.sleep(2)
@@ -722,127 +643,146 @@ async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: st
             if not page.is_closed():
                 await page.close()
 
-        if tabs_count:
-            if len(tab_objs) == tabs_count - skipped_page:
-                for tab_obj in tab_objs:
-                    tab_name = tab_obj["tab_name"]
-                    markets = extract_odds_from_tabs(tab_obj["tab_page"], match_base_page.le_top[0].match_id)
-                    setattr(match_base_page, tab_name, markets)
 
-                # else:
-                    # for i, tab_obj in enumerate(tab_objs, start=2):
-                        # await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", tab_obj["tab_page"])
-                break
+        if len(pages) == tabs_count - skipped_page:
+            for i, html_page in enumerate(pages, start=2):
+                await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", html_page)
+            break
 
-async def get_base_pages(sport_name: str, links: list[str], workers: int = 5) -> list[dict]:
-    urls = [parse.urljoin(base_url, link) for link in links]
-    total_matches = len(urls)
+async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, context: BrowserContext) -> All_markets:
+    url = parse.urljoin(base_url, link)
 
-    queue = asyncio.Queue()
-    results = [None] * total_matches
+    for attempt in range(1, 6):
+        logging.info("Extracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
 
-    for idx, url in enumerate(urls):
-        await queue.put((idx, url))
+        match_page = await fetch(url)
+        json_data = get_json_data(match_page)
 
-    async def worker(worker_id: int):
+        important_keys = [k for k in json_data if k.startswith("grpc:")]
+        main_key = important_keys[1] if len(important_keys) > 1 else None
 
-        while True:
-            try:
-                idx, url = await queue.get()
-            except asyncio.CancelledError:
-                return
+        payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+        subcats = payload.get("match", {}).get("subCategories")
 
-            match_number = idx + 1
+        if isinstance(subcats, list):
+            markets = subcats[0].get("markets", [])
+            await get_markets_from_other_tabs(context, sport, match_number, url)
+            return All_markets(markets=[Market_details.from_raw(m) for m in markets])
 
-            try:
-                for attempt in range(1, 6):
-                    logging.info("Worker %d fetching match %d/%d | attempt=%d", worker_id, match_number, total_matches, attempt)
+        logging.info("Invalid subCategories, retrying...")
 
-                    match_page = await fetch(url)
-                    json_data = get_json_data(match_page)
+    raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
-                    important_keys = [k for k in json_data if k.startswith("grpc:")]
-                    main_key = important_keys[1] if len(important_keys) > 1 else None
-
-                    payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
-                    subcats = payload.get("match", {}).get("subCategories")
-
-                    if isinstance(subcats, list):
-                        markets = subcats[0].get("markets", [])
-
-                        results[idx] = {
-                            "match_number": match_number,
-                            "match_url": url,
-                            "match_base_page": All_markets(le_top=[Market_details.from_raw(m) for m in markets])
-                        }
-
-                        break
-
-                    await asyncio.sleep(2)
-
-                else:
-                    raise RuntimeError(f"Failed match {match_number}")
-
-            except Exception:
-                logging.exception("Worker %d failed match %d", worker_id, match_number)
-
-            finally:
-                queue.task_done()
-
-    workers_tasks = [asyncio.create_task(worker(i)) for i in range(workers)]
-
-    await queue.join()
-
-    for w in workers_tasks:
-        w.cancel()
-
-    await asyncio.gather(*workers_tasks, return_exceptions=True)
-
-    logging.info(
-        "Sport %s done | pages saved=%d/%d",
-        sport_name,
-        sum(r is not None for r in results),
-        total_matches
-    )
-
-    return [r for r in results if r]
-
-async def enrich_base_pages_with_tabs(sport: str, base_pages: list[dict], context: BrowserContext, workers_count: int = 3) -> list[dict]:
+# # Gets market details of a match from all available tabs inside a match page
+async def get_detailed_markets(sport: str, links: list[str], browser_obj: Browser, max_workers: int) -> list[All_markets | None]:
+    results: list[All_markets | None] = [None] * len(links)
     queue = asyncio.Queue()
 
-    for idx, page in enumerate(base_pages):
-        await queue.put((idx, page))
+    for idx, link in enumerate(links):
+        await queue.put((idx, link))
 
     async def worker(worker_id: int):
-        while True:
-            try:
-                idx, page_data = await queue.get()
-            except asyncio.CancelledError:
-                return
+        context = await browser_obj.new_context(extra_http_headers=headers_for_playwright)
+        await context.add_cookies(convert_cookies(cookies_for_playwright))
 
-            match_number = page_data["match_number"]
-            match_url = page_data["match_url"]
-            match_base_page = page_data["match_base_page"]
+        try:
+            while True:
+                try:
+                    idx, link = await queue.get()
+                except asyncio.CancelledError:
+                    return
 
-            try:
-                logging.info("Worker %d processing match %d", worker_id, match_number)
-                await get_markets_from_other_tabs(context, sport, match_number, match_url, match_base_page)
+                try:
+                    result = await process_single_match(sport, idx + 1, link, len(links), context)
+                    results[idx] = result
+                except Exception:
+                    logging.exception("Worker %d failed match %d", worker_id, idx + 1)
+                    results[idx] = None
+                finally:
+                    queue.task_done()
+        finally:
+            await context.close()
 
-            except Exception:
-                logging.exception("Worker %d failed match %d", worker_id, match_number)
-
-            finally:
-                queue.task_done()
-
-    workers = [asyncio.create_task(worker(i)) for i in range(workers_count)]
+    workers = [asyncio.create_task(worker(i)) for i in range(max_workers)]
     await queue.join()
 
     for w in workers:
         w.cancel()
 
     await asyncio.gather(*workers, return_exceptions=True)
+    return results
 
-    return base_pages
+
+# async def get_detailed_markets(sport: str, links: list[str], session: AsyncSession, browser_context: BrowserContext) -> list[All_markets]:
+#     clean_markets = []
+
+#     for match_number, link in enumerate(links, start=1):
+#         url = parse.urljoin(base_url, link)
+
+#         for attempt in range(1, 6):
+#             print(f"\nExtracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+
+#             match_page = await fetch(url, session)
+#             json_data = get_json_data(match_page)
+
+#             important_keys = [k for k in json_data if k.startswith("grpc:")]
+#             main_key = important_keys[1] if len(important_keys) > 1 else None
+
+#             payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+#             subcats = payload.get("match", {}).get("subCategories")  
+
+#             if isinstance(subcats, list):
+#                 markets = subcats[0].get("markets", [])
+#                 await get_markets_from_other_tabs(browser_context, sport, match_number, url)
+#                 break
+
+#             # Logging errors
+#             if not isinstance(subcats, list):
+#                 error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
+#             else:
+#                 error_msg = "Something unknown went wrong"
+
+#             print(error_msg)
+#         else:
+#             raise RuntimeError(f"Failed to fetch markets for match {match_number}")
+
+#         clean_market = All_markets(markets=[Market_details.from_raw(m) for m in markets])
+#         clean_markets.append(clean_market)
+
+#     return clean_markets
+
+# Not importnat func (It's here just for testing and will be removed soon).
+# async def save_raw_json_cards(links: list[str], session, sport_name) -> None:
+
+#     for i, link in enumerate(links, start=1):
+#         url = parse.urljoin(base_url, link)
+#         file_path = f"({sport_name}) card {i}.json"
+
+#         for attempt in range(1, 6):
+#             print(f"Saving card {i} (attempt {attempt})")
+
+#             card_page = await fetch(url, session)
+#             json_data = get_json_data(card_page)
+            
+
+#             important_keys = [k for k in json_data if k.startswith("grpc:")]
+#             main_key = important_keys[1] if len(important_keys) > 1 else None
+
+#             payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+#             subcats = payload.get("match", {}).get("subCategories")
+
+#             if isinstance(subcats, list):
+#                 await save_json_file(file_path, json_data)
+#                 break
+
+#             print(f"subCategories invalid ({type(subcats)}), retrying...")
+#         else:
+#             raise RuntimeError(f"Failed to load markets for card {i}")
+        
+
+#     print("Saved everything!")
+#     return None
+
 
 # Main scraper logic and entry point of the script
 async def main():
@@ -851,11 +791,7 @@ async def main():
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
-        context = await browser.new_context(extra_http_headers=chrome_headers)
-        cookies = dict(chrome_cookies)
-        cookies["bc-device-id"] = str(uuid.uuid4())
-        await context.add_cookies(convert_cookies(cookies))
-        max_match_workers = 2
+        max_match_workers = 3
 
         logging.info("Scraper started\n")
         if log_file:
@@ -874,35 +810,31 @@ async def main():
                     response_html = await fetch(url)
 
                     logging.info("Extracting urls of all matches...\n")
-                    links, page_json = get_urls_and_json(response_html)
+                    urls, page_json = get_urls_and_json(response_html)
 
                     # print("Saving all raw cards...")
                     # await save_raw_json_cards(urls, session, sport_name)
 
                     logging.info("Extracting markets...")
-                    base_pages = await get_base_pages(sport_name, links, 5)
-                    await asyncio.sleep(5.00)
-                    enriched_pages = await enrich_base_pages_with_tabs(sport_name, base_pages, context, max_match_workers)                
+                    # try:
+                    all_clean_markets = await get_detailed_markets(sport_name, urls, browser, max_match_workers)
+                    # finally:
+                    #     for task in asyncio.all_tasks():
+                    #         task.cancel()
 
                     important_keys = [k for k in page_json if k.startswith("grpc:")]
                     main_key = important_keys[1] if len(important_keys) > 1 else None
                     playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
 
+                    logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
                     clean_data = Sport_data(**playload)
 
                     if not clean_data.sport_name:
                         clean_data.sport_name = sport_name
                 
-                    base_lookup = {}
-
-                    for p in enriched_pages:
-                        le_top = p["match_base_page"].le_top
-                        if le_top:
-                            base_lookup[le_top[0].match_id] = p["match_base_page"]
-
-                    for match in clean_data.matches:
-                        if match.match_id in base_lookup:
-                            match.all_Markets = base_lookup[match.match_id]
+                    for index, match in enumerate(clean_data.matches):
+                        if all_clean_markets[index] != None:
+                            match.all_Markets = all_clean_markets[index]
 
                     file_path = f"{sport_name}.json"
                     await save_json_file(file_path, clean_data.model_dump())
@@ -919,7 +851,6 @@ async def main():
                     logging.info("Retrying...\n")
                     await asyncio.sleep(2)
 
-        await context.close()
         await browser.close()
 
 if __name__ == "__main__":

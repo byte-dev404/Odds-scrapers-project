@@ -1,12 +1,18 @@
 import json
+import random
 import asyncio
 import aiofiles
 import traceback
+import logging
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
 from urllib import parse
+from datetime import datetime
 from bs4 import BeautifulSoup
-from curl_cffi.requests import AsyncSession, Session
+from curl_cffi import requests, AsyncSession
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
-from playwright.async_api import async_playwright, Page, BrowserContext
+from playwright.async_api import async_playwright, Page, BrowserContext, Browser
+from playwright.async_api import Error as PlaywrightError
 
 
 base_url = "https://www.betclic.fr"
@@ -59,7 +65,8 @@ sports = {
     "Rugby union": "rugby-a-xv-srugby_union",
 }
 
-cookies = {
+# Chrome profile for API
+cookies_for_api = {
     'bc-device-id': 'fd981878-faf4-43a3-a1ce-6b87948f3b6c',
     'BC-TOKEN': 'eyJhbGciOiJIUzI1NiIsImtpZCI6ImM0MzQ3NWY5LTVlNjMtNDFjZC1hMWNlLWJlMTM1NWZmODUwZSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3ZWNjMzdhMS05MWY0LTQ5NjYtYjA3MS05OTNmMmJmOGJlODgiLCJyem4iOiJGUiIsImJybiI6IkJFVENMSUMiLCJwbHQiOiJERVNLVE9QIiwibG5nIjoiZnIiLCJ1bnYiOiJTUE9SVFMiLCJzaXQiOiJGUkZSIiwiZnB0IjoiZmQ5ODE4NzgtZmFmNC00M2EzLWExY2UtNmI4Nzk0OGYzYjZjIiwibmJmIjoxNzY5MTc2OTk4LCJleHAiOjE3Njk3ODE3OTgsImlzcyI6IkJFVENMSUMuRlIifQ.9D_CNmR3lIUDkpTZrun9yL2_PzBKGj3CA8GfziJG_KQ',
     'theme': 'light',
@@ -80,7 +87,7 @@ cookies = {
     '_dd_s': 'aid=03a3d112-3286-450b-8ab7-13e58bc864a3&rum=0&expire=1769419721964&logs=1&id=a74a621b-7824-4971-8349-d4db9950c8d8&created=1769418791503',
 }
 
-headers = {
+headers_for_api = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0',
@@ -95,6 +102,37 @@ headers = {
     'sec-fetch-user': '?1',
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
+}
+
+# Edge profile for browser automation
+cookies_for_playwright = {
+    'theme': 'light',
+    'bc-device-id': '1430c0b4-8a57-40f6-9ce1-4e47eaf35e67',
+    'BC-TOKEN': 'eyJhbGciOiJIUzI1NiIsImtpZCI6ImM0MzQ3NWY5LTVlNjMtNDFjZC1hMWNlLWJlMTM1NWZmODUwZSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhODA5NWNhZS0xNzQyLTRkNTYtOTFkZC03YjJjMmUxODJiZTMiLCJyem4iOiJGUiIsImJybiI6IkJFVENMSUMiLCJwbHQiOiJERVNLVE9QIiwibG5nIjoiZnIiLCJ1bnYiOiJTUE9SVFMiLCJzaXQiOiJGUkZSIiwiZnB0IjoiMTQzMGMwYjQtOGE1Ny00MGY2LTljZTEtNGU0N2VhZjM1ZTY3IiwibmJmIjoxNzcwMDMzMjQ1LCJleHAiOjE3NzA2MzgwNDUsImlzcyI6IkJFVENMSUMuRlIifQ.6-6lFg6Ut__30EHvPQSAPl56ULPBCqKoHe2UmBSKDEk',
+    'DATADOG_CORRELATION_ID': '87ddb5f4-f3d6-458e-8779-d27050c50a5b',
+    'BC-TIMEZONE': '{%22ianaName%22:%22Asia/Calcutta%22}',
+    'TCPID': '126211724269556248308',
+    '_dd_s': 'aid=50acd36d-9bf8-40b5-a817-5fd3d481e58d&rum=0&expire=1770034179721&logs=1&id=4a09a95d-daa8-4a27-b99f-32402f06d7c9&created=1770033258971',
+    'TC_PRIVACY': '0%21010%7C19%7C5606%212%2C5%216%211770033279726%2C1770033279726%2C1785585279726%21',
+    'TC_PRIVACY_CENTER': '2%2C5',
+    '_gcl_au': '1.1.234646844.1770033280',
+}
+
+headers_for_playwright = {
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'en-US,en;q=0.9',
+    'cache-control': 'max-age=0',
+    'priority': 'u=0, i',
+    'referer': 'https://www.betclic.fr/',
+    'sec-ch-ua': '"Not(A:Brand";v="8", "Chromium";v="144", "Microsoft Edge";v="144"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0',
 }
 
 
@@ -260,52 +298,170 @@ class Match(BaseModel):
 class Sport_data(BaseModel):
     model_config = ConfigDict(validate_by_name=True, validate_by_alias=True)
 
-    sport_name: str = Field(alias="name")
+    sport_name: str | None = Field(alias="name", default=None)
     matches: list[Match] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def resolve_sport_name(cls, data: dict):
+        if data.get("name"):
+            return data
+
+        competition = data.get("competition")
+        if isinstance(competition, dict):
+            sport = competition.get("sport")
+            comp_name = competition.get("name")
+
+            if isinstance(sport, dict):
+                sport_name = sport.get("name")
+
+                if sport_name and comp_name:
+                    data = dict(data)
+                    data["name"] = f"{sport_name} - {comp_name}"
+                    return data
+
+        return data
+
+
+# Helper classes
+# ----
+
+# To manage and rotate multiple request sessions asynchronously
+class SessionManager:
+    def __init__(self, max_requests=6, rest_seconds=(3, 6)):
+        self.max_requests = max_requests
+        self.rest_seconds = rest_seconds
+        self._session: AsyncSession | None = None
+        self._request_count = 0
+        self._active_requests = 0
+        self._lock = asyncio.Lock()
+
+    async def get_session(self) -> AsyncSession:
+        async with self._lock:
+            if self._session is None or self._request_count >= self.max_requests:
+                await self._rotate_session()
+
+            self._request_count += 1
+            self._active_requests += 1
+            return self._session
+
+    async def release(self):
+        async with self._lock:
+            self._active_requests -= 1
+
+    async def _rotate_session(self):
+
+
+        sleep_time = random.uniform(*self.rest_seconds)
+        logging.info("Rotating API session, resting %.2fs", sleep_time)
+        await asyncio.sleep(sleep_time)
+
+        self._session = AsyncSession()
+        self._request_count = 0
+    
+    async def _rotate_session(self):
+        if self._session:
+            # while self._active_requests > 0:
+            #     await asyncio.sleep(0.1)
+            await self._session.close()
+
+        sleep_time = random.uniform(*self.rest_seconds)
+        logging.info("Rotating API session, resting %.2fs", sleep_time)
+        await asyncio.sleep(sleep_time)
+
+        self._session = AsyncSession()
+        self._request_count = 0
+        self._active_requests = 0
+
+    async def close(self):
+        async with self._lock:
+            if self._session:
+                while self._active_requests > 0:
+                    await asyncio.sleep(0.1)
+                await self._session.close()
+                self._session = None
 
 
 # Helper functions.
 # ----
 
+# Logger helper for debugging only
+def setup_logging():
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_file = log_dir / f"scraper_{timestamp}.log"
+
+    logger = logging.getLogger()
+
+    if logger.handlers:
+        return None
+
+    logger.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s")
+
+    file_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=3, encoding="utf-8")
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return log_file
+
 # For fetching data from endpoints (URLs)
-async def fetch(url: str, session: AsyncSession) -> str:
+async def fetch(url: str, session_mgr: SessionManager) -> str:
     retries = 5
 
     for attempt in range(1, retries + 1):
+        session = await session_mgr.get_session()
+
         try:
-            response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+            response = await session.get(url, cookies=cookies_for_api, headers=headers_for_api, impersonate="chrome")
+
+            if response.status_code == 403:
+                raise RuntimeError("403 blocked")
 
             if response.status_code != 200:
                 raise RuntimeError(f"Non-200 response: {response.status_code}")
-            
-            return response.text
 
+            return response.text
+        
         except KeyboardInterrupt:
             raise
 
         except Exception as e:
-            print(
-                f"[fetch] attempt {attempt}/{retries} failed for {url}\n"
-                f"{type(e).__name__}: {e}"
-            )
+            logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
 
             if attempt == retries:
                 raise RuntimeError(f"Fetch failed for {url}") from e
-                # raise
 
-            await asyncio.sleep(1)
+            if "403" in str(e):
+                rest_time = 15 + random.random() * 10
+            else:
+                rest_time = random.uniform(8, 15)
+            
+            logging.info("Retrying after resting %.2fs", rest_time)
+            await asyncio.sleep(rest_time)
+
+        finally:
+            await session_mgr.release()
 
 # For saving json files
 async def save_json_file(file_path: str, data: dict) -> None:
     async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
         await f.write(json.dumps(data, indent=2, ensure_ascii=False))
-    print(f"{file_path} saved successfully.")
+    logging.info("%s saved successfully!", file_path)
 
 # For saving HTML files (Only for testing and debugging)
 async def save_html_file(file_path: str, html: str) -> None:
     async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
         await f.write(html)
-    print(f"{file_path} saved successfully.")
+    logging.info("%s saved successfully!", file_path)
 
 
 # Important functions for request based API scraping.
@@ -387,20 +543,6 @@ async def wait_for_dom_stable(page: Page, timeout: int = 8000) -> None:
         timeout
     )
 
-# Scrolls to the bottom of the scrollable container
-async def scroll_to_bottom(page: Page):
-    await page.evaluate("""
-() => {
-    const container =
-        document.querySelector('div.marketBox_container.is-active');
-
-    if (container) {
-        container.scrollTop = container.scrollHeight;
-    }
-}
-""")
-    await page.wait_for_timeout(300)
-
 # For disabling overlays to avoid flaky behaviour when expanding cards
 async def disable_overlays(page: Page) -> None:
     await page.evaluate("""
@@ -426,134 +568,250 @@ async def click_all_show_more_btns(page: Page) -> None:
             break
 
         try:
-            await btn.scroll_into_view_if_needed()
-            await btn.click(timeout=3000)
-        except:
-            await btn.click(force=True)
+            await page.evaluate("""
+            (btn) => {
+                btn.scrollIntoView({ block: 'center', inline: 'center' });
+            }
+            """, await btn.element_handle())
+
+            await page.wait_for_timeout(80)
+            await btn.click()
+
+        except PlaywrightError:
+            await page.wait_for_timeout(200)
+            continue
 
         await page.wait_for_timeout(120)
 
-    print("Expanded all cards!")
+def extract_odds_from_tabs(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    market_boxes = soup.find_all('div', class_='marketBox')
+    
+    for box in market_boxes:
+        market_data = {}
+        
+        name_tag = box.find('h2', class_='marketBox_headTitle')
+        if not name_tag:
+            continue
+        market_data["market_name"] = " ".join(name_tag.get_text(strip=True).split()).capitalize() if name_tag else ""
+
+        selections = []
+
+        selections = box.find_all('div', class_='marketBox_lineSelection')
+        for sel in selections:
+            name_el = sel.find('p', class_='marketBox_label')
+            odds_el = sel.find('bcdk-bet-button-label')
+            
+            if name_el and odds_el:
+                sel_obj = {}
+                sel_obj["name"] = " ".join(name_el.get_text(strip=True).split()) if name_tag else ""
+                sel_obj["odds"] = " ".join(odds_el.get_text(strip=True).split()) if odds_el else 0.00
+                selections.append(sel_obj)
+
+        market_data["selections"] = selections
+
+        return market_data
 
 # Saves raw html of all other market tabs of a match page (Right now only saves html)
-async def get_markets_from_other_tabs(page: Page, match_num: int, match_url: str, tab_names: list[str], is_my_combis_present: bool = True) -> None:
-    tabs_count = len(tab_names)
-    start_tab = 3 if is_my_combis_present else 2 if "Le Top" in tab_names and tab_names.index("Le Top") == 0 else 1 # Index of the tab that comes right after the default (Le top/The top)
-    # pages = []
+async def get_markets_from_other_tabs(browser_context: BrowserContext, sport: str, match_num: int, match_url: str) -> None:
+    excluded_tabs = {"MyCombi", "Le Top", "The Top"}
     attempt = 0
+
     while True:
+        pages = []
+        skipped_page = 0
         attempt += 1
-        complete_pages = []
 
         try:
-            current_tab_index = None
+            page = await browser_context.new_page()
+            current_tab_index = 0
+            tabs_count = None
+
             await page.goto(match_url, wait_until="domcontentloaded", timeout=60000)
             await close_modal(page)
 
-            await page.wait_for_selector("div.marketBox_container.is-active")
-            await page.wait_for_timeout(1000)
+            await page.wait_for_selector("app-desktop")
+            await close_modal(page)
 
-            for i in range(start_tab, tabs_count):
+            await page.wait_for_timeout(500)
+            await close_modal(page)
+
+            tabs = page.locator("div.tab_item")
+            tabs_count = await tabs.count()
+
+            for i in range(tabs_count):
+                current_tab = tabs.nth(i)
+                text = (await current_tab.text_content() or "").strip()
+
+                if text in excluded_tabs:
+                    logging.debug("Skipped excluded tab: %s", text)
+                    skipped_page += 1
+                    continue
+
                 current_tab_index = i
-                current_tab = page.locator("div.tab_item").nth(i)
 
                 for _ in range(5):
                     classes = await current_tab.get_attribute("class") or ""
                     if "isActive" in classes:
                         break
-                    await current_tab.click()
-                    await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
-                    await wait_for_dom_stable(page)
+
+                    el = await current_tab.element_handle()
+
+                    if not el:
+                        raise RuntimeError("Tab element disappeared")
+                    
+                    await page.evaluate("(el) => el.click()", el)
+                    await page.wait_for_selector("app-desktop", timeout=15000)
+
+                    # await page.wait_for_function("(el) => el.classList.contains('isActive')", arg=el, timeout=6000)
+                    # await page.wait_for_selector("div.marketBox_container.is-active", state="attached", timeout=5000)
                 else:
                     raise RuntimeError(f"Tab {i} never became active")
 
-                await page.wait_for_timeout(500) # Wait time for angular to hydrate betclic 
+                # Wait time for angular to hydrate betclic 
+                await wait_for_dom_stable(page)
+                await page.wait_for_timeout(300)
 
                 await disable_overlays(page)
-                await wait_for_dom_stable(page)
-
-                await scroll_to_bottom(page)
-                await wait_for_dom_stable(page)
-
                 await click_all_show_more_btns(page)
-                await wait_for_dom_stable(page)
+                logging.debug("Expanded all cards! | match=%d | tab=%d", match_num, i)
 
-                await page.wait_for_timeout(500) # Additional wait time for angular to load all expanded tabs
-                
-                full_page = await page.content()
-                # n_page = await page.locator("app-desktopf").inner_html()
-                print(f"Got full page of tab {i} (Match {match_num})")
-                # pages.append(n_page)
-                complete_pages.append(full_page)
+                await page.wait_for_timeout(500)
+                raw_html  = await page.locator("div.marketBox_container.is-active").inner_html()
+
+                logging.debug("Captured tab HTML | match=%d | tab=%d", match_num, i)
+                pages.append(raw_html)
 
         except KeyboardInterrupt:
-            print("\nInterrupted by user. Exiting cleanly at (Tab level).")
+            logging.info("Interrupted by user, Exiting cleanly at (Tab level).")
             raise
 
-        except Exception:
-            print(f"\nError while scraping tab {current_tab_index}/{tabs_count} of match {match_num} (attempt {attempt})")
-            traceback.print_exc()
+        except PlaywrightError as e:
+            msg = str(e)
 
-            print("Retrying...\n")
+            if "ERR_CONNECTION_CLOSED" in msg or "net::" in msg:
+                logging.warning("Network error, Retrying match... | match=%d | attempt=%d", match_num, attempt)
+                await asyncio.sleep(5)
+                continue
+            logging.exception("Playwright error | match=%d | tab=%d/%d", match_num, current_tab_index, tabs_count)
+
+        except Exception:
+            logging.exception("Unknown error | match=%d | attempt=%d | tab=%d/%d", match_num, attempt, current_tab_index, tabs_count)
+
+            logging.info("Retrying...")
             await asyncio.sleep(2)
 
-        if len(complete_pages) == tabs_count - 2:
-            for i, html_page in enumerate(complete_pages, start=2):
-                await save_html_file(f"PW page {i}.html", html_page)
+        finally:
+            if not page.is_closed():
+                await page.close()
+
+
+        if len(pages) == tabs_count - skipped_page:
+            for i, html_page in enumerate(pages, start=2):
+                await save_html_file(f"({sport}) - (Match {match_num}) - (tab {i}).html", html_page)
             break
 
-# Gets market details of a match from all available tabs inside a match page
-async def get_detailed_markets(links: list[str], session: AsyncSession, browser_context: BrowserContext) -> list[All_markets]:
-    clean_markets = []
+async def process_single_match(sport: str, match_number: int, link: str, total_matches: int, session_mgr: SessionManager, context: BrowserContext) -> All_markets:
+    url = parse.urljoin(base_url, link)
 
-    for match_number, link in enumerate(links, start=1):
-        url = parse.urljoin(base_url, link)
-        page = await browser_context.new_page()
+    for attempt in range(1, 6):
+        logging.info("Extracting markets | match=%d/%d | attempt=%d", match_number, total_matches, attempt)
 
-        for attempt in range(1, 6):
-            try: # (try, finally) block for closing the page to avoid memory leaks
-                print(f"Extracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+        match_page = await fetch(url, session_mgr)
+        json_data = get_json_data(match_page)
 
-                match_page = await fetch(url, session)
-                json_data = get_json_data(match_page)
+        important_keys = [k for k in json_data if k.startswith("grpc:")]
+        main_key = important_keys[1] if len(important_keys) > 1 else None
 
-                important_keys = [k for k in json_data if k.startswith("grpc:")]
-                main_key = important_keys[1] if len(important_keys) > 1 else None
+        payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+        subcats = payload.get("match", {}).get("subCategories")
 
-                payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
-                is_my_combis_present = True if payload.get("topMycombis") else False
-                match = payload.get("match", {})
-                cats = match.get("categories", {})
-                subcats = match.get("subCategories")  
+        if isinstance(subcats, list):
+            markets = subcats[0].get("markets", [])
+            await get_markets_from_other_tabs(context, sport, match_number, url)
+            return All_markets(markets=[Market_details.from_raw(m) for m in markets])
 
-                if isinstance(subcats, list) and cats:
-                    cats_names = [cat.get("name") for cat in cats]
-                    markets = subcats[0].get("markets", [])
-                    await get_markets_from_other_tabs(page, match_number, url, cats_names, is_my_combis_present)
-                    break
+        logging.info("Invalid subCategories, retrying...")
 
-                # Logging errors
-                if not cats and not isinstance(subcats, list):
-                    error_msg = "Missing Categories and Invalid subCategories"
-                elif not cats:
-                    error_msg = f'Missing Categories! (Categories: "{cats}"), retrying...'
-                elif not isinstance(subcats, list):
-                    error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
-                else:
-                    error_msg = "Something unknown went wrong"
+    raise RuntimeError(f"Failed to fetch markets for match {match_number}")
 
-                print(error_msg)
+# # Gets market details of a match from all available tabs inside a match page
+async def get_detailed_markets(sport: str, links: list[str], session_mgr: SessionManager, browser_obj: Browser, max_workers: int) -> list[All_markets | None]:
+    results: list[All_markets | None] = [None] * len(links)
+    queue = asyncio.Queue()
 
-            finally:
-                if not page.is_closed():
-                    await page.close()
-        else:
-            raise RuntimeError(f"Failed to fetch markets for match {match_number}")
+    for idx, link in enumerate(links):
+        await queue.put((idx, link))
 
-        clean_market = All_markets(markets=[Market_details.from_raw(m) for m in markets])
-        clean_markets.append(clean_market)
+    async def worker(worker_id: int):
+        context = await browser_obj.new_context(extra_http_headers=headers_for_playwright)
+        await context.add_cookies(convert_cookies(cookies_for_playwright))
 
-    return clean_markets
+        try:
+            while True:
+                try:
+                    idx, link = await queue.get()
+                except asyncio.CancelledError:
+                    return
+
+                try:
+                    result = await process_single_match(sport, idx + 1, link, len(links), session_mgr, context)
+                    results[idx] = result
+                except Exception:
+                    logging.exception("Worker %d failed match %d", worker_id, idx + 1)
+                    results[idx] = None
+                finally:
+                    queue.task_done()
+        finally:
+            await context.close()
+
+    workers = [asyncio.create_task(worker(i)) for i in range(max_workers)]
+    await queue.join()
+
+    for w in workers:
+        w.cancel()
+
+    await asyncio.gather(*workers, return_exceptions=True)
+    return results
+
+
+# async def get_detailed_markets(sport: str, links: list[str], session: AsyncSession, browser_context: BrowserContext) -> list[All_markets]:
+#     clean_markets = []
+
+#     for match_number, link in enumerate(links, start=1):
+#         url = parse.urljoin(base_url, link)
+
+#         for attempt in range(1, 6):
+#             print(f"\nExtracting markets of match {match_number}/{len(links)} (attempt {attempt})")
+
+#             match_page = await fetch(url, session)
+#             json_data = get_json_data(match_page)
+
+#             important_keys = [k for k in json_data if k.startswith("grpc:")]
+#             main_key = important_keys[1] if len(important_keys) > 1 else None
+
+#             payload = json_data.get(main_key, {}).get("response", {}).get("payload", {})
+#             subcats = payload.get("match", {}).get("subCategories")  
+
+#             if isinstance(subcats, list):
+#                 markets = subcats[0].get("markets", [])
+#                 await get_markets_from_other_tabs(browser_context, sport, match_number, url)
+#                 break
+
+#             # Logging errors
+#             if not isinstance(subcats, list):
+#                 error_msg = f"Invalid subCategories: ({type(subcats)}), retrying..."
+#             else:
+#                 error_msg = "Something unknown went wrong"
+
+#             print(error_msg)
+#         else:
+#             raise RuntimeError(f"Failed to fetch markets for match {match_number}")
+
+#         clean_market = All_markets(markets=[Market_details.from_raw(m) for m in markets])
+#         clean_markets.append(clean_market)
+
+#     return clean_markets
 
 # Not importnat func (It's here just for testing and will be removed soon).
 # async def save_raw_json_cards(links: list[str], session, sport_name) -> None:
@@ -590,12 +848,16 @@ async def get_detailed_markets(links: list[str], session: AsyncSession, browser_
 
 # Main scraper logic and entry point of the script
 async def main():
-    print("Initializing the scraper...")
+    log_file = setup_logging()
+    logging.info("Initializing the scraper...")
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
-        context = await browser.new_context(extra_http_headers=headers)
-        await context.add_cookies(convert_cookies(cookies))
-        print("Scraper started!\n")
+        max_match_workers = 3
+
+        logging.info("Scraper started\n")
+        if log_file:
+            logging.info("Logging to %s", log_file)
 
         for sport_name, relative_path in sports.items():
             attempt = 0
@@ -604,49 +866,57 @@ async def main():
                 attempt += 1
 
                 try: 
-                    print(f"Scraping {sport_name} (attempt {attempt})")
+                    logging.info("Scraping %s | attempt=%d", sport_name, attempt)
 
-                    async with AsyncSession() as session:
-                        url = parse.urljoin(base_url, relative_path)
-                        response_html = await fetch(url, session)
+                    session_mgr = SessionManager(max_requests=1, rest_seconds=(0, 0.5))
+                    url = parse.urljoin(base_url, relative_path)
+                    response_html = await fetch(url, session_mgr)
 
-                        print("Extracting urls of all matches...\n")
-                        urls, page_json = get_urls_and_json(response_html)
+                    logging.info("Extracting urls of all matches...\n")
+                    urls, page_json = get_urls_and_json(response_html)
 
-                        # print("Saving all raw cards...")
-                        # await save_raw_json_cards(urls, session, sport_name)
+                    # print("Saving all raw cards...")
+                    # await save_raw_json_cards(urls, session, sport_name)
 
-                        print("Extracting markets...")
-                        all_clean_markets = await get_detailed_markets(urls, session, context)
+                    logging.info("Extracting markets...")
+                    # try:
+                    all_clean_markets = await get_detailed_markets(sport_name, urls, session_mgr, browser, max_match_workers)
+                    # finally:
+                    #     for task in asyncio.all_tasks():
+                    #         task.cancel()
 
-                        important_keys = [k for k in page_json if k.startswith("grpc:")]
-                        main_key = important_keys[1] if len(important_keys) > 1 else None
-                        playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
+                    important_keys = [k for k in page_json if k.startswith("grpc:")]
+                    main_key = important_keys[1] if len(important_keys) > 1 else None
+                    playload = page_json.get(main_key, {}).get("response", {}).get("payload", {})
 
-                        print(f'Scraped details of {len(playload.get("matches", []))} matches from {len(urls)} URLs.')
-                        clean_data = Sport_data(**playload)
-                    
-                        for index, match in enumerate(clean_data.matches):
+                    logging.info("Scraped %d matches from %d URLs.", len(playload.get("matches", [])), len(urls))
+                    clean_data = Sport_data(**playload)
+
+                    if not clean_data.sport_name:
+                        clean_data.sport_name = sport_name
+                
+                    for index, match in enumerate(clean_data.matches):
+                        if all_clean_markets[index] != None:
                             match.all_Markets = all_clean_markets[index]
 
-                        file_path = f"{sport_name}.json"
-                        await save_json_file(file_path, clean_data.model_dump())
+                    file_path = f"{sport_name}.json"
+                    await save_json_file(file_path, clean_data.model_dump())
 
-                    print()
+                    logging.info("\n")
                     break
-                
+
                 except KeyboardInterrupt:
-                    print("\nInterrupted by user. Exiting cleanly.")
-                    raise
+                    logging.info("\nStopping scraper...")
+                    return
 
                 except Exception:
-                    print(f"\nError while scraping {sport_name} (attempt {attempt})")
-                    traceback.print_exc()
-
-                    print("Retrying...\n")
+                    logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
+                    logging.info("Retrying...\n")
                     await asyncio.sleep(2)
-            
-        await context.close() 
+
+                finally:
+                    await session_mgr.close()
+
         await browser.close()
 
 if __name__ == "__main__":

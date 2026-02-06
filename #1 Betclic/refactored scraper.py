@@ -20,38 +20,38 @@ base_url = "https://www.betclic.fr"
 
 sports = {
     # Entire page
-    # "Football (The whole offer)": "football-sfootball",
+    "Football (The whole offer)": "football-sfootball",
 
     # Europe Leagues
-    # "Football (Conference League)": "football-sfootball/ligue-conference-c28946",
-    # "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
+    "Football (Conference League)": "football-sfootball/ligue-conference-c28946",
+    "Football (Champions League)": "football-sfootball/ligue-des-champions-c8",
 
     # England Leagues 
-    # "Football (England. Championship)": "football-sfootball/angl-championship-c28",
-    # "Football (England. Premier League)": "football-sfootball/angl-premier-league-c3",
-    # "Football (England EFL Cup)": "football-sfootball/angleterre-efl-cup-c41",
-    # "Football (England FA Cup)": "football-sfootball/angleterre-fa-cup-c44",
+    "Football (England. Championship)": "football-sfootball/angl-championship-c28",
+    "Football (England. Premier League)": "football-sfootball/angl-premier-league-c3",
+    "Football (England EFL Cup)": "football-sfootball/angleterre-efl-cup-c41",
+    "Football (England FA Cup)": "football-sfootball/angleterre-fa-cup-c44",
 
     # French Leagues
-    # "Football (Arkema Premier League)": "football-sfootball/arkema-premiere-ligue-c691",
-    # "Football (French Cup)": "football-sfootball/coupe-de-france-c36",
-    # "Football (Ligue 1 McDonald’s®)": "football-sfootball/ligue-1-mcdonald-s-c4",
-    # "Football (Ligue 2 BKT®)": "football-sfootball/ligue-2-bkt-c19",
+    "Football (Arkema Premier League)": "football-sfootball/arkema-premiere-ligue-c691",
+    "Football (French Cup)": "football-sfootball/coupe-de-france-c36",
+    "Football (Ligue 1 McDonald’s®)": "football-sfootball/ligue-1-mcdonald-s-c4",
+    "Football (Ligue 2 BKT®)": "football-sfootball/ligue-2-bkt-c19",
 
     # Italy Leagues
-    # "Football (Italy Cup)": "football-sfootball/italie-coupe-c50",
-    # "Football (Italy Serie A)": "football-sfootball/italie-serie-a-c6",
-    # "Football (Italy Serie B)": "football-sfootball/italie-serie-b-c30",
+    "Football (Italy Cup)": "football-sfootball/italie-coupe-c50",
+    "Football (Italy Serie A)": "football-sfootball/italie-serie-a-c6",
+    "Football (Italy Serie B)": "football-sfootball/italie-serie-b-c30",
 
     # Germany Leagues
-    # "Football (Germany Bundesliga)": "football-sfootball/allemagne-bundesliga-c5",
-    # "Football (Germany Bundesliga 2)": "football-sfootball/allemagne-bundesliga-2-c29",
-    # "Football (Germany Cup)": "football-sfootball/allemagne-coupe-c55",
+    "Football (Germany Bundesliga)": "football-sfootball/allemagne-bundesliga-c5",
+    "Football (Germany Bundesliga 2)": "football-sfootball/allemagne-bundesliga-2-c29",
+    "Football (Germany Cup)": "football-sfootball/allemagne-coupe-c55",
 
     # Spain Leagues
-    # "Football (Spain Copa del Rey)": "football-sfootball/espagne-coupe-du-roi-c47",
-    # "Football (Spain LaLiga)": "football-sfootball/espagne-laliga-c7",
-    # "Football (Spain Liga Segunda)": "football-sfootball/espagne-liga-segunda-c31",
+    "Football (Spain Copa del Rey)": "football-sfootball/espagne-coupe-du-roi-c47",
+    "Football (Spain LaLiga)": "football-sfootball/espagne-laliga-c7",
+    "Football (Spain Liga Segunda)": "football-sfootball/espagne-liga-segunda-c31",
 
     # Other sports
     "Tennis": "tennis-stennis",
@@ -851,7 +851,7 @@ async def main():
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
-        max_match_workers = 2
+        max_match_workers = 10
         logging.info("Scraper started\n")
 
         if log_file:
@@ -881,7 +881,7 @@ async def main():
                     # await save_raw_json_cards(urls, session, sport_name)
 
                     logging.info("Extracting markets...")
-                    base_pages = await get_base_pages(sport_name, links, 5)
+                    base_pages = await get_base_pages(sport_name, links, 20)
                     await asyncio.sleep(5.00)
                     enriched_pages = await enrich_base_pages_with_tabs(sport_name, base_pages, context, max_match_workers)                
 

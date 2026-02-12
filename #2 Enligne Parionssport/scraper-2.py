@@ -1,8 +1,10 @@
+import json
 import asyncio
-from pathlib import Path
-from datetime import datetime
+import aiofiles
 import logging
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
+from datetime import datetime
 from curl_cffi import requests
 
 
@@ -36,6 +38,22 @@ def setup_logging():
     logger.addHandler(console_handler)
 
     return log_file
+
+# For saving json files
+async def save_json_file(file_path: str, data: dict) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(json.dumps(data, indent=2, ensure_ascii=False))
+    logging.info("%s saved successfully!", file_path)
+
+# For saving HTML files (Only for testing and debugging)
+async def save_html_file(file_path: str, html: str) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(html)
+    logging.info("%s saved successfully!", file_path)
+
+# For saving csv files (Added later)
+async def save_csv_file(file_path: str, json: dict) -> None:
+    pass
 
 
 cookies = {

@@ -12,6 +12,7 @@ from curl_cffi import requests, AsyncSession
 
 
 base_url = "https://www.enligne.parionssport.fdj.fr"
+workers = 50
 
 cookies = {
     'TCPID': '12622151502039465016',
@@ -123,37 +124,38 @@ def setup_logging():
     return log_file
 
 # For fetching data from endpoints (URLs)
-async def fetch(url: str, session: AsyncSession) -> str:
+async def fetch(url: str, session: AsyncSession, semaphore: asyncio.Semaphore) -> str:
     retries = 5
 
-    for attempt in range(1, retries + 1):
-        try:
-            response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+    async with semaphore:
+        for attempt in range(1, retries + 1):
+            try:
+                response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
 
-            if response.status_code == 403:
-                raise RuntimeError("403 blocked")
+                if response.status_code == 403:
+                    raise RuntimeError("403 blocked")
 
-            if response.status_code != 200:
-                raise RuntimeError(f"Non-200 response: {response.status_code}")
+                if response.status_code != 200:
+                    raise RuntimeError(f"Non-200 response: {response.status_code}")
 
-            return response.text
-        
-        except KeyboardInterrupt:
-            raise
-
-        except Exception as e:
-            logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
-
-            if attempt == retries:
-                raise RuntimeError(f"Fetch failed for {url}") from e
-
-            if "403" in str(e):
-                rest_time = 8 + random.random() * 10
-            else:
-                rest_time = random.uniform(3, 6)
+                return response.text
             
-            logging.info("Retrying after resting %.2fs", rest_time)
-            await asyncio.sleep(rest_time)
+            except KeyboardInterrupt:
+                raise
+
+            except Exception as e:
+                logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
+
+                if attempt == retries:
+                    raise RuntimeError(f"Fetch failed for {url}") from e
+
+                if "403" in str(e):
+                    rest_time = 8 + random.random() * 10
+                else:
+                    rest_time = random.uniform(3, 6)
+                
+                logging.info("Retrying after resting %.2fs", rest_time)
+                await asyncio.sleep(rest_time)
 
 
 # For saving json files
@@ -192,15 +194,125 @@ def get_json_of_a_match(html: str) -> dict:
     script_tag = soup.find("script", {"id": "serverApp-state"})
     return json.loads(script_tag.string) if script_tag and script_tag.string else {}
 
+# To process single match
+async def process_match(sport_name: str, match_num: int, total_matches: int, match_url: str, session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
+    retries = 5
+
+    for attempt in range(1, retries + 1):
+        try:
+            logging.info("Processing | match=%d/%d | attempt=%d | sport=%s", match_num, total_matches, attempt, sport_name)
+
+            match_page = await fetch(match_url, session, semaphore)
+            match_json_data = get_json_of_a_match(match_page)
+
+            if not match_json_data:
+                raise RuntimeError("Empty match JSON")
+
+            file_path = Path("Test files") / f"{sport_name} - Match {match_num}.json"
+            await save_json_file(file_path, match_json_data)
+            return
+
+        except KeyboardInterrupt:
+            raise
+
+        except Exception as e:
+            logging.warning("Match failed | match=%d | attempt=%d/%d | sport=%s | error=%s", match_num, attempt, retries, sport_name, e)
+
+            if attempt == retries:
+                logging.error("Giving up | match=%d | sport=%s", match_num, sport_name,)
+                return
+
+            await asyncio.sleep(2)
+
+# To Schedule match tasks concurrently
+async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
+    total_matches = len(urls)
+    tasks: list[asyncio.Task] = []
+
+    for match_num, match_url in enumerate(urls, start=1):
+        task = asyncio.create_task(
+            process_match(sport_name, match_num, total_matches, match_url, session, semaphore)
+        )
+        tasks.append(task)
+
+    await asyncio.gather(*tasks)
+
+
+# async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
+#     total_matches = len(urls)
+#     tasks: list[asyncio.Task] = []
+    
+#     for match_num, match_url in enumerate(urls, start=1):
+#         attempt = 0
+
+#         while True:
+#             attempt += 1
+
+#             try:          
+#                 logging.info("Processing | match=%d/%d | attempt=%d | sport=%s", match_num, total_matches, attempt, sport_name)   
+#                 match_page = await fetch(match_url, session)
+#                 match_json_data = get_json_of_a_match(match_page)
+
+#                 if match_json_data:
+#                     file_path = Path("Test files") / f"{sport_name} - Match {match_num}.json"
+#                     await save_json_file(file_path, match_json_data)
+#                     break
+
+#                 logging.warning("No data found, Retrying... | match=%d | attempt=%d | sport=%s", match_num, attempt, sport_name)
+
+#             except KeyboardInterrupt:
+#                 logging.info("\nStopping scraper...")
+#                 return
+
+#             except Exception:
+#                 logging.exception("\nUnknown error | match=%d | attempt=%d | sport=%s", match_num,  attempt, sport_name,)
+#                 logging.info("Retrying...\n")
+#                 await asyncio.sleep(2)
+
 
 async def main():
     log_file = setup_logging()
-    logging.info("Initializing the scraper...")
-    async with AsyncSession() as session:
+    logging.info("Scraper started")
+    
+    semaphore = asyncio.Semaphore(workers)
 
-    url = parse.urljoin(base_url, sports["Football (ALL)"])
-    response = requests.get(url, cookies=cookies, headers=headers)
+    if log_file:
+        logging.info("Logging to %s", log_file)
 
+    for sport_name, sport_path in sports.items():
+        sport_url = parse.urljoin(base_url, sport_path)
+        attempt = 0
+
+        while True:
+            attempt += 1
+            try: 
+                logging.info("Scraping %s | attempt=%d", sport_name, attempt)
+                
+                async with AsyncSession() as session:
+                    listing_html = await fetch(sport_url, session, semaphore)
+
+                    logging.info("Extracting urls of all matches...")
+                    urls = get_urls_of_all_matches(listing_html)
+
+                    if not urls:
+                        raise RuntimeError("No urls found")
+
+                    logging.info("Extracting markets of %d mathces...", len(urls))
+                    await save_json_of_matches(sport_name, urls, session, semaphore)
+
+
+                logging.info("\n")
+                break
+
+            except KeyboardInterrupt:
+                logging.info("\nStopping scraper...")
+                return
+
+            except Exception:
+                logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
+                logging.info("Retrying...\n")
+                await asyncio.sleep(2)
+            
 
 if __name__ == "__main__":
     asyncio.run(main())

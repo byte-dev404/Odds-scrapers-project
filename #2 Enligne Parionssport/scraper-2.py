@@ -8,53 +8,7 @@ from datetime import datetime
 from curl_cffi import requests
 
 
-# Helper functions.
-# ----
-
-# Logger helper for debugging only
-def setup_logging():
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
-
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_file = log_dir / f"scraper_{timestamp}.log"
-
-    logger = logging.getLogger()
-
-    if logger.handlers:
-        return None
-
-    logger.setLevel(logging.INFO)
-
-    formatter = logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s")
-
-    file_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=3, encoding="utf-8")
-    file_handler.setFormatter(formatter)
-
-    console_handler = logging.StreamHandler()
-    console_handler.setFormatter(formatter)
-
-    logger.addHandler(file_handler)
-    logger.addHandler(console_handler)
-
-    return log_file
-
-# For saving json files
-async def save_json_file(file_path: str, data: dict) -> None:
-    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
-        await f.write(json.dumps(data, indent=2, ensure_ascii=False))
-    logging.info("%s saved successfully!", file_path)
-
-# For saving HTML files (Only for testing and debugging)
-async def save_html_file(file_path: str, html: str) -> None:
-    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
-        await f.write(html)
-    logging.info("%s saved successfully!", file_path)
-
-# For saving csv files (Added later)
-async def save_csv_file(file_path: str, json: dict) -> None:
-    pass
-
+base_url = "https://www.enligne.parionssport.fdj.fr"
 
 cookies = {
     'TCPID': '12622151502039465016',
@@ -108,6 +62,78 @@ headers = {
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
 }
+
+sports = {
+    # Football entire page
+    "Football (ALL)": "paris-football",
+    # The six european leagues
+    "Football (All Europe)": "paris-football/coupes-d-europe",
+    "Football (All England)": "paris-football/angleterre",
+    "Football (All French)": "paris-football/france",
+    "Football (All Germany)": "paris-football/allemagne",
+    "Football (All Italy)": "paris-football/italie",
+    "Football (All Spain)": "paris-football/espagne",
+    
+    # Other sports
+    "Tennis (ALL)": "paris-tennis",
+    "Basketball (ALL)": "paris-basketball",
+    "Baseball (ALL)": "paris-baseball",
+    "Boxing (ALL)": "paris-boxe",
+    "Cycling (ALL)": "paris-cyclisme",
+    "Golf (ALL)": "paris-golf",
+    "Handball (ALL)": "paris-handball",
+    "Ice hockey (ALL)": "paris-hockey-sur-glace",
+    "Rugby (ALL)": "paris-rugby",
+    "UFC/MMA (ALL)": "paris-ufc-mma",
+}
+
+
+# Helper functions.
+# ----
+
+# Logger helper for debugging only
+def setup_logging():
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_file = log_dir / f"scraper_{timestamp}.log"
+
+    logger = logging.getLogger()
+
+    if logger.handlers:
+        return None
+
+    logger.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s")
+
+    file_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=3, encoding="utf-8")
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return log_file
+
+# For saving json files
+async def save_json_file(file_path: str, data: dict) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(json.dumps(data, indent=2, ensure_ascii=False))
+    logging.info("%s saved successfully!", file_path)
+
+# For saving HTML files (Only for testing and debugging)
+async def save_html_file(file_path: str, html: str) -> None:
+    async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
+        await f.write(html)
+    logging.info("%s saved successfully!", file_path)
+
+# For saving csv files (Added later)
+async def save_csv_file(file_path: str, json: dict) -> None:
+    pass
 
 
 

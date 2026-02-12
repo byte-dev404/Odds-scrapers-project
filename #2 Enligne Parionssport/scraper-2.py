@@ -1,5 +1,41 @@
 import asyncio
+from pathlib import Path
+from datetime import datetime
+import logging
+from logging.handlers import RotatingFileHandler
 from curl_cffi import requests
+
+
+# Helper functions.
+# ----
+
+# Logger helper for debugging only
+def setup_logging():
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_file = log_dir / f"scraper_{timestamp}.log"
+
+    logger = logging.getLogger()
+
+    if logger.handlers:
+        return None
+
+    logger.setLevel(logging.INFO)
+
+    formatter = logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s")
+
+    file_handler = RotatingFileHandler(log_file, maxBytes=10 * 1024 * 1024, backupCount=3, encoding="utf-8")
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return log_file
 
 
 cookies = {
@@ -56,7 +92,10 @@ headers = {
 }
 
 
+
 async def main():
+    log_file = setup_logging()
+    logging.info("Initializing the scraper...")
     response = requests.get('https://www.enligne.parionssport.fdj.fr/paris-football/pays-bas/d1-pays-bas/3303644/goahead-eagles-vs-heerenveen', cookies=cookies, headers=headers)
 
 

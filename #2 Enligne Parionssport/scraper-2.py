@@ -1,4 +1,5 @@
 import json
+import random
 import asyncio
 import aiofiles
 import logging
@@ -7,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from urllib import parse
 from datetime import datetime
-from curl_cffi import requests
+from curl_cffi import requests, AsyncSession
 
 
 base_url = "https://www.enligne.parionssport.fdj.fr"
@@ -121,6 +122,40 @@ def setup_logging():
 
     return log_file
 
+# For fetching data from endpoints (URLs)
+async def fetch(url: str, session: AsyncSession) -> str:
+    retries = 5
+
+    for attempt in range(1, retries + 1):
+        try:
+            response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+
+            if response.status_code == 403:
+                raise RuntimeError("403 blocked")
+
+            if response.status_code != 200:
+                raise RuntimeError(f"Non-200 response: {response.status_code}")
+
+            return response.text
+        
+        except KeyboardInterrupt:
+            raise
+
+        except Exception as e:
+            logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
+
+            if attempt == retries:
+                raise RuntimeError(f"Fetch failed for {url}") from e
+
+            if "403" in str(e):
+                rest_time = 8 + random.random() * 10
+            else:
+                rest_time = random.uniform(3, 6)
+            
+            logging.info("Retrying after resting %.2fs", rest_time)
+            await asyncio.sleep(rest_time)
+
+
 # For saving json files
 async def save_json_file(file_path: str, data: dict) -> None:
     async with aiofiles.open(file_path, "w", encoding="utf-8") as f:
@@ -155,29 +190,16 @@ def get_urls_of_all_matches(html: str,) -> list:
 def get_json_of_a_match(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "serverApp-state"})
-    return = json.loads(script_tag.string) if script_tag and script_tag.string else {}
+    return json.loads(script_tag.string) if script_tag and script_tag.string else {}
 
 
 async def main():
     log_file = setup_logging()
     logging.info("Initializing the scraper...")
+    async with AsyncSession() as session:
+
     url = parse.urljoin(base_url, sports["Football (ALL)"])
     response = requests.get(url, cookies=cookies, headers=headers)
-    print(response.status_code)
-
-    if response.status_code == 200:
-        html_file_path = Path("Raw files") / f"Match page.html"
-        json_file_path = Path("Raw files") / f"Match page.json"
-
-        urls = get_urls_of_all_matches(response.text)
-        r = requests.get(urls[0], cookies=cookies, headers=headers)
-        print(r.status_code)
-
-        if r.status_code == 200:
-            json_data = get_json_of_a_match(r.text)
-
-            await save_html_file(html_file_path, r.text)
-            await save_json_file(json_file_path, json_data)
 
 
 if __name__ == "__main__":

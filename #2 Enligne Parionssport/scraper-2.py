@@ -2,8 +2,10 @@ import json
 import asyncio
 import aiofiles
 import logging
+from bs4 import BeautifulSoup
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
+from urllib import parse
 from datetime import datetime
 from curl_cffi import requests
 
@@ -136,11 +138,46 @@ async def save_csv_file(file_path: str, json: dict) -> None:
     pass
 
 
+# Important functions for request based API scraping.
+# ----
+
+# To get urls of all matches and json of listing page from raw html listing endpoint
+def get_urls_of_all_matches(html: str,) -> list:
+    soup = BeautifulSoup(html, "html.parser")
+    script_tag = soup.find("script", {"id": "sport-main-jsonLd"})
+
+    json_data =  json.loads(script_tag.string) if script_tag and script_tag.string else {}
+    urls = [match["url"] for match in json_data if match.get("url")] 
+
+    return urls or []
+
+# Returns raw json of a match page 
+def get_json_of_a_match(html: str) -> dict:
+    soup = BeautifulSoup(html, "html.parser")
+    script_tag = soup.find("script", {"id": "serverApp-state"})
+    return = json.loads(script_tag.string) if script_tag and script_tag.string else {}
+
 
 async def main():
     log_file = setup_logging()
     logging.info("Initializing the scraper...")
-    response = requests.get('https://www.enligne.parionssport.fdj.fr/paris-football/pays-bas/d1-pays-bas/3303644/goahead-eagles-vs-heerenveen', cookies=cookies, headers=headers)
+    url = parse.urljoin(base_url, sports["Football (ALL)"])
+    response = requests.get(url, cookies=cookies, headers=headers)
+    print(response.status_code)
+
+    if response.status_code == 200:
+        html_file_path = Path("Raw files") / f"Match page.html"
+        json_file_path = Path("Raw files") / f"Match page.json"
+
+        urls = get_urls_of_all_matches(response.text)
+        r = requests.get(urls[0], cookies=cookies, headers=headers)
+        print(r.status_code)
+
+        if r.status_code == 200:
+            json_data = get_json_of_a_match(r.text)
+
+            await save_html_file(html_file_path, r.text)
+            await save_json_file(json_file_path, json_data)
 
 
 if __name__ == "__main__":

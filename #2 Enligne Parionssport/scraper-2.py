@@ -9,6 +9,64 @@ from pathlib import Path
 from urllib import parse
 from datetime import datetime
 from curl_cffi import requests, AsyncSession
+from pydantic import BaseModel, Field
+
+
+# Pydantic data models
+class Selection(BaseModel):
+    id: int | None = Field(default=None)
+    name: str | None = Field(default=None, alias="description")
+    pos: int | None = Field(default=None)
+    odd: str | float | int | None = Field(default=None, alias="price")
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    up: bool | None = Field(default=None)
+    down: bool | None = Field(default=None)
+    hidden: bool | None = Field(default=None)
+    suspended: bool | None = Field(default=None)
+    selected: bool | None = Field(default=None)
+    isMarketCashout: bool | None = Field(default=None)
+    isMulti: bool | None = Field(default=None)
+
+class Market(BaseModel):
+    id: int | None = Field(default=None)
+    column_name: str | None = Field(default=None, alias="description")
+    pos: int | None = Field(default=None)
+    period: str | None = Field(default=None)
+    style: str | None = Field(default=None)
+    cashout: bool | None = Field(default=None)
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    suspended: bool | None = Field(default=None)
+    selections: list[Selection] | None = Field(default_factory=list, alias="outcomes")
+
+class Grouped_market(BaseModel):
+    id: int | None = Field(default=None)
+    market_name: str | None = Field(default=None, alias="description")
+    cashout: bool | None = Field(default=None)
+    template: str | None = Field(default=None)
+    layout_properties: dict | None = Field(default_factory=dict, alias="properties")
+    markets: list[Market] | None = Field(default_factory=list)
+
+class Match(BaseModel):
+    id: int | None = Field(default=None)
+    opponent_a: dict = Field(default_factory=dict, alias="opponentA")
+    opponent_b: dict = Field(default_factory=dict, alias="opponentB")
+    description: str | None = Field(default=None)
+    desc_display: str | None = Field(default=None, alias="descDisplay")
+    path: dict | None = Field(default_factory=dict)
+    sport_code: str | None = Field(default=None, alias="sportCode")
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    cashout: bool | None = Field(default=None, alias="cashout")
+    combi_boost: bool | None = Field(default=None, alias="combiBoost")
+    stream_Ref: str | None = Field(default=None, alias="streamRef")
+    tv_channel: str | None = Field(default=None, alias="tvChannel")
+    start: str | None = Field(default=None)
+    parsed_start: str | None = Field(default=None, alias="parsedStart")
+    event_kind: str | None = Field(default=None, alias="eventKind")
+    grouped_markets: list[Grouped_market] = Field(default_factory=list, alias="groupedMarkets")
+
+class Sport(BaseModel):
+    sport_name: str
+    matches: list[Match] = Field(default_factory=list)
 
 
 base_url = "https://www.enligne.parionssport.fdj.fr"
@@ -69,7 +127,7 @@ headers = {
 
 sports = {
     # Football entire page
-    "Football (ALL)": "paris-football",
+    # "Football (ALL)": "paris-football",
     # The six european leagues
     # "Football (All Europe)": "paris-football/coupes-d-europe",
     # "Football (All England)": "paris-football/angleterre",
@@ -79,16 +137,16 @@ sports = {
     # "Football (All Spain)": "paris-football/espagne",
     
     # Other sports
-    "Tennis (ALL)": "paris-tennis",
-    "Basketball (ALL)": "paris-basketball",
-    "Baseball (ALL)": "paris-baseball",
-    "Boxing (ALL)": "paris-boxe",
-    "Cycling (ALL)": "paris-cyclisme",
-    "Golf (ALL)": "paris-golf",
-    "Handball (ALL)": "paris-handball",
-    "Ice hockey (ALL)": "paris-hockey-sur-glace",
-    "Rugby (ALL)": "paris-rugby",
-    "UFC/MMA (ALL)": "paris-ufc-mma",
+    # "Tennis (ALL)": "paris-tennis",
+    # "Basketball (ALL)": "paris-basketball",
+    # "Baseball (ALL)": "paris-baseball",
+    # "Boxing (ALL)": "paris-boxe",
+    # "Cycling (ALL)": "paris-cyclisme",
+    # "Golf (ALL)": "paris-golf",
+    # "Handball (ALL)": "paris-handball",
+    # "Ice hockey (ALL)": "paris-hockey-sur-glace",
+    # "Rugby (ALL)": "paris-rugby",
+    # "UFC/MMA (ALL)": "paris-ufc-mma",
 }
 
 

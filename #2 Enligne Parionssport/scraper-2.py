@@ -12,7 +12,7 @@ from curl_cffi import requests, AsyncSession
 
 
 base_url = "https://www.enligne.parionssport.fdj.fr"
-workers = 50
+workers = 10
 
 cookies = {
     'TCPID': '12622151502039465016',
@@ -71,12 +71,12 @@ sports = {
     # Football entire page
     "Football (ALL)": "paris-football",
     # The six european leagues
-    "Football (All Europe)": "paris-football/coupes-d-europe",
-    "Football (All England)": "paris-football/angleterre",
-    "Football (All French)": "paris-football/france",
-    "Football (All Germany)": "paris-football/allemagne",
-    "Football (All Italy)": "paris-football/italie",
-    "Football (All Spain)": "paris-football/espagne",
+    # "Football (All Europe)": "paris-football/coupes-d-europe",
+    # "Football (All England)": "paris-football/angleterre",
+    # "Football (All French)": "paris-football/france",
+    # "Football (All Germany)": "paris-football/allemagne",
+    # "Football (All Italy)": "paris-football/italie",
+    # "Football (All Spain)": "paris-football/espagne",
     
     # Other sports
     "Tennis (ALL)": "paris-tennis",
@@ -124,39 +124,37 @@ def setup_logging():
     return log_file
 
 # For fetching data from endpoints (URLs)
-async def fetch(url: str, session: AsyncSession, semaphore: asyncio.Semaphore) -> str:
+async def fetch(url: str, match_num, session: AsyncSession) -> str:
     retries = 5
 
-    async with semaphore:
-        for attempt in range(1, retries + 1):
-            try:
-                response = await session.get(url, cookies=cookies, headers=headers, impersonate="chrome")
+    for attempt in range(1, retries + 1):
+        try:
+            response = await session.get(url, headers=headers)
 
-                if response.status_code == 403:
-                    raise RuntimeError("403 blocked")
+            if response.status_code == 403:
+                raise RuntimeError("403 blocked")
 
-                if response.status_code != 200:
-                    raise RuntimeError(f"Non-200 response: {response.status_code}")
+            if response.status_code != 200:
+                raise RuntimeError(f"Non-200 response: {response.status_code}")
 
-                return response.text
+            return response.text
+        
+        except KeyboardInterrupt:
+            raise
+
+        except Exception as e:
+            logging.warning("Fetch failed: %s (%s) | match=%d | attempt=%d/%d", type(e).__name__, e, match_num, attempt, retries,)
+
+            if attempt == retries:
+                raise RuntimeError(f"Fetch failed for {url}") from e
+
+            if "403" in str(e):
+                rest_time = 2 + random.random() * 10
+            else:
+                rest_time = random.uniform(2, 5)
             
-            except KeyboardInterrupt:
-                raise
-
-            except Exception as e:
-                logging.warning("Fetch failed: %s (%s) | attempt=%d/%d | url=%s", type(e).__name__, e, attempt, retries, url)
-
-                if attempt == retries:
-                    raise RuntimeError(f"Fetch failed for {url}") from e
-
-                if "403" in str(e):
-                    rest_time = 8 + random.random() * 10
-                else:
-                    rest_time = random.uniform(3, 6)
-                
-                logging.info("Retrying after resting %.2fs", rest_time)
-                await asyncio.sleep(rest_time)
-
+            logging.info("Retrying after resting %.2fs", rest_time)
+            await asyncio.sleep(rest_time)
 
 # For saving json files
 async def save_json_file(file_path: str, data: dict) -> None:
@@ -179,30 +177,37 @@ async def save_csv_file(file_path: str, json: dict) -> None:
 # ----
 
 # To get urls of all matches and json of listing page from raw html listing endpoint
-def get_urls_of_all_matches(html: str,) -> list:
+def get_urls_of_all_matches(html: str) -> list:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "sport-main-jsonLd"})
 
-    json_data =  json.loads(script_tag.string) if script_tag and script_tag.string else {}
-    urls = [match["url"] for match in json_data if match.get("url")] 
+    if script_tag:
+        try:
+            json_data = json.loads(script_tag.get_text())
+            return [match["url"] for match in json_data if isinstance(match, dict) and match.get("url")]
+        except json.JSONDecodeError:
+            pass
 
-    return urls or []
+    anchors = soup.find_all("a", {"class": "psel-event__link"})
+    return [parse.urljoin(base_url, a["href"]) for a in anchors if a.get("href")] or []
 
 # Returns raw json of a match page 
 def get_json_of_a_match(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "serverApp-state"})
-    return json.loads(script_tag.string) if script_tag and script_tag.string else {}
+    json_data = json.loads(script_tag.string) if script_tag and script_tag.string else {}
+
+    return json_data.get("EventsDetail", {}).get("events", [])[0] or {}
 
 # To process single match
-async def process_match(sport_name: str, match_num: int, total_matches: int, match_url: str, session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
+async def process_match(sport_name: str, match_num: int, total_matches: int, match_url: str, session: AsyncSession) -> None:
     retries = 5
 
     for attempt in range(1, retries + 1):
         try:
             logging.info("Processing | match=%d/%d | attempt=%d | sport=%s", match_num, total_matches, attempt, sport_name)
 
-            match_page = await fetch(match_url, session, semaphore)
+            match_page = await fetch(match_url, match_num, session)
             match_json_data = get_json_of_a_match(match_page)
 
             if not match_json_data:
@@ -224,60 +229,50 @@ async def process_match(sport_name: str, match_num: int, total_matches: int, mat
 
             await asyncio.sleep(2)
 
-# To Schedule match tasks concurrently
-async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
+# To manage worker's life cycle
+async def worker(name: int, sport_name: str, total_matches: int, queue: asyncio.Queue, session: AsyncSession):
+    while True:
+        item = await queue.get()
+        if item is None:
+            queue.task_done()
+            return
+
+        match_num, match_url = item
+
+        try:
+            await process_match(sport_name, match_num, total_matches, match_url, session)
+        finally:
+            queue.task_done()
+
+# Manages queue to fetch match concurrently
+async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession):
+    queue: asyncio.Queue = asyncio.Queue()
     total_matches = len(urls)
-    tasks: list[asyncio.Task] = []
+
+    workers_tasks = [
+        asyncio.create_task(worker(i + 1, sport_name, total_matches, queue, session))
+        for i in range(workers)
+    ]
 
     for match_num, match_url in enumerate(urls, start=1):
-        task = asyncio.create_task(
-            process_match(sport_name, match_num, total_matches, match_url, session, semaphore)
-        )
-        tasks.append(task)
+        await queue.put((match_num, match_url))
 
-    await asyncio.gather(*tasks)
+    await queue.join()
 
+    for _ in workers_tasks:
+        await queue.put(None)
 
-# async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession, semaphore: asyncio.Semaphore) -> None:
-#     total_matches = len(urls)
-#     tasks: list[asyncio.Task] = []
-    
-#     for match_num, match_url in enumerate(urls, start=1):
-#         attempt = 0
-
-#         while True:
-#             attempt += 1
-
-#             try:          
-#                 logging.info("Processing | match=%d/%d | attempt=%d | sport=%s", match_num, total_matches, attempt, sport_name)   
-#                 match_page = await fetch(match_url, session)
-#                 match_json_data = get_json_of_a_match(match_page)
-
-#                 if match_json_data:
-#                     file_path = Path("Test files") / f"{sport_name} - Match {match_num}.json"
-#                     await save_json_file(file_path, match_json_data)
-#                     break
-
-#                 logging.warning("No data found, Retrying... | match=%d | attempt=%d | sport=%s", match_num, attempt, sport_name)
-
-#             except KeyboardInterrupt:
-#                 logging.info("\nStopping scraper...")
-#                 return
-
-#             except Exception:
-#                 logging.exception("\nUnknown error | match=%d | attempt=%d | sport=%s", match_num,  attempt, sport_name,)
-#                 logging.info("Retrying...\n")
-#                 await asyncio.sleep(2)
+    await asyncio.gather(*workers_tasks)
 
 
 async def main():
     log_file = setup_logging()
     logging.info("Scraper started")
-    
-    semaphore = asyncio.Semaphore(workers)
 
     if log_file:
         logging.info("Logging to %s", log_file)
+
+    sports_data = {}
 
     for sport_name, sport_path in sports.items():
         sport_url = parse.urljoin(base_url, sport_path)
@@ -286,20 +281,19 @@ async def main():
         while True:
             attempt += 1
             try: 
-                logging.info("Scraping %s | attempt=%d", sport_name, attempt)
+                logging.info("Scraping urls of %s | attempt=%d", sport_name, attempt)
                 
-                async with AsyncSession() as session:
-                    listing_html = await fetch(sport_url, session, semaphore)
-
-                    logging.info("Extracting urls of all matches...")
+                # async with AsyncSession() as session:
+                async with AsyncSession(impersonate="chrome", cookies=cookies) as session:
+                    listing_html = await fetch(sport_url, 0, session)
                     urls = get_urls_of_all_matches(listing_html)
 
                     if not urls:
+                        # await save_html_file("idk tags.html", listing_html)
+                        # return
                         raise RuntimeError("No urls found")
-
-                    logging.info("Extracting markets of %d mathces...", len(urls))
-                    await save_json_of_matches(sport_name, urls, session, semaphore)
-
+                    
+                    sports_data[sport_name] = urls
 
                 logging.info("\n")
                 break
@@ -311,8 +305,14 @@ async def main():
             except Exception:
                 logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
                 logging.info("Retrying...\n")
-                await asyncio.sleep(2)
-            
+                await asyncio.sleep(5)
+
+
+    for sport_name, urls in sports_data.items():
+         async with AsyncSession(impersonate="chrome", cookies=cookies) as session:
+            logging.info("Extracting markets | sport=%s | total matches=%d", sport_name, len(urls))
+            await save_json_of_matches(sport_name, urls, session)
+
 
 if __name__ == "__main__":
     asyncio.run(main())

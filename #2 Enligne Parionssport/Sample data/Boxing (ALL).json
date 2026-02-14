@@ -1,0 +1,3285 @@
+{
+  "sport_name": "Boxing (ALL)",
+  "matches": [
+    {
+      "id": 3320133,
+      "opponent_a": {
+        "id": 46098099,
+        "label": "L.Xhoxhaj"
+      },
+      "opponent_b": {
+        "id": 46167725,
+        "label": "P.Seifkhani"
+      },
+      "description": "L.Xhoxhaj vs P.Seifkhani",
+      "desc_display": "L.Xhoxhaj - P.Seifkhani",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602141700",
+      "parsed_start": "2026-02-14T17:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 178577903,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178577903,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 653166916,
+                  "name": "L.Xhoxhaj",
+                  "pos": 1,
+                  "odd": "1,10",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 653166917,
+                  "name": "P.Seifkhani",
+                  "pos": 2,
+                  "odd": "5,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 178577900,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178577900,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 653166908,
+                  "name": "L.Xhoxhaj",
+                  "pos": 1,
+                  "odd": "1,12",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 653166909,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 653166910,
+                  "name": "P.Seifkhani",
+                  "pos": 3,
+                  "odd": "5,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3310874,
+      "opponent_a": {
+        "id": 45907676,
+        "label": "S.Ryan"
+      },
+      "opponent_b": {
+        "id": 45979926,
+        "label": "KZ.Ramos"
+      },
+      "description": "S.Ryan vs KZ.Ramos",
+      "desc_display": "S.Ryan - KZ.Ramos",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602212000",
+      "parsed_start": "2026-02-21T20:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 176388435,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176388435,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 643793252,
+                  "name": "S.Ryan",
+                  "pos": 1,
+                  "odd": "1,03",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 643793251,
+                  "name": "KZ.Ramos",
+                  "pos": 2,
+                  "odd": "6,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 176388434,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176388434,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 643793248,
+                  "name": "S.Ryan",
+                  "pos": 1,
+                  "odd": "1,05",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 643793249,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 643793250,
+                  "name": "KZ.Ramos",
+                  "pos": 3,
+                  "odd": "7,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3316327,
+      "opponent_a": {
+        "id": 45687115,
+        "label": "R.Hitchins"
+      },
+      "opponent_b": {
+        "id": 45671771,
+        "label": "O.Duarte"
+      },
+      "description": "R.Hitchins vs O.Duarte",
+      "desc_display": "R.Hitchins - O.Duarte",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602220500",
+      "parsed_start": "2026-02-22T05:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 177676308,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177676308,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649169455,
+                  "name": "R.Hitchins",
+                  "pos": 1,
+                  "odd": "1,15",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649169456,
+                  "name": "O.Duarte",
+                  "pos": 2,
+                  "odd": "3,95",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177676307,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177676307,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649169452,
+                  "name": "R.Hitchins",
+                  "pos": 1,
+                  "odd": "1,17",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649169453,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649169454,
+                  "name": "O.Duarte",
+                  "pos": 3,
+                  "odd": "4,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3307564,
+      "opponent_a": {
+        "id": 45686833,
+        "label": "G.Russell"
+      },
+      "opponent_b": {
+        "id": 45929679,
+        "label": "A.Hiraoka"
+      },
+      "description": "G.Russell vs A.Hiraoka",
+      "desc_display": "G.Russell - A.Hiraoka",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602220500",
+      "parsed_start": "2026-02-22T05:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 175572246,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175572246,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640889097,
+                  "name": "G.Russell",
+                  "pos": 1,
+                  "odd": "1,26",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640889098,
+                  "name": "A.Hiraoka",
+                  "pos": 2,
+                  "odd": "3,05",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175572245,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175572245,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640889094,
+                  "name": "G.Russell",
+                  "pos": 1,
+                  "odd": "1,29",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640889095,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640889096,
+                  "name": "A.Hiraoka",
+                  "pos": 3,
+                  "odd": "3,40",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3307563,
+      "opponent_a": {
+        "id": 45671793,
+        "label": "M.Barrios"
+      },
+      "opponent_b": {
+        "id": 45705712,
+        "label": "R.Garcia"
+      },
+      "description": "M.Barrios vs R.Garcia",
+      "desc_display": "M.Barrios - R.Garcia",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602220600",
+      "parsed_start": "2026-02-22T06:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 175572211,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175572211,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640888636,
+                  "name": "M.Barrios",
+                  "pos": 1,
+                  "odd": "2,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640888637,
+                  "name": "R.Garcia",
+                  "pos": 2,
+                  "odd": "1,36",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175572210,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175572210,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640888633,
+                  "name": "M.Barrios",
+                  "pos": 1,
+                  "odd": "2,75",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640888634,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640888635,
+                  "name": "R.Garcia",
+                  "pos": 3,
+                  "odd": "1,41",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175945891,
+          "market_name": "Plus / Moins Round(s) - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175945891,
+              "column_name": "Plus / Moins Round(s)",
+              "pos": 999,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642268317,
+                  "name": "Plus 10.5",
+                  "pos": 1,
+                  "odd": "1,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268318,
+                  "name": "Moins 10.5",
+                  "pos": 2,
+                  "odd": "1,95",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2482,
+          "market_name": "Méthode de Victoire",
+          "cashout": false,
+          "template": "TEMPLATE_1",
+          "layout_properties": {
+            "kind": "TEMPLATE_1",
+            "showColTitle": false,
+            "maxLines": 5,
+            "lines": {
+              "sort": {
+                "dir": "ASC",
+                "field": "price"
+              }
+            },
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "price"
+              }
+            },
+            "last": {
+              "field": {
+                "desc": "Pas d'essai"
+              }
+            },
+            "showName": "full"
+          },
+          "markets": [
+            {
+              "id": 175946008,
+              "column_name": "Méthode de Victoire",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642268590,
+                  "name": "M.Barrios par KO",
+                  "pos": 1,
+                  "odd": "6,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268595,
+                  "name": "R.Garcia par KO",
+                  "pos": 2,
+                  "odd": "2,25",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268591,
+                  "name": "M.Barrios par Décision d'arbitre",
+                  "pos": 3,
+                  "odd": "4,45",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268592,
+                  "name": "R.Garcia par Décision d'arbitre",
+                  "pos": 4,
+                  "odd": "3,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268593,
+                  "name": "Egalité",
+                  "pos": 5,
+                  "odd": "16,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175946009,
+          "market_name": "Vainqueur du combat durant quel Round ? - Match",
+          "cashout": false,
+          "template": "DEFAULT",
+          "layout_properties": {},
+          "markets": [
+            {
+              "id": 175946009,
+              "column_name": "Vainqueur du combat durant quel Round ?",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642268607,
+                  "name": "M.Barrios gagnera par Décision",
+                  "pos": 1,
+                  "odd": "3,55",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268589,
+                  "name": "R.Garcia gagnera par Décision",
+                  "pos": 2,
+                  "odd": "2,65",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268604,
+                  "name": "M.Barrios gagnera au Round 1",
+                  "pos": 3,
+                  "odd": "80,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268576,
+                  "name": "M.Barrios gagnera au Round 2",
+                  "pos": 4,
+                  "odd": "67,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268580,
+                  "name": "M.Barrios gagnera au Round 3",
+                  "pos": 5,
+                  "odd": "58,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268599,
+                  "name": "M.Barrios gagnera au Round 4",
+                  "pos": 6,
+                  "odd": "53,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268601,
+                  "name": "M.Barrios gagnera au Round 5",
+                  "pos": 7,
+                  "odd": "49,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268594,
+                  "name": "M.Barrios gagnera au Round 6",
+                  "pos": 8,
+                  "odd": "48,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268582,
+                  "name": "M.Barrios gagnera au Round 7",
+                  "pos": 9,
+                  "odd": "48,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268603,
+                  "name": "M.Barrios gagnera au Round 8",
+                  "pos": 10,
+                  "odd": "50,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268583,
+                  "name": "M.Barrios gagnera au Round 9",
+                  "pos": 11,
+                  "odd": "53,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268597,
+                  "name": "M.Barrios gagnera au Round 10",
+                  "pos": 12,
+                  "odd": "59,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268585,
+                  "name": "M.Barrios gagnera au Round 11",
+                  "pos": 13,
+                  "odd": "68,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268575,
+                  "name": "M.Barrios gagnera au Round 12",
+                  "pos": 14,
+                  "odd": "81,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268584,
+                  "name": "Egalité",
+                  "pos": 15,
+                  "odd": "12,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268578,
+                  "name": "R.Garcia gagnera au Round 1",
+                  "pos": 16,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268596,
+                  "name": "R.Garcia gagnera au Round 2",
+                  "pos": 17,
+                  "odd": "21,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268602,
+                  "name": "R.Garcia gagnera au Round 3",
+                  "pos": 18,
+                  "odd": "19,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268586,
+                  "name": "R.Garcia gagnera au Round 4",
+                  "pos": 19,
+                  "odd": "17,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268587,
+                  "name": "R.Garcia gagnera au Round 5",
+                  "pos": 20,
+                  "odd": "16,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268577,
+                  "name": "R.Garcia gagnera au Round 6",
+                  "pos": 21,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268605,
+                  "name": "R.Garcia gagnera au Round 7",
+                  "pos": 22,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268579,
+                  "name": "R.Garcia gagnera au Round 8",
+                  "pos": 23,
+                  "odd": "16,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268588,
+                  "name": "R.Garcia gagnera au Round 9",
+                  "pos": 24,
+                  "odd": "17,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268581,
+                  "name": "R.Garcia gagnera au Round 10",
+                  "pos": 25,
+                  "odd": "19,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268606,
+                  "name": "R.Garcia gagnera au Round 11",
+                  "pos": 26,
+                  "odd": "22,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268574,
+                  "name": "R.Garcia gagnera au Round 12",
+                  "pos": 27,
+                  "odd": "26,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175946007,
+          "market_name": "Le combat ira-t-il à son terme ? - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175946007,
+              "column_name": "Le combat ira-t-il à son terme ?",
+              "pos": 999,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642268600,
+                  "name": "Oui",
+                  "pos": 1,
+                  "odd": "1,78",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642268598,
+                  "name": "Non",
+                  "pos": 2,
+                  "odd": "1,72",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175946141,
+          "market_name": "Vainqueur du combat durant quel Round ? (Intervalle) - Match",
+          "cashout": false,
+          "template": "DEFAULT",
+          "layout_properties": {},
+          "markets": [
+            {
+              "id": 175946141,
+              "column_name": "Vainqueur du combat durant quel Round ? (Intervalle)",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642268918,
+                  "name": "M.Barrios gagnera aux Points",
+                  "pos": 1,
+                  "odd": "3,15",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268915,
+                  "name": "M.Barrios gagnera dans les Rounds 1-3",
+                  "pos": 2,
+                  "odd": "27,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268917,
+                  "name": "M.Barrios gagnera dans les Rounds 4-6",
+                  "pos": 3,
+                  "odd": "14,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268911,
+                  "name": "M.Barrios gagnera dans les Rounds 7-9",
+                  "pos": 4,
+                  "odd": "11,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268909,
+                  "name": "M.Barrios gagnera dans les Rounds 10-12",
+                  "pos": 5,
+                  "odd": "14,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268916,
+                  "name": "Egalité",
+                  "pos": 6,
+                  "odd": "11,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268913,
+                  "name": "R.Garcia gagnera aux Points",
+                  "pos": 7,
+                  "odd": "2,55",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268908,
+                  "name": "R.Garcia gagnera dans les Rounds  1-3",
+                  "pos": 8,
+                  "odd": "10,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268914,
+                  "name": "R.Garcia gagnera dans les Rounds  4-6",
+                  "pos": 9,
+                  "odd": "5,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268910,
+                  "name": "R.Garcia gagnera dans les Rounds  7-9",
+                  "pos": 10,
+                  "odd": "4,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 642268912,
+                  "name": "R.Garcia gagnera dans les Rounds  10-12",
+                  "pos": 11,
+                  "odd": "5,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3301148,
+      "opponent_a": {
+        "id": 45912748,
+        "label": "C.Shields"
+      },
+      "opponent_b": {
+        "id": 45925491,
+        "label": "F.Dezurn"
+      },
+      "description": "C.Shields vs F.Dezurn",
+      "desc_display": "C.Shields - F.Dezurn",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2602230400",
+      "parsed_start": "2026-02-23T04:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 174495932,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 174495932,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 636854554,
+                  "name": "C.Shields",
+                  "pos": 1,
+                  "odd": "1,02",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 636854553,
+                  "name": "F.Dezurn",
+                  "pos": 2,
+                  "odd": "6,90",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 174495931,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 174495931,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 636854550,
+                  "name": "C.Shields",
+                  "pos": 1,
+                  "odd": "1,03",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 636854551,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 636854552,
+                  "name": "F.Dezurn",
+                  "pos": 3,
+                  "odd": "8,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3281491,
+      "opponent_a": {
+        "id": 45667655,
+        "label": "E.Navarrete"
+      },
+      "opponent_b": {
+        "id": 45970033,
+        "label": "E.Nunez"
+      },
+      "description": "E.Navarrete vs E.Nunez",
+      "desc_display": "E.Navarrete - E.Nunez",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603010400",
+      "parsed_start": "2026-03-01T04:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 171750700,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 171750700,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 626692802,
+                  "name": "E.Navarrete",
+                  "pos": 1,
+                  "odd": "2,45",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 626692803,
+                  "name": "E.Nunez",
+                  "pos": 2,
+                  "odd": "1,41",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 171750699,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 171750699,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 626692799,
+                  "name": "E.Navarrete",
+                  "pos": 1,
+                  "odd": "2,65",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 626692800,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 626692801,
+                  "name": "E.Nunez",
+                  "pos": 3,
+                  "odd": "1,44",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177766621,
+          "market_name": "Plus / Moins Round(s) - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177766621,
+              "column_name": "Plus / Moins Round(s)",
+              "pos": 999,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649621135,
+                  "name": "Plus 10.5",
+                  "pos": 1,
+                  "odd": "1,45",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649621136,
+                  "name": "Moins 10.5",
+                  "pos": 2,
+                  "odd": "2,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2482,
+          "market_name": "Méthode de Victoire",
+          "cashout": false,
+          "template": "TEMPLATE_1",
+          "layout_properties": {
+            "kind": "TEMPLATE_1",
+            "showColTitle": false,
+            "maxLines": 5,
+            "lines": {
+              "sort": {
+                "dir": "ASC",
+                "field": "price"
+              }
+            },
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "price"
+              }
+            },
+            "last": {
+              "field": {
+                "desc": "Pas d'essai"
+              }
+            },
+            "showName": "full"
+          },
+          "markets": [
+            {
+              "id": 177767459,
+              "column_name": "Méthode de Victoire",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649623917,
+                  "name": "E.Navarrete par KO",
+                  "pos": 1,
+                  "odd": "4,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649623880,
+                  "name": "E.Nunez par KO",
+                  "pos": 2,
+                  "odd": "3,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649623919,
+                  "name": "E.Navarrete par Décision d'arbitre",
+                  "pos": 3,
+                  "odd": "5,30",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649623921,
+                  "name": "E.Nunez par Décision d'arbitre",
+                  "pos": 4,
+                  "odd": "2,40",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649623878,
+                  "name": "Egalité",
+                  "pos": 5,
+                  "odd": "16,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177767460,
+          "market_name": "Vainqueur du combat durant quel Round ? - Match",
+          "cashout": false,
+          "template": "DEFAULT",
+          "layout_properties": {},
+          "markets": [
+            {
+              "id": 177767460,
+              "column_name": "Vainqueur du combat durant quel Round ?",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649623901,
+                  "name": "E.Navarrete gagnera par Décision",
+                  "pos": 1,
+                  "odd": "4,10",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623892,
+                  "name": "E.Nunez gagnera par Décision",
+                  "pos": 2,
+                  "odd": "2,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623913,
+                  "name": "E.Navarrete gagnera au Round 1",
+                  "pos": 3,
+                  "odd": "81,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623911,
+                  "name": "E.Navarrete gagnera au Round 2",
+                  "pos": 4,
+                  "odd": "67,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623916,
+                  "name": "E.Navarrete gagnera au Round 3",
+                  "pos": 5,
+                  "odd": "54,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623877,
+                  "name": "E.Navarrete gagnera au Round 4",
+                  "pos": 6,
+                  "odd": "45,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623894,
+                  "name": "E.Navarrete gagnera au Round 5",
+                  "pos": 7,
+                  "odd": "38,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623879,
+                  "name": "E.Navarrete gagnera au Round 6",
+                  "pos": 8,
+                  "odd": "34,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623907,
+                  "name": "E.Navarrete gagnera au Round 7",
+                  "pos": 9,
+                  "odd": "32,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623903,
+                  "name": "E.Navarrete gagnera au Round 8",
+                  "pos": 10,
+                  "odd": "30,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623915,
+                  "name": "E.Navarrete gagnera au Round 9",
+                  "pos": 11,
+                  "odd": "30,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623890,
+                  "name": "E.Navarrete gagnera au Round 10",
+                  "pos": 12,
+                  "odd": "30,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623893,
+                  "name": "E.Navarrete gagnera au Round 11",
+                  "pos": 13,
+                  "odd": "32,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623887,
+                  "name": "E.Navarrete gagnera au Round 12",
+                  "pos": 14,
+                  "odd": "35,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623920,
+                  "name": "Egalité",
+                  "pos": 15,
+                  "odd": "11,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623889,
+                  "name": "E.Nunez gagnera au Round 1",
+                  "pos": 16,
+                  "odd": "60,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623881,
+                  "name": "E.Nunez gagnera au Round 2",
+                  "pos": 17,
+                  "odd": "46,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623891,
+                  "name": "E.Nunez gagnera au Round 3",
+                  "pos": 18,
+                  "odd": "37,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623888,
+                  "name": "E.Nunez gagnera au Round 4",
+                  "pos": 19,
+                  "odd": "31,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623886,
+                  "name": "E.Nunez gagnera au Round 5",
+                  "pos": 20,
+                  "odd": "26,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623895,
+                  "name": "E.Nunez gagnera au Round 6",
+                  "pos": 21,
+                  "odd": "23,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623882,
+                  "name": "E.Nunez gagnera au Round 7",
+                  "pos": 22,
+                  "odd": "22,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623884,
+                  "name": "E.Nunez gagnera au Round 8",
+                  "pos": 23,
+                  "odd": "21,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623905,
+                  "name": "E.Nunez gagnera au Round 9",
+                  "pos": 24,
+                  "odd": "20,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623918,
+                  "name": "E.Nunez gagnera au Round 10",
+                  "pos": 25,
+                  "odd": "21,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623896,
+                  "name": "E.Nunez gagnera au Round 11",
+                  "pos": 26,
+                  "odd": "22,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623909,
+                  "name": "E.Nunez gagnera au Round 12",
+                  "pos": 27,
+                  "odd": "24,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177767461,
+          "market_name": "Le combat ira-t-il à son terme ? - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177767461,
+              "column_name": "Le combat ira-t-il à son terme ?",
+              "pos": 999,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649623883,
+                  "name": "Oui",
+                  "pos": 1,
+                  "odd": "1,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 649623885,
+                  "name": "Non",
+                  "pos": 2,
+                  "odd": "1,95",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177767462,
+          "market_name": "Vainqueur du combat durant quel Round ? (Intervalle) - Match",
+          "cashout": false,
+          "template": "DEFAULT",
+          "layout_properties": {},
+          "markets": [
+            {
+              "id": 177767462,
+              "column_name": "Vainqueur du combat durant quel Round ? (Intervalle)",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649623898,
+                  "name": "E.Navarrete gagnera aux Points",
+                  "pos": 1,
+                  "odd": "3,55",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623908,
+                  "name": "E.Navarrete gagnera dans les Rounds 1-3",
+                  "pos": 2,
+                  "odd": "19,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623902,
+                  "name": "E.Navarrete gagnera dans les Rounds 4-6",
+                  "pos": 3,
+                  "odd": "11,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623899,
+                  "name": "E.Navarrete gagnera dans les Rounds 7-9",
+                  "pos": 4,
+                  "odd": "8,90",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623910,
+                  "name": "E.Navarrete gagnera dans les Rounds 10-12",
+                  "pos": 5,
+                  "odd": "9,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623906,
+                  "name": "Egalité",
+                  "pos": 6,
+                  "odd": "9,90",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623900,
+                  "name": "E.Nunez gagnera aux Points",
+                  "pos": 7,
+                  "odd": "1,84",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623912,
+                  "name": "E.Nunez gagnera dans les Rounds  1-3",
+                  "pos": 8,
+                  "odd": "13,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623914,
+                  "name": "E.Nunez gagnera dans les Rounds  4-6",
+                  "pos": 9,
+                  "odd": "7,80",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623904,
+                  "name": "E.Nunez gagnera dans les Rounds  7-9",
+                  "pos": 10,
+                  "odd": "6,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                },
+                {
+                  "id": 649623897,
+                  "name": "E.Nunez gagnera dans les Rounds  10-12",
+                  "pos": 11,
+                  "odd": "6,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3305677,
+      "opponent_a": {
+        "id": 45711849,
+        "label": "J.Dickens"
+      },
+      "opponent_b": {
+        "id": 45724008,
+        "label": "A.Cacace"
+      },
+      "description": "J.Dickens vs A.Cacace",
+      "desc_display": "J.Dickens - A.Cacace",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603142100",
+      "parsed_start": "2026-03-14T21:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 175360188,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175360188,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640121424,
+                  "name": "J.Dickens",
+                  "pos": 1,
+                  "odd": "2,75",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640121425,
+                  "name": "A.Cacace",
+                  "pos": 2,
+                  "odd": "1,32",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 175360187,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 175360187,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 640121421,
+                  "name": "J.Dickens",
+                  "pos": 1,
+                  "odd": "2,95",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640121422,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 640121423,
+                  "name": "A.Cacace",
+                  "pos": 3,
+                  "odd": "1,36",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3316330,
+      "opponent_a": {
+        "id": 45973069,
+        "label": "A.Olascuaga"
+      },
+      "opponent_b": {
+        "id": 46121213,
+        "label": "J.Limura"
+      },
+      "description": "A.Olascuaga vs J.Limura",
+      "desc_display": "A.Olascuaga - J.Limura",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603150900",
+      "parsed_start": "2026-03-15T09:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 177677130,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177677130,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649171716,
+                  "name": "A.Olascuaga",
+                  "pos": 1,
+                  "odd": "1,06",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649171715,
+                  "name": "J.Limura",
+                  "pos": 2,
+                  "odd": "5,80",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177677127,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177677127,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 649171706,
+                  "name": "A.Olascuaga",
+                  "pos": 1,
+                  "odd": "1,08",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649171707,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "25,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 649171708,
+                  "name": "J.Limura",
+                  "pos": 3,
+                  "odd": "6,75",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3315081,
+      "opponent_a": {
+        "id": 45934686,
+        "label": "T.Niyomtrong"
+      },
+      "opponent_b": {
+        "id": 45948808,
+        "label": "S.Iwata"
+      },
+      "description": "T.Niyomtrong vs S.Iwata",
+      "desc_display": "T.Niyomtrong - S.Iwata",
+      "path": {
+        "sport": {
+          "label": "Boxe"
+        },
+        "category": {
+          "label": "International"
+        },
+        "league": {
+          "label": "Combats"
+        }
+      },
+      "sport_code": "BOXI",
+      "conditional_bet_enabled": false,
+      "cashout": true,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603150900",
+      "parsed_start": "2026-03-15T09:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 177324624,
+          "market_name": "Face à Face - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177324624,
+              "column_name": "Face à Face",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 647507911,
+                  "name": "T.Niyomtrong",
+                  "pos": 1,
+                  "odd": "2,35",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 647507910,
+                  "name": "S.Iwata",
+                  "pos": 2,
+                  "odd": "1,44",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 177324623,
+          "market_name": "Vainqueur - Match",
+          "cashout": true,
+          "template": "TEMPLATE_1ROW_3COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_3COL",
+            "encaps": true,
+            "showName": "none",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 177324623,
+              "column_name": "Vainqueur",
+              "pos": 2,
+              "period": "Match",
+              "style": "WIN_DRAW_WIN",
+              "cashout": true,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 647507907,
+                  "name": "T.Niyomtrong",
+                  "pos": 1,
+                  "odd": "2,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 647507908,
+                  "name": "N",
+                  "pos": 2,
+                  "odd": "15,00",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                },
+                {
+                  "id": 647507909,
+                  "name": "S.Iwata",
+                  "pos": 3,
+                  "odd": "1,49",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": true,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

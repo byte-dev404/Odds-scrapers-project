@@ -1,0 +1,899 @@
+{
+  "sport_name": "UFC-MMA (ALL)",
+  "matches": [
+    {
+      "id": 3311320,
+      "opponent_a": {
+        "id": 46101650,
+        "label": "Z.Reese"
+      },
+      "opponent_b": {
+        "id": 46111868,
+        "label": "M.Pereira"
+      },
+      "description": "Z.Reese vs M.Pereira",
+      "desc_display": "Z.Reese - M.Pereira",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 267"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": "IMG:510901",
+      "tv_channel": null,
+      "start": "2602220100",
+      "parsed_start": "2026-02-22T01:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 176492505,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176492505,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 644328752,
+                  "name": "Z.Reese",
+                  "pos": 1,
+                  "odd": "2,05",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 644328753,
+                  "name": "M.Pereira",
+                  "pos": 2,
+                  "odd": "1,59",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 178288291,
+          "market_name": "Nombre de rounds - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178288291,
+              "column_name": "Nombre de rounds",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 651949842,
+                  "name": "Plus 1.5",
+                  "pos": 1,
+                  "odd": "1,70",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 651949841,
+                  "name": "Moins 1.5",
+                  "pos": 2,
+                  "odd": "1,81",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3311323,
+      "opponent_a": {
+        "id": 46101247,
+        "label": "S.Spivak"
+      },
+      "opponent_b": {
+        "id": 46141153,
+        "label": "A.Delija"
+      },
+      "description": "S.Spivak vs A.Delija",
+      "desc_display": "S.Spivak - A.Delija",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 267"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": "IMG:510901",
+      "tv_channel": null,
+      "start": "2602220140",
+      "parsed_start": "2026-02-22T01:40:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 176492940,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176492940,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 644334806,
+                  "name": "S.Spivak",
+                  "pos": 1,
+                  "odd": "2,20",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 644334807,
+                  "name": "A.Delija",
+                  "pos": 2,
+                  "odd": "1,51",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 178227061,
+          "market_name": "Nombre de rounds - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178227061,
+              "column_name": "Nombre de rounds",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 651437964,
+                  "name": "Plus 1.5",
+                  "pos": 1,
+                  "odd": "1,66",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 651437963,
+                  "name": "Moins 1.5",
+                  "pos": 2,
+                  "odd": "1,86",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3311334,
+      "opponent_a": {
+        "id": 46110311,
+        "label": "D.Ige"
+      },
+      "opponent_b": {
+        "id": 46106097,
+        "label": "M.Costa"
+      },
+      "description": "D.Ige vs M.Costa",
+      "desc_display": "D.Ige - M.Costa",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 267"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": "IMG:510901",
+      "tv_channel": null,
+      "start": "2602220200",
+      "parsed_start": "2026-02-22T02:00:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 176498411,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176498411,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 644370010,
+                  "name": "D.Ige",
+                  "pos": 1,
+                  "odd": "2,35",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 644370011,
+                  "name": "M.Costa",
+                  "pos": 2,
+                  "odd": "1,43",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 178227060,
+          "market_name": "Nombre de rounds - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178227060,
+              "column_name": "Nombre de rounds",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 651437962,
+                  "name": "Plus 2.5",
+                  "pos": 1,
+                  "odd": "1,35",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 651437961,
+                  "name": "Moins 2.5",
+                  "pos": 2,
+                  "odd": "2,50",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3319206,
+      "opponent_a": {
+        "id": 46110314,
+        "label": "G.Neal"
+      },
+      "opponent_b": {
+        "id": 46101666,
+        "label": "U.Medic"
+      },
+      "description": "G.Neal vs U.Medic",
+      "desc_display": "G.Neal - U.Medic",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 267"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": "IMG:510901",
+      "tv_channel": null,
+      "start": "2602220220",
+      "parsed_start": "2026-02-22T02:20:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 178398458,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178398458,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 652470342,
+                  "name": "G.Neal",
+                  "pos": 1,
+                  "odd": "1,42",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 652470343,
+                  "name": "U.Medic",
+                  "pos": 2,
+                  "odd": "2,40",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3303569,
+      "opponent_a": {
+        "id": 46101267,
+        "label": "S.Strickland"
+      },
+      "opponent_b": {
+        "id": 46104727,
+        "label": "A.Hernandez"
+      },
+      "description": "S.Strickland vs A.Hernandez",
+      "desc_display": "S.Strickland - A.Hernandez",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 267"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": "IMG:510901",
+      "tv_channel": null,
+      "start": "2602220240",
+      "parsed_start": "2026-02-22T02:40:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 174805491,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 174805491,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 638067874,
+                  "name": "S.Strickland",
+                  "pos": 1,
+                  "odd": "2,85",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 638067875,
+                  "name": "A.Hernandez",
+                  "pos": 2,
+                  "odd": "1,30",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 178227059,
+          "market_name": "Nombre de rounds - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 178227059,
+              "column_name": "Nombre de rounds",
+              "pos": 999,
+              "period": "Match",
+              "style": "PROPOSITION",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 651437959,
+                  "name": "Plus 4.5",
+                  "pos": 1,
+                  "odd": "1,60",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 651437960,
+                  "name": "Moins 4.5",
+                  "pos": 2,
+                  "odd": "1,94",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3298742,
+      "opponent_a": {
+        "id": 46121693,
+        "label": "M.Holloway"
+      },
+      "opponent_b": {
+        "id": 46126048,
+        "label": "C.Oliveira"
+      },
+      "description": "M.Holloway vs C.Oliveira",
+      "desc_display": "M.Holloway - C.Oliveira",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC 326"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603080320",
+      "parsed_start": "2026-03-08T03:20:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 174018203,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 174018203,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 635240289,
+                  "name": "M.Holloway",
+                  "pos": 1,
+                  "odd": "1,44",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 635240290,
+                  "name": "C.Oliveira",
+                  "pos": 2,
+                  "odd": "2,35",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3309484,
+      "opponent_a": {
+        "id": 46101656,
+        "label": "I.Adesanya"
+      },
+      "opponent_b": {
+        "id": 46109313,
+        "label": "J.Pyfer"
+      },
+      "description": "I.Adesanya vs J.Pyfer",
+      "desc_display": "I.Adesanya - J.Pyfer",
+      "path": {
+        "sport": {
+          "label": "UFC/MMA"
+        },
+        "category": {
+          "label": "UFC"
+        },
+        "league": {
+          "label": "UFC Fight Night 271"
+        }
+      },
+      "sport_code": "MMA",
+      "conditional_bet_enabled": false,
+      "cashout": false,
+      "combi_boost": true,
+      "stream_ref": null,
+      "tv_channel": null,
+      "start": "2603290220",
+      "parsed_start": "2026-03-29T03:20:00.000Z",
+      "event_kind": "MAIN",
+      "grouped_markets": [
+        {
+          "id": 176000967,
+          "market_name": "Vainqueur du combat - Match",
+          "cashout": false,
+          "template": "TEMPLATE_1ROW_2COL",
+          "layout_properties": {
+            "kind": "TEMPLATE_1ROW_2COL",
+            "encaps": true,
+            "showName": "full",
+            "columns": {
+              "sort": {
+                "dir": "ASC",
+                "field": "pos"
+              }
+            }
+          },
+          "markets": [
+            {
+              "id": 176000967,
+              "column_name": "Vainqueur du combat",
+              "pos": 1,
+              "period": "Match",
+              "style": "TWO_OUTCOME_LONG",
+              "cashout": false,
+              "conditional_bet_enabled": false,
+              "suspended": false,
+              "selections": [
+                {
+                  "id": 642456920,
+                  "name": "I.Adesanya",
+                  "pos": 1,
+                  "odd": "1,90",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                },
+                {
+                  "id": 642456921,
+                  "name": "J.Pyfer",
+                  "pos": 2,
+                  "odd": "1,68",
+                  "conditional_bet_enabled": false,
+                  "up": false,
+                  "down": false,
+                  "hidden": false,
+                  "suspended": false,
+                  "selected": false,
+                  "isMarketCashout": false,
+                  "isMulti": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -15,14 +15,6 @@ from datetime import datetime
 from curl_cffi import requests, AsyncSession
 from pydantic import BaseModel, Field
 
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/liv-golf-adelaide-2026/3318484/liv-golf-adelaide-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/at-t-pebble-beach-pro-am-2026/3318689/at-t-pebble-beach-pro-am-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/us-masters/3205361/us-masters-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/pga-championship-2026/3212536/pga-championship-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/us-open/3239914/us-open-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/the-open-2026/3244436/the-open-2026
-# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-femme/solheim-cup-2026/3207817/solheim-cup-2026
-
 # Pydantic data models
 class Selection(BaseModel):
     id: int | None = Field(default=None)
@@ -158,25 +150,25 @@ enrich_api_params = {
 
 sports = {
     # Football entire page
-    # "Football (ALL)": "paris-football",
+    "Football (ALL)": "paris-football",
     # The six european leagues
-    # "Football (All Europe)": "paris-football/coupes-d-europe",
-    # "Football (All England)": "paris-football/angleterre",
-    # "Football (All French)": "paris-football/france",
-    # "Football (All Germany)": "paris-football/allemagne",
-    # "Football (All Italy)": "paris-football/italie",
-    # "Football (All Spain)": "paris-football/espagne",
+    "Football (All Europe)": "paris-football/coupes-d-europe",
+    "Football (All England)": "paris-football/angleterre",
+    "Football (All French)": "paris-football/france",
+    "Football (All Germany)": "paris-football/allemagne",
+    "Football (All Italy)": "paris-football/italie",
+    "Football (All Spain)": "paris-football/espagne",
     
     # Other sports
-    # "Tennis (ALL)": "paris-tennis",
-    # "Basketball (ALL)": "paris-basketball",
-    # "Baseball (ALL)": "paris-baseball",
-    # "Boxing (ALL)": "paris-boxe",
-    # "Cycling (ALL)": "paris-cyclisme",
-    # "Golf (ALL)": "paris-golf",
-    # "Handball (ALL)": "paris-handball",
-    # "Ice hockey (ALL)": "paris-hockey-sur-glace",
-    # "Rugby (ALL)": "paris-rugby",
+    "Tennis (ALL)": "paris-tennis",
+    "Basketball (ALL)": "paris-basketball",
+    "Baseball (ALL)": "paris-baseball",
+    "Boxing (ALL)": "paris-boxe",
+    "Cycling (ALL)": "paris-cyclisme",
+    "Golf (ALL)": "paris-golf",
+    "Handball (ALL)": "paris-handball",
+    "Ice hockey (ALL)": "paris-hockey-sur-glace",
+    "Rugby (ALL)": "paris-rugby",
     "UFC-MMA (ALL)": "paris-ufc-mma",
 }
 
@@ -429,7 +421,7 @@ async def get_json_of_matches(sport_name: str, urls: list[str], session: AsyncSe
     await asyncio.gather(*workers_tasks)
     return results
 
-
+# Core scraping logic
 async def main():
     log_file = setup_logging()
     logging.info("Scraper started")

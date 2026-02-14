@@ -1,20 +1,97 @@
+import re
+import os
+import time
 import json
 import random
 import asyncio
 import aiofiles
 import logging
+import unicodedata
 from bs4 import BeautifulSoup
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from urllib import parse
 from datetime import datetime
 from curl_cffi import requests, AsyncSession
+from pydantic import BaseModel, Field
 
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/liv-golf-adelaide-2026/3318484/liv-golf-adelaide-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/at-t-pebble-beach-pro-am-2026/3318689/at-t-pebble-beach-pro-am-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/us-masters/3205361/us-masters-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/pga-championship-2026/3212536/pga-championship-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/us-open/3239914/us-open-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-homme/the-open-2026/3244436/the-open-2026
+# https://www.enligne.parionssport.fdj.fr/paris-golf/circuit-femme/solheim-cup-2026/3207817/solheim-cup-2026
 
+# Pydantic data models
+class Selection(BaseModel):
+    id: int | None = Field(default=None)
+    name: str | None = Field(default=None, alias="description")
+    pos: int | None = Field(default=None)
+    odd: str | float | int | None = Field(default=None, alias="price")
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    up: bool | None = Field(default=None)
+    down: bool | None = Field(default=None)
+    hidden: bool | None = Field(default=None)
+    suspended: bool | None = Field(default=None)
+    selected: bool | None = Field(default=None)
+    isMarketCashout: bool | None = Field(default=None)
+    isMulti: bool | None = Field(default=None)
+
+class Market(BaseModel):
+    id: int | None = Field(default=None)
+    column_name: str | None = Field(default=None, alias="description")
+    pos: int | None = Field(default=None)
+    period: str | None = Field(default=None)
+    style: str | None = Field(default=None)
+    cashout: bool | None = Field(default=None)
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    suspended: bool | None = Field(default=None)
+    selections: list[Selection] | None = Field(default_factory=list, alias="outcomes")
+
+class GroupedMarket(BaseModel):
+    id: int | None = Field(default=None)
+    market_name: str | None = Field(default=None, alias="description")
+    cashout: bool | None = Field(default=None)
+    template: str | None = Field(default=None)
+    layout_properties: dict | None = Field(default_factory=dict, alias="properties")
+    markets: list[Market] | None = Field(default_factory=list)
+
+class Match(BaseModel):
+    id: int | None = Field(default=None)
+    opponent_a: dict = Field(default_factory=dict, alias="opponentA")
+    opponent_b: dict = Field(default_factory=dict, alias="opponentB")
+    description: str | None = Field(default=None)
+    desc_display: str | None = Field(default=None, alias="descDisplay")
+    path: dict | None = Field(default_factory=dict)
+    sport_code: str | None = Field(default=None, alias="sportCode")
+    conditional_bet_enabled: bool | None = Field(default=None, alias="conditionalBetEnabled")
+    cashout: bool | None = Field(default=None, alias="cashout")
+    combi_boost: bool | None = Field(default=None, alias="combiBoost")
+    stream_ref: str | None = Field(default=None, alias="streamRef")
+    tv_channel: str | None = Field(default=None, alias="tvChannel")
+    start: str | None = Field(default=None)
+    parsed_start: str | None = Field(default=None, alias="parsedStart")
+    event_kind: str | None = Field(default=None, alias="eventKind")
+    grouped_markets: list[GroupedMarket] = Field(default_factory=list, alias="groupedMarkets")
+
+class Sport(BaseModel):
+    sport_name: str
+    matches: list[Match] = Field(default_factory=list)
+
+os.makedirs("Test files", exist_ok=True)
+
+workers = 5
 base_url = "https://www.enligne.parionssport.fdj.fr"
-workers = 10
+enrichment_api_ids = {
+    "paris-baseball": "p226",
+    "paris-boxe": "p238",
+    "paris-cyclisme": "p2700",
+    "paris-golf": "p237",
+    "paris-handball": "p1100",
+}
 
-cookies = {
+base_api_cookies = {
     'TCPID': '12622151502039465016',
     'pa_privacy': '%22optin%22',
     'tc_sample_1881_1885': '1',
@@ -46,7 +123,7 @@ cookies = {
     '_MFB_': 'fHw4fHx8W118fHwzNC43MjY5NTM4MDYxODEwNnw=',
 }
 
-headers = {
+base_api_headers = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0',
@@ -67,9 +144,21 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
 }
 
+enrich_api_headers = {
+    'x-lvs-hstoken': 'lafI5HDRbsAdVL02-Siiu2-EQhP_ga_ee25eUUupYqHV-CFi7dZJxoGvE3BgEb-5Dfe5jMiswbdpbG8Li-SuvaNV-ZG26LzuqAN4XWtcc9oFy6BxtDDqxY1Q_P6m786J3vgiX9W76CqXOBjWEv4m_g==',
+}
+
+enrich_api_params = {
+    'lineId': '1',
+    'originId': '3',
+    'breakdownEventsIntoDays': 'true',
+    'showPromotions': 'true',
+    'pageIndex': '0',
+}
+
 sports = {
     # Football entire page
-    "Football (ALL)": "paris-football",
+    # "Football (ALL)": "paris-football",
     # The six european leagues
     # "Football (All Europe)": "paris-football/coupes-d-europe",
     # "Football (All England)": "paris-football/angleterre",
@@ -79,18 +168,17 @@ sports = {
     # "Football (All Spain)": "paris-football/espagne",
     
     # Other sports
-    "Tennis (ALL)": "paris-tennis",
-    "Basketball (ALL)": "paris-basketball",
-    "Baseball (ALL)": "paris-baseball",
-    "Boxing (ALL)": "paris-boxe",
-    "Cycling (ALL)": "paris-cyclisme",
-    "Golf (ALL)": "paris-golf",
-    "Handball (ALL)": "paris-handball",
-    "Ice hockey (ALL)": "paris-hockey-sur-glace",
-    "Rugby (ALL)": "paris-rugby",
-    "UFC/MMA (ALL)": "paris-ufc-mma",
+    # "Tennis (ALL)": "paris-tennis",
+    # "Basketball (ALL)": "paris-basketball",
+    # "Baseball (ALL)": "paris-baseball",
+    # "Boxing (ALL)": "paris-boxe",
+    # "Cycling (ALL)": "paris-cyclisme",
+    # "Golf (ALL)": "paris-golf",
+    # "Handball (ALL)": "paris-handball",
+    # "Ice hockey (ALL)": "paris-hockey-sur-glace",
+    # "Rugby (ALL)": "paris-rugby",
+    "UFC-MMA (ALL)": "paris-ufc-mma",
 }
-
 
 # Helper functions.
 # ----
@@ -129,7 +217,7 @@ async def fetch(url: str, match_num, session: AsyncSession) -> str:
 
     for attempt in range(1, retries + 1):
         try:
-            response = await session.get(url, headers=headers)
+            response = await session.get(url, headers=base_api_headers)
 
             if response.status_code == 403:
                 raise RuntimeError("403 blocked")
@@ -176,20 +264,93 @@ async def save_csv_file(file_path: str, json: dict) -> None:
 # Important functions for request based API scraping.
 # ----
 
+# To normalize French chars of url slugs 
+def slugify_abbr(value: str) -> str:
+    if not value:
+        return ""
+
+    value = unicodedata.normalize("NFKD", value)
+    value = value.encode("ascii", "ignore").decode("ascii")
+
+    value = value.lower()
+    value = value.replace(" ", "-")
+    value = value.replace("&", "-")
+    value = value.replace("/", "-")
+    value = value.replace("(", "")
+    value = value.replace(")", "")
+    value = value.replace(".", "-")
+
+    value = re.sub(r"-+", "-", value)
+
+    return value.strip("-")
+
+# To construct urls from an enrichment api
+def construct_urls(sport_path: str) -> list[str]:
+    api_id = enrichment_api_ids.get(sport_path)
+    if not api_id:
+        return []
+    
+    api_endpoint = f"https://www.enligne.parionssport.fdj.fr/lvs-api/next/50/{api_id}"
+    while True:
+        r = requests.get(api_endpoint, params=enrich_api_params, headers=enrich_api_headers)
+
+        if r.status_code == 200:
+            break
+
+        rest_time = random.uniform(2, 5)
+        logging.info("Retrying after resting %.2fs", rest_time)
+        time.sleep(rest_time)
+
+    enriched_json = r.json()
+    items = enriched_json.get("items", {})
+    urls = []
+
+    for key, event in items.items():
+        if not key.startswith("e"):
+            continue
+        
+        event_id = key[1:]
+
+        path = event.get("path", {})
+        league = path.get("League")
+        category = path.get("Category")
+        desc = event.get("desc")
+
+        if not league or not category or not desc:
+            continue
+
+        league_slug = slugify_abbr(league)
+        category_slug = slugify_abbr(category)
+        desc_slug = slugify_abbr(desc)
+
+        relative_path = f"{sport_path}/{category_slug}/{league_slug}/{event_id}/{desc_slug}"
+        url = parse.urljoin(base_url, relative_path)
+        urls.append(url)
+
+    return urls
+
 # To get urls of all matches and json of listing page from raw html listing endpoint
-def get_urls_of_all_matches(html: str) -> list:
+def get_urls_of_all_matches(sport_path: str, html: str) -> list:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "sport-main-jsonLd"})
 
     if script_tag:
         try:
             json_data = json.loads(script_tag.get_text())
-            return [match["url"] for match in json_data if isinstance(match, dict) and match.get("url")]
+            if json_data:
+                return [match["url"] for match in json_data if isinstance(match, dict) and match.get("url")]
         except json.JSONDecodeError:
             pass
 
-    anchors = soup.find_all("a", {"class": "psel-event__link"})
-    return [parse.urljoin(base_url, a["href"]) for a in anchors if a.get("href")] or []
+    logging.info("Json not found, extracting URLs from html | sport=%s", sport_path)
+    anchors = soup.select("a.psel-event__link")
+    if anchors:
+        urls = [parse.urljoin(base_url, a["href"]) for a in anchors if a.get("href")]
+    else:
+        logging.info("Falling back to enrichment URLs | sport=%s", sport_path)
+        urls = construct_urls(sport_path)
+
+    return urls or []
 
 # Returns raw json of a match page 
 def get_json_of_a_match(html: str) -> dict:
@@ -197,10 +358,11 @@ def get_json_of_a_match(html: str) -> dict:
     script_tag = soup.find("script", {"id": "serverApp-state"})
     json_data = json.loads(script_tag.string) if script_tag and script_tag.string else {}
 
-    return json_data.get("EventsDetail", {}).get("events", [])[0] or {}
+    events = json_data.get("EventsDetail", {}).get("events", [])
+    return events[0] if events else {}
 
 # To process single match
-async def process_match(sport_name: str, match_num: int, total_matches: int, match_url: str, session: AsyncSession) -> None:
+async def process_match(sport_name: str, match_num: int, total_matches: int, match_url: str, session: AsyncSession) -> Match:
     retries = 5
 
     for attempt in range(1, retries + 1):
@@ -208,14 +370,14 @@ async def process_match(sport_name: str, match_num: int, total_matches: int, mat
             logging.info("Processing | match=%d/%d | attempt=%d | sport=%s", match_num, total_matches, attempt, sport_name)
 
             match_page = await fetch(match_url, match_num, session)
-            match_json_data = get_json_of_a_match(match_page)
+            raw_match_json = get_json_of_a_match(match_page)
 
-            if not match_json_data:
+            if not raw_match_json:
                 raise RuntimeError("Empty match JSON")
 
-            file_path = Path("Test files") / f"{sport_name} - Match {match_num}.json"
-            await save_json_file(file_path, match_json_data)
-            return
+            # file_path = Path("Test files") / f"{sport_name} - Match {match_num}.json"
+            # await save_json_file(file_path, raw_match_json)
+            return Match(**raw_match_json)
 
         except KeyboardInterrupt:
             raise
@@ -230,7 +392,7 @@ async def process_match(sport_name: str, match_num: int, total_matches: int, mat
             await asyncio.sleep(2)
 
 # To manage worker's life cycle
-async def worker(name: int, sport_name: str, total_matches: int, queue: asyncio.Queue, session: AsyncSession):
+async def worker(name: int, sport_name: str, total_matches: int, queue: asyncio.Queue, session: AsyncSession, results: list):
     while True:
         item = await queue.get()
         if item is None:
@@ -238,19 +400,21 @@ async def worker(name: int, sport_name: str, total_matches: int, queue: asyncio.
             return
 
         match_num, match_url = item
-
         try:
-            await process_match(sport_name, match_num, total_matches, match_url, session)
+            match = await process_match(sport_name, match_num, total_matches, match_url, session)
+            if match:
+                results[match_num - 1] = match
         finally:
             queue.task_done()
 
 # Manages queue to fetch match concurrently
-async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession):
+async def get_json_of_matches(sport_name: str, urls: list[str], session: AsyncSession) -> list[Match | None]:
     queue: asyncio.Queue = asyncio.Queue()
     total_matches = len(urls)
+    results: list[Match | None] = [None] * total_matches
 
     workers_tasks = [
-        asyncio.create_task(worker(i + 1, sport_name, total_matches, queue, session))
+        asyncio.create_task(worker(i + 1, sport_name, total_matches, queue, session, results))
         for i in range(workers)
     ]
 
@@ -263,6 +427,7 @@ async def save_json_of_matches(sport_name: str, urls: list[str], session: AsyncS
         await queue.put(None)
 
     await asyncio.gather(*workers_tasks)
+    return results
 
 
 async def main():
@@ -283,13 +448,13 @@ async def main():
             try: 
                 logging.info("Scraping urls of %s | attempt=%d", sport_name, attempt)
                 
-                # async with AsyncSession() as session:
-                async with AsyncSession(impersonate="chrome", cookies=cookies) as session:
+                async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
                     listing_html = await fetch(sport_url, 0, session)
-                    urls = get_urls_of_all_matches(listing_html)
+                    urls = get_urls_of_all_matches(sport_path, listing_html)
+                    # [print(url) for url in urls]
 
                     if not urls:
-                        # await save_html_file("idk tags.html", listing_html)
+                        # await save_html_file(f"{sport_name} (Test).html", listing_html)
                         # return
                         raise RuntimeError("No urls found")
                     
@@ -309,10 +474,16 @@ async def main():
 
 
     for sport_name, urls in sports_data.items():
-         async with AsyncSession(impersonate="chrome", cookies=cookies) as session:
+         sport_data = {}
+         async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
             logging.info("Extracting markets | sport=%s | total matches=%d", sport_name, len(urls))
-            await save_json_of_matches(sport_name, urls, session)
+            results = await get_json_of_matches(sport_name, urls, session)
+            
+            sport_data["sport_name"] = sport_name
+            sport_data["matches"] = [m for m in results if m is not None]
 
+            file_path = Path("Test files") / f"{sport_name}.json"
+            await save_json_file(file_path, Sport(**sport_data).model_dump())
 
 if __name__ == "__main__":
     asyncio.run(main())

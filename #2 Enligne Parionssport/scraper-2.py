@@ -1,19 +1,20 @@
 import re
 import os
-import time
 import json
 import random
 import asyncio
 import aiofiles
 import logging
 import unicodedata
+from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from urllib import parse
 from datetime import datetime
-from curl_cffi import requests, AsyncSession
+from curl_cffi import AsyncSession
 from pydantic import BaseModel, Field
+
 
 # Pydantic data models
 class Selection(BaseModel):
@@ -71,16 +72,41 @@ class Sport(BaseModel):
     sport_name: str
     matches: list[Match] = Field(default_factory=list)
 
-os.makedirs("Test files", exist_ok=True)
+workers = 15
+http_semaphore = asyncio.Semaphore(5)
+os.makedirs("output_files", exist_ok=True)
 
-workers = 5
+load_dotenv()
+proxy_endpoint = os.getenv("thordata_rotating_residential_proxy_endpoint")
+
+if not proxy_endpoint:
+    raise RuntimeError("Proxy environment variable is missing.")
+
+proxies={
+    "http": proxy_endpoint,
+    "https": proxy_endpoint,
+}
+
 base_url = "https://www.enligne.parionssport.fdj.fr"
 enrichment_api_ids = {
+    "paris-football": "p240", 
+    "paris-football/coupes-d-europe": "p58528549", 
+    "paris-football/angleterre": "p58532399", 
+    "paris-football/france": "p58531496", 
+    "paris-football/allemagne": "p58529610", 
+    "paris-football/italie": "p58529752", 
+    "paris-football/espagne": "p58532113", 
+
+    "paris-tennis": "p239", 
+    "paris-basketball": "p227", 
     "paris-baseball": "p226",
     "paris-boxe": "p238",
     "paris-cyclisme": "p2700",
     "paris-golf": "p237",
     "paris-handball": "p1100",
+    "paris-hockey-sur-glace": "p2100",
+    "paris-rugby": "p22877",
+    "paris-ufc-mma": "p1201",
 }
 
 base_api_cookies = {
@@ -172,6 +198,7 @@ sports = {
     "UFC-MMA (ALL)": "paris-ufc-mma",
 }
 
+
 # Helper functions.
 # ----
 
@@ -184,11 +211,10 @@ def setup_logging():
     log_file = log_dir / f"scraper_{timestamp}.log"
 
     logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
 
     if logger.handlers:
-        return None
-
-    logger.setLevel(logging.INFO)
+        logger.handlers.clear()
 
     formatter = logging.Formatter("%(asctime)s | %(levelname)-8s | %(message)s")
 
@@ -209,7 +235,11 @@ async def fetch(url: str, match_num, session: AsyncSession) -> str:
 
     for attempt in range(1, retries + 1):
         try:
-            response = await session.get(url, headers=base_api_headers)
+            async with http_semaphore:
+                response = await session.get(url, headers=base_api_headers, proxies=proxies, timeout=15)
+
+            if response.status_code == 429:
+                raise RuntimeError("429 proxy rate limiting")
 
             if response.status_code == 403:
                 raise RuntimeError("403 blocked")
@@ -228,8 +258,10 @@ async def fetch(url: str, match_num, session: AsyncSession) -> str:
             if attempt == retries:
                 raise RuntimeError(f"Fetch failed for {url}") from e
 
-            if "403" in str(e):
-                rest_time = 2 + random.random() * 10
+            if "429" in str(e):
+                rest_time = random.uniform(7, 12)
+            elif "403" in str(e):
+                rest_time = random.uniform(5, 15)
             else:
                 rest_time = random.uniform(2, 5)
             
@@ -271,27 +303,32 @@ def slugify_abbr(value: str) -> str:
     value = value.replace("(", "")
     value = value.replace(")", "")
     value = value.replace(".", "-")
+    value = value.replace("'", "-")
 
     value = re.sub(r"-+", "-", value)
 
     return value.strip("-")
 
 # To construct urls from an enrichment api
-def construct_urls(sport_path: str) -> list[str]:
+async def construct_urls(sport_path: str, session: AsyncSession) -> list[str]:
     api_id = enrichment_api_ids.get(sport_path)
     if not api_id:
         return []
     
     api_endpoint = f"https://www.enligne.parionssport.fdj.fr/lvs-api/next/50/{api_id}"
-    while True:
-        r = requests.get(api_endpoint, params=enrich_api_params, headers=enrich_api_headers)
+    for attempt in range(5):
+        async with http_semaphore:
+            r = await session.get(api_endpoint, params=enrich_api_params, headers=enrich_api_headers, proxies=proxies, timeout=15)
 
         if r.status_code == 200:
             break
 
         rest_time = random.uniform(2, 5)
         logging.info("Retrying after resting %.2fs", rest_time)
-        time.sleep(rest_time)
+        await asyncio.sleep(rest_time)
+
+    else:
+        raise RuntimeError("Enrichment API failed after retries")
 
     enriched_json = r.json()
     items = enriched_json.get("items", {})
@@ -314,15 +351,16 @@ def construct_urls(sport_path: str) -> list[str]:
         league_slug = slugify_abbr(league)
         category_slug = slugify_abbr(category)
         desc_slug = slugify_abbr(desc)
+        sport_slug = sport_path.split("/")[0]
 
-        relative_path = f"{sport_path}/{category_slug}/{league_slug}/{event_id}/{desc_slug}"
+        relative_path = f"{sport_slug}/{category_slug}/{league_slug}/{event_id}/{desc_slug}"
         url = parse.urljoin(base_url, relative_path)
         urls.append(url)
 
     return urls
 
 # To get urls of all matches and json of listing page from raw html listing endpoint
-def get_urls_of_all_matches(sport_path: str, html: str) -> list:
+async def get_urls_of_all_matches(sport_path: str, html: str, session: AsyncSession) -> list:
     soup = BeautifulSoup(html, "html.parser")
     script_tag = soup.find("script", {"id": "sport-main-jsonLd"})
 
@@ -340,7 +378,7 @@ def get_urls_of_all_matches(sport_path: str, html: str) -> list:
         urls = [parse.urljoin(base_url, a["href"]) for a in anchors if a.get("href")]
     else:
         logging.info("Falling back to enrichment URLs | sport=%s", sport_path)
-        urls = construct_urls(sport_path)
+        urls = await construct_urls(sport_path, session)
 
     return urls or []
 
@@ -431,18 +469,18 @@ async def main():
 
     sports_data = {}
 
-    for sport_name, sport_path in sports.items():
-        sport_url = parse.urljoin(base_url, sport_path)
-        attempt = 0
+    async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
+        for sport_name, sport_path in sports.items():
+            sport_url = parse.urljoin(base_url, sport_path)
+            attempt = 0
 
-        while True:
-            attempt += 1
-            try: 
-                logging.info("Scraping urls of %s | attempt=%d", sport_name, attempt)
-                
-                async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
+            while True:
+                attempt += 1
+                try: 
+                    logging.info("Scraping urls of %s | attempt=%d", sport_name, attempt)
+                    
                     listing_html = await fetch(sport_url, 0, session)
-                    urls = get_urls_of_all_matches(sport_path, listing_html)
+                    urls = await get_urls_of_all_matches(sport_path, listing_html, session)
                     # [print(url) for url in urls]
 
                     if not urls:
@@ -452,22 +490,22 @@ async def main():
                     
                     sports_data[sport_name] = urls
 
-                logging.info("\n")
-                break
+                    logging.info("\n")
+                    break
 
-            except KeyboardInterrupt:
-                logging.info("\nStopping scraper...")
-                return
+                except KeyboardInterrupt:
+                    logging.info("\nStopping scraper...")
+                    return
 
-            except Exception:
-                logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
-                logging.info("Retrying...\n")
-                await asyncio.sleep(5)
+                except Exception:
+                    logging.exception("\nUnknown error | sport=%s | attempt=%d", sport_name, attempt)
+                    logging.info("Retrying...\n")
+                    await asyncio.sleep(5)
 
 
     for sport_name, urls in sports_data.items():
-         sport_data = {}
-         async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
+        sport_data = {}
+        async with AsyncSession(impersonate="chrome", cookies=base_api_cookies) as session:
             logging.info("Extracting markets | sport=%s | total matches=%d", sport_name, len(urls))
             results = await get_json_of_matches(sport_name, urls, session)
             

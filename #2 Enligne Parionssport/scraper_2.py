@@ -5,6 +5,7 @@ import random
 import asyncio
 import aiofiles
 import logging
+import pandas
 import unicodedata
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
@@ -66,7 +67,7 @@ class Match(BaseModel):
         items = data.get("items") or {}
         market_style_templates = data.get("marketStyleTemplates") or {}
 
-        if not items or not market_style_templates:
+        if not items:
             return data
         
         normalized_data = {}
@@ -141,6 +142,7 @@ class Match(BaseModel):
         ]
 
         return normalized_data
+
 
 workers = 30
 http_semaphore = asyncio.Semaphore(10)
@@ -231,7 +233,7 @@ enrich_api_params = {
     'lineId': '1',
     'originId': '3',
     'breakdownEventsIntoDays': 'true',
-    'showPromotions': 'true',
+    'showPromotions': 'false',
     'pageIndex': '0',
 }
 
@@ -407,10 +409,74 @@ async def save_html_file(file_path: str, html: str) -> None:
         await f.write(html)
     logging.info("%s saved successfully!", file_path)
 
-# For saving csv files (Added later)
-async def save_csv_file(file_path: str, json: dict) -> None:
-    pass
+# To flatten the json into rows for saving in csv or database
+def flatten_matches(matches: list[dict]) -> list[dict]:
+    rows = []
 
+    for match in matches:
+        path = match.get("path", {})
+        match_base = {
+            "match_id": match.get("id"),
+            "opponent_a": match.get("opponent_a"),
+            "opponent_b": match.get("opponent_b"),
+            "desc_display": match.get("desc_display"),
+            "sport": path.get("Sport"),
+            "category": path.get("Category"),
+            "league": path.get("League"),
+            "sport_code": match.get("sport_code"),
+            "match_conditional_bet_enabled": match.get("conditional_bet_enabled"),
+            "match_cashout": match.get("cashout"),
+            "stream_ref": match.get("stream_ref"),
+            "tv_channel": match.get("tv_channel"),
+            "start": match.get("start"),
+        }
+
+        for grouped in match.get("grouped_markets", []) or []:
+            grouped_base = {
+                "grouped_market_name": grouped.get("market_name"),
+            }
+
+            for market in grouped.get("markets", []) or []:
+                market_base = {
+                    "market_id": market.get("id"),
+                    "column_name": market.get("column_name"),
+                    "market_position": market.get("pos"),
+                    "period": market.get("period"),
+                    "style": market.get("style"),
+                    "market_cashout": market.get("cashout"),
+                    "market_conditional_bet_enabled": market.get("conditional_bet_enabled"),
+                }
+
+                for sel in market.get("selections", []) or []:
+                    row = {}
+                    row.update(match_base)
+                    row.update(grouped_base)
+                    row.update(market_base)
+                    row.update({
+                        "selection_id": sel.get("id"),
+                        "selection_name": sel.get("name"),
+                        "selection_position": sel.get("pos"),
+                        "selection_odd": sel.get("odd"),
+                        "selection_conditional_bet_enabled": sel.get("conditional_bet_enabled"),
+                    })
+                    rows.append(row)
+
+    return rows
+
+# For saving csv files in a different thread to avoid blocking main thread
+def _write_csv(file_path: str, matches: list[dict]) -> None:
+    # data_frame = pandas.json_normalize(matches, sep=" - ")
+    rows = flatten_matches(matches)
+    data_frame = pandas.DataFrame(rows)
+    data_frame.to_csv(file_path, index=False, encoding="utf-8")
+    # with open(file_path, "w", encoding="utf-8", newline="") as f:
+        # data_frame.to_csv(f, index=False)
+
+# To initialize csv file write func
+async def save_csv_file(file_path: str, data_list: list[dict]) -> None:
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _write_csv, file_path, data_list)
+    logging.info("%s saved successfully!", file_path)
 
 # Important functions for request based API scraping.
 # ----
@@ -671,8 +737,10 @@ async def main():
             sport_data["sport_name"] = sport_name
             sport_data["matches"] = [m for m in results if m is not None]
 
-            file_path = Path("output_files") / f"{sport_name}.json"
-            await save_json_file(file_path, sport_data)
+            file_path = Path("output_files") / f"{sport_name}.csv"
+            # json_file_path = Path("output_files") / f"{sport_name}.json"
+            # await save_json_file(json_file_path, sport_data)
+            await save_csv_file(file_path, sport_data["matches"])
 
 if __name__ == "__main__":
     asyncio.run(main())

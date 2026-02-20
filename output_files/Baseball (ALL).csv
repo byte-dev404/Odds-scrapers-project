@@ -1,0 +1,121 @@
+match_id,opponent_a,opponent_b,desc_display,sport,category,league,sport_code,match_conditional_bet_enabled,match_cashout,stream_ref,tv_channel,start,grouped_market_name,market_id,column_name,market_position,period,style,market_cashout,market_conditional_bet_enabled,selection_id,selection_name,selection_position,selection_odd,selection_conditional_bet_enabled
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619210,LA Dodgers,24,"3,30",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619221,NY Yankees,5,"11,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619211,SEA Mariners,26,"14,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619207,NY Mets,17,"15,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619209,PHI Phillies,10,"15,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619222,TOR Blue Jays,21,"15,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619225,ATL Braves,15,"16,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619220,BOS Red Sox,3,"16,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619206,CHI Cubs,4,"19,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619208,BAL Orioles,11,"24,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619227,HOU Astros,18,"24,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619212,DET Tigers,29,"26,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619234,MIL Brewers,27,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619226,SD Padres,13,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619216,TEX Rangers,9,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619228,CIN Reds,12,"40,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619231,KC Royals,8,"40,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619223,CLE Guardians,1,"50,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619217,ARI DBacks,19,"70,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619215,SF Giants,30,"70,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619233,TB Rays,14,"90,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619229,MIN Twins,23,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619230,PIT Pirates,6,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619214,The Athletics,2,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619224,MIA Marlins,28,"180,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619213,STL Cardinals,25,"200,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619205,LA Angels,20,"250,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619232,CHI Wh.Sox,22,"500,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619219,COL Rockies,7,"500,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422777,Vainqueur,999,Epreuve,PROPOSITION,False,False,636619218,WAS Nationals,16,"500,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618845,NY Yankees,3,"5,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618840,SEA Mariners,2,"6,50",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618838,TOR Blue Jays,6,"7,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618844,BOS Red Sox,4,"7,50",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618842,HOU Astros,15,"8,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618834,BAL Orioles,1,"11,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618841,DET Tigers,5,"11,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618847,TEX Rangers,12,"14,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618846,KC Royals,13,"16,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618836,CLE Guardians,8,"22,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618833,TB Rays,7,"35,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618835,MIN Twins,10,"45,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618843,The Athletics,14,"45,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618839,LA Angels,9,"80,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422785,Ligue Americaine - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618837,CHI Wh.Sox,11,"200,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618831,LA Dodgers,1,"2,25",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619318,PHI Phillies,14,"8,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619326,ATL Braves,11,"8,50",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618829,NY Mets,15,"9,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619325,CHI Cubs,6,"10,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619324,MIL Brewers,2,"14,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619322,SD Padres,3,"14,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619323,CIN Reds,8,"24,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619328,ARI DBacks,7,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619329,SF Giants,10,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619320,PIT Pirates,13,"60,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619316,MIA Marlins,4,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636619327,STL Cardinals,5,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618832,WAS Nationals,9,"250,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422781,Championnat National - Vainqueur,999,Epreuve,PROPOSITION,False,False,636618830,COL Rockies,12,"400,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422776,Conférence Vainqueur,999,Epreuve,PROPOSITION,False,False,636619235,Championnat National,2,"1,67",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422776,Conférence Vainqueur,999,Epreuve,PROPOSITION,False,False,636619236,Ligue Americaine,1,"2,20",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618852,Ligue Nationale Ouest,4,"3,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618856,Ligue Americaine Est,1,"4,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618853,Ligue Nationale Est,5,"5,50",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618854,Ligue Americaine Ouest,2,"6,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618851,Ligue Nationale Centrale,6,"9,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,174422786,Division Vainqueur,999,Epreuve,PROPOSITION,False,False,636618855,Ligue Americaine Centrale,3,"11,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279264,Ligue Americaine Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821216,DET Tigers,1,"2,25",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279264,Ligue Americaine Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821217,KC Royals,3,"3,05",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279264,Ligue Americaine Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821222,CLE Guardians,2,"3,90",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279264,Ligue Americaine Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821224,MIN Twins,4,"11,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279264,Ligue Americaine Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821220,CHI Wh.Sox,5,"40,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279263,Ligue Americaine Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821218,NY Yankees,3,"2,50",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279263,Ligue Americaine Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821223,TOR Blue Jays,2,"3,45",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279263,Ligue Americaine Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821219,BOS Red Sox,4,"4,10",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279263,Ligue Americaine Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821221,BAL Orioles,5,"5,60",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279263,Ligue Americaine Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821225,TB Rays,1,"26,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279227,Ligue Americaine Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821125,SEA Mariners,5,"2,15",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279227,Ligue Americaine Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821127,HOU Astros,2,"2,95",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279227,Ligue Americaine Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821126,TEX Rangers,3,"4,05",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279227,Ligue Americaine Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821124,The Athletics,1,"15,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279227,Ligue Americaine Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821128,LA Angels,4,"30,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279156,Ligue Nationale Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820877,CHI Cubs,2,"2,10",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279156,Ligue Nationale Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820881,MIL Brewers,3,"2,85",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279156,Ligue Nationale Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820879,CIN Reds,5,"4,90",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279156,Ligue Nationale Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820875,PIT Pirates,1,"12,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279156,Ligue Nationale Centrale - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820874,STL Cardinals,4,"26,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279191,Ligue Nationale Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821021,NY Mets,2,"2,60",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279191,Ligue Nationale Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821019,PHI Phillies,1,"2,65",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279191,Ligue Nationale Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821022,ATL Braves,3,"2,90",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279191,Ligue Nationale Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821020,MIA Marlins,5,"35,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279191,Ligue Nationale Est - Vainqueur,999,Epreuve,PROPOSITION,False,False,639821023,WAS Nationals,4,"100,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279157,Ligue Nationale Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820876,LA Dodgers,2,"1,14",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279157,Ligue Nationale Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820873,SD Padres,3,"6,90",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279157,Ligue Nationale Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820872,ARI DBacks,4,"16,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279157,Ligue Nationale Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820878,SF Giants,5,"16,00",False
+3300735,,,MLB 2026,Baseball,MLB,MLB,BASE,False,False,,,2611010000,Vainqueur - Epreuve,175279157,Ligue Nationale Ouest - Vainqueur,999,Epreuve,PROPOSITION,False,False,639820880,COL Rockies,1,"170,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724689,Fukuoka Hawks,11,"3,50",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724692,Hanshin Tigers,12,"5,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724699,Hokkaido,10,"5,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724690,Yokohama,4,"10,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724691,Yomiuri Giants,8,"10,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724695,Orix Buffaloes,5,"11,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724696,Chiba LM,2,"16,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724693,Rakuten Eagles,3,"17,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724698,Chunichi,6,"22,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724697,Seibu Lions,7,"24,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724688,Hiroshima Carp,1,"35,00",False
+3318488,,,NPB 2026,Baseball,Japon,NPB,BASE,False,False,,,2611020000,Vainqueur - Epreuve,178251895,Vainqueur,999,Epreuve,PROPOSITION,False,False,651724694,Tokyo Swallows,9,"40,00",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129382,LG Twins,10,"3,20",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129378,Hanwha Eagles,5,"3,60",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129379,Samsung Lions,3,"4,50",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129377,KIA Tigers,2,"7,10",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129380,Doosan Bears,9,"8,00",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129376,KT Wiz,8,"9,50",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129383,SSG Landers,1,"11,00",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129374,NC Dinos,4,"13,00",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129375,Lotte Giants,6,"30,00",False
+3318095,,,KBO 2026,Baseball,Corée du Sud,KBO,BASE,False,False,,,2611030000,Vainqueur - Epreuve,178143513,Vainqueur,999,Epreuve,PROPOSITION,False,False,651129381,Kiwoom Heroes,7,"45,00",False

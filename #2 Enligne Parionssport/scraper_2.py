@@ -169,7 +169,9 @@ enrichment_api_ids = {
     "paris-handball": "p1100",
     "paris-hockey-sur-glace": "p2100",
     "paris-rugby": "p22877",
+    "paris-rugby-a-xiii": "p22878",
     "paris-ufc-mma": "p1201",
+    "paris-snooker": "p22884",
 }
 
 base_api_cookies = {
@@ -299,7 +301,7 @@ match_api_params = {
 
 sports = {
     # Football entire page
-    "Football (ALL)": "paris-football",
+    "Football (All)": "paris-football",
     # The six european leagues
     "Football (All Europe)": "paris-football/coupes-d-europe",
     "Football (All England)": "paris-football/angleterre",
@@ -309,16 +311,18 @@ sports = {
     "Football (All Spain)": "paris-football/espagne",
     
     # Other sports
-    "Tennis (ALL)": "paris-tennis",
-    "Basketball (ALL)": "paris-basketball",
-    "Baseball (ALL)": "paris-baseball",
-    "Boxing (ALL)": "paris-boxe",
-    "Cycling (ALL)": "paris-cyclisme",
-    "Golf (ALL)": "paris-golf",
-    "Handball (ALL)": "paris-handball",
-    "Ice hockey (ALL)": "paris-hockey-sur-glace",
-    "Rugby (ALL)": "paris-rugby",
-    "UFC-MMA (ALL)": "paris-ufc-mma",
+    "Tennis (All)": "paris-tennis",
+    "Basketball (All)": "paris-basketball",
+    "Baseball (All)": "paris-baseball",
+    "Boxing (All)": "paris-boxe",
+    "Cycling (All)": "paris-cyclisme",
+    "Golf (All)": "paris-golf",
+    "Handball (All)": "paris-handball",
+    "Ice hockey (All)": "paris-hockey-sur-glace",
+    "Rugby (All)": "paris-rugby",
+    "Rugby League (All)": "paris-rugby-a-xiii",
+    "Snooker (All)": "paris-snooker",
+    "UFC-MMA (All)": "paris-ufc-mma",
 }
 
 
